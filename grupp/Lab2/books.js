@@ -169,7 +169,12 @@ const books = [
 	}
 ];
 
-// UPPGIFT 2 Namn på böckerna!  FUNGERAR !!!!! 
+//Uppgift 1 Hur många böcker finns det i affären?
+let Antalbooks = books.length;
+console.log('Det finns ' + Antalbooks + ' böcker i affären');
+
+
+// UPPGIFT 2 Namn på böckerna!  
 const bookNames = [
 'The Great Gatsby', 'To Kill a Mockingbird'
 , "Harry Potter and the Sorcerer's Stone"
@@ -183,7 +188,7 @@ const bookNames = [
 , "The Adventures of Sherlock Holmes"
 , "A Tale of Two Cities", "The Silent Patient" 
 ]
-//tar ut title från listan ovanför genom map funktionen
+//tar ut title från listan
 console.log('Namn på böckerna:');
 console.log(bookNames) 
 
@@ -233,7 +238,7 @@ books.forEach(bok => {
 	}
 })
 
-//Uppgift 6
+//Uppgift 6  [Inte klar,då den visar alla priser]
 console.log('');
 console.log('Totala priset för alla böckerna: ');
 books.forEach(totalprice => {
@@ -242,6 +247,23 @@ books.forEach(totalprice => {
 		console.log(totalprice.price);
 	}
 })
+//Uppgift 7 Vilka böcker är värd mest,dysto. elr myster.
+
+
+//Uppgift 8 Skriv ut namnen på böcker i bokstavsordning
+
+let TitleName = books.map(bookname => bookname.title)
+console.log(TitleName);
+function TitleAsc(a, b) {
+	return (a.title < b.title) ? -1
+		: (a.title > b.title) ? 1 : firstnameDesc(a, b)
+}
+
+const p1 = [ ...title ]
+p1.sort(TitleAsc)
+console.log(p1.map(p => `${p.title} `));
+
+
 
 
 /* 
