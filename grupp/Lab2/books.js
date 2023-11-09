@@ -2,7 +2,7 @@ const books = [
 	{
 		id: 1,
 		title: "The Great Gatsby",
-		author: "F. Scott Fitzgerald",
+		author: "F.Scott Fitzgerald",
 		genre: "Classic",
 		price: 9.99
 	},
@@ -228,7 +228,6 @@ books.forEach(bok => {
 
 //UPPGIFT 5 
 // namn o pris på alla böcker över $10
-
 console.log('')
 console.log('Alla böcker över $10: ');
 books.forEach(bok => {
@@ -237,40 +236,58 @@ books.forEach(bok => {
 		console.log(bok.price);
 	}
 })
+
 // Få ut totala värdet för hela bokinnehavet
 //Uppgift 6  
 console.log('');
 console.log('Totala priset för alla böckerna: ');
 let totaltpris = 0;
+
 books.forEach(book => {
 	if (book.price >= 0 ) {
-		totaltpris += book.price;
+		totaltpris += Math.floor(book.price);
 	}
 });
 console.log (totaltpris);
 
+/*
 //Uppgift 7 Vilka böcker är värd mest,dysto. elr myster.
 console.log('');
 console.log('Totala priset för alla böckerna: ');
-let totaltpris = 0;
+let priset = 0;
 books.forEach(book => {
 	if (book.price >= 0 ) {
 		totaltpris += book.price;
 	}
 });
-console.log (totaltpris);
+console.log (totaltpris); */
+
 
 //Uppgift 8 Skriv ut namnen på böcker i bokstavsordning
-//Inte helt klar 
-/*
-let title = books.map(user => user.title)
-console.log(title);
+function BokstavBokDesc (a,b) {
+	if (a.title < b.title) {
+	return -1
+	} else if (a.title > b.title){
+		return 1
+	}else {
+		return 0
+	}
+}
+const bb = [...books];
+bb.sort(BokstavBokDesc);
+const titles = bb.map(book => book.title);
+console.log (titles);
 
-*/
+//Uppgift 9
 
+//Uppgift 10
 
-//UPPGIFT 6
-//hur mycket är bokinnehavet värt, totala priset vid försäljning
+//Uppgift 11
+books.forEach(book => {
+  if (!book.title.toLowerCase().startsWith("the")) {
+    console.log(book.title);
+  }
+});
 
 
 
