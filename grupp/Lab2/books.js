@@ -233,8 +233,16 @@ books.forEach(bok => {
 	}
 })
 
+//Uppgift 6
+console.log('');
+console.log('Totala priset för alla böckerna: ');
+books.forEach(totalprice => {
+	if (totalprice.price >= "0" ) {
 
-console.log(id.price);
+		console.log(totalprice.price);
+	}
+})
+
 
 /* 
 let Totalavärdet = book.price
