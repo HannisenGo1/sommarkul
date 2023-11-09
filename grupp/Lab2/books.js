@@ -219,7 +219,7 @@ books.forEach(bok => {
 })
 
 console.log('')
-console.log('Mysterieböckerna är:');
+console.log('Mysterie böckerna är:');
 books.forEach(bok => {
 	if (bok.genre === "Mystery" ) {
 		console.log(bok.title);
@@ -237,43 +237,36 @@ books.forEach(bok => {
 		console.log(bok.price);
 	}
 })
-
-//Uppgift 6  [Inte klar,då den visar alla priser]
+// Få ut totala värdet för hela bokinnehavet
+//Uppgift 6  
 console.log('');
 console.log('Totala priset för alla böckerna: ');
-books.forEach(totalprice => {
-	if (totalprice.price >= "0" ) {
-
-		console.log(totalprice.price);
+let totaltpris = 0;
+books.forEach(book => {
+	if (book.price >= 0 ) {
+		totaltpris += book.price;
 	}
-})
-//Uppgift 7 Vilka böcker är värd mest,dysto. elr myster.
+});
+console.log (totaltpris);
 
+//Uppgift 7 Vilka böcker är värd mest,dysto. elr myster.
+console.log('');
+console.log('Totala priset för alla böckerna: ');
+let totaltpris = 0;
+books.forEach(book => {
+	if (book.price >= 0 ) {
+		totaltpris += book.price;
+	}
+});
+console.log (totaltpris);
 
 //Uppgift 8 Skriv ut namnen på böcker i bokstavsordning
+//Inte helt klar 
+/*
+let title = books.map(user => user.title)
+console.log(title);
 
-let TitleName = books.map(bookname => bookname.title)
-console.log(TitleName);
-function TitleAsc(a, b) {
-	return (a.title < b.title) ? -1
-		: (a.title > b.title) ? 1 : firstnameDesc(a, b)
-}
-
-const p1 = [ ...title ]
-p1.sort(TitleAsc)
-console.log(p1.map(p => `${p.title} `));
-
-
-
-
-/* 
-let Totalavärdet = book.price
-console.log('')
-console.log('Värdet av böckerna ');
-books.forEach(bok => {
-		console.log(Totalavärdet)
-	}
-) /*
+*/
 
 
 //UPPGIFT 6
