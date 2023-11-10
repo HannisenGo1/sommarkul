@@ -169,9 +169,6 @@ const books = [
 	}
 ];
 
-//Uppgift 1 Hur många böcker finns det i affären?
-let Antalbooks = books.length;
-console.log('Det finns ' + Antalbooks + ' böcker i affären');
 
 
 // UPPGIFT 2 Namn på böckerna!  
@@ -188,137 +185,10 @@ const bookNames = [
 , "The Adventures of Sherlock Holmes"
 , "A Tale of Two Cities", "The Silent Patient" 
 ]
-//tar ut title från listan
-console.log('Namn på böckerna:');
-console.log(bookNames) 
-
-//UPPGIFT 3 
-//Genre koden
-console.log('Fantasy böckerna är:');
-books.forEach(bok => {
-	if (bok.genre === "Fantasy" ) {
-		console.log(bok.title);
-		console.log(bok.price);
-	}
-})
-
-//UPPGIFT 4
-console.log('');
-console.log('Dystopian böckerna är:');
-books.forEach(bok => {
-	if (bok.genre === "Dystopian" ) {
-		console.log(bok.title);
-	}
-})
-console.log('')
-console.log('klassiker böckerna är:');
-books.forEach(bok => {
-	if (bok.genre === "Classic" ) {
-		console.log(bok.title);
-	}
-})
-
-console.log('')
-console.log('Mysterie böckerna är:');
-books.forEach(bok => {
-	if (bok.genre === "Mystery" ) {
-		console.log(bok.title);
-	}
-})
-
-//UPPGIFT 5 
-// namn o pris på alla böcker över $10
-console.log('')
-console.log('Alla böcker över $10: ');
-books.forEach(bok => {
-	if (bok.price >= "10" ) {
-		console.log(bok.title);
-		console.log(bok.price);
-	}
-})
-
-// Få ut totala värdet för hela bokinnehavet
-//Uppgift 6  
-console.log('');
-console.log('Totala priset för alla böckerna: ');
-let totaltpris = 0;
-
-books.forEach(book => {
-	if (book.price >= 0 ) {
-		totaltpris += Math.floor(book.price);
-	}
-});
-console.log (totaltpris);
-
-/*
-//Uppgift 7 Vilka böcker är värd mest,dysto. elr myster.
-console.log('');
-console.log('Totala priset för alla böckerna: ');
-let priset = 0;
-books.forEach(book => {
-	if (book.price >= 0 ) {
-		totaltpris += book.price;
-	}
-});
-console.log (totaltpris); */
-
-
-//Uppgift 8 Skriv ut namnen på böcker i bokstavsordning
-function BokstavBokDesc (a,b) {
-	if (a.title < b.title) {
-	return -1
-	} else if (a.title > b.title){
-		return 1
-	}else {
-		return 0
-	}
-}
-const bb = [...books];
-bb.sort(BokstavBokDesc);
-const titles = bb.map(book => book.title);
-console.log (titles);
-
-//Uppgift 9
-
-//Uppgift 10
-
-//Uppgift 11
-books.forEach(book => {
-  if (!book.title.toLowerCase().startsWith("the")) {
-    console.log(book.title);
-  }
-});
-
-
-
-
-
-
-
-
-/*
-let genre = books.map(books => title);
-for (let i=0; i< books.length; i++) {
-	if(genre === 'Fantasy'){
-		genre.push(genre)
-		console.log('Fantasy Genre: ');
-	
-	}	
-}
-console.log('Fantasy Genre: ');
-*/
-/*
-//tar ut title från listan ovanför genom map funktionen 
-const namebooks = books.map(book => title);
-
-
-
-function AllaBooks() {
-	return namebooks;
-}
-
-
 
 //exporterar allt från books till main.js
-exports = {books};
-*/
+
+module.exports = {
+	books,
+	bookNames
+};
