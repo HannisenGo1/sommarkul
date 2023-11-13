@@ -117,6 +117,10 @@ console.log('');
 //Uppgift 9
 // Vilken bok finns det en dubblett av? 
 console.log('9. Vilken bok finns det en dubblett av?');
+const hittadubbelnamn = bookNames => bookNames.filter((book,index) => bookNames.indexOf(book) !== index);
+const dubbelnamn = hittadubbelnamn(bookNames)
+console.log(dubbelnamn);
+
 
 
 console.log('');
