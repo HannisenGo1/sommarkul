@@ -170,7 +170,6 @@ const books = [
 ];
 
 
-
 // UPPGIFT 2 Namn på böckerna!  
 const bookNames = [
 'The Great Gatsby', 'To Kill a Mockingbird'
