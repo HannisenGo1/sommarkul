@@ -1,0 +1,60 @@
+@media screen and (max-width: 350px) {
+	body {
+		background-color: white;
+		font-size: 14px;
+	}
+}
+
+.divForName {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+	background-color: white;
+}
+
+.divForName>label {
+	color: white;
+	font-size: 15px;
+}
+
+.divForName>p {
+	margin-bottom: 0.6em;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.divForName>input {
+	border-radius: 3em;
+	padding: 0.5em;
+	height: 20px;
+	width: 120px;
+}
+
+.svårighetsgrad {
+	display: flex;
+	padding: 1em;
+}
+
+.svårighetsgrad>p {
+	margin: 1em;
+	font-family: Arial, sans-serif;
+}
+
+.svårighetsgrad>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#buttonlätt {
+	background-color: rgb(161, 239, 45);
+	width: 5em;
+
+}
+
+#buttonmedium {
+	background-color: yellow;
+	width: 6em;
+}
+
+#buttonsvår {
+	background-color: red;
+	width: 6em;
+}
