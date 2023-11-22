@@ -1,4 +1,4 @@
-const jsonData = required('./svenska-ord.json')
+//const jsonData = required('./svenska-ord.json')
 
 
 // Math.Random () för att slumpa fram ord från listan! 
@@ -8,6 +8,9 @@ const jsonData = required('./svenska-ord.json')
 //  JSON methods, stringify och parse.
 // Använd Date-funktionen för att spara tiden som en poäng sparas: let scoreTime = (new Date).getTime() 
 // poängVyn visas när man klickar på  " highscoreButton "
+// let scoreTime = (new Date).getTime() 
+//lägg applåder när man klarat det
+//lägg ljudeffekt när användaren gissar fel
 
 
 
@@ -23,7 +26,7 @@ const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
 
 nameInput.addEventListener('click', () => {
-	console.log(labelName);
+	console.log('');
 })
 
 lättButton.addEventListener('click', () => {
@@ -55,6 +58,8 @@ function handleIncorrectGuess() {
 	incorrectGuess ++;
 
 }
+
+
 
 
 
