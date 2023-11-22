@@ -1,4 +1,4 @@
-// import {jsonData} from './svenska-ord.json'
+import {words} from './svenska-ord.js'
 
 
 // Math.Random () för att slumpa fram ord från listan! 
@@ -18,7 +18,7 @@
 const lättButton = document.querySelector('#buttonLätt')
 const mediumButton = document.querySelector('#buttonMedium')
 const svårButton = document.querySelector('#buttonSvår')
-let nameInput = document.getElementById('inputName')
+let nameInput = document.getElementById('input-Name')
 const buttonStart = document.querySelector('#startButton')
 const buttonHighscore = document.querySelector('#highscoreButton')
 const viewStart = document.querySelector('#startview')
@@ -27,7 +27,7 @@ const labelName = document.querySelector('#labelForName')
 
 nameInput.addEventListener("change", (event) => {
 	let namn = nameInput.value;
-	console.log("namn:" + namn);
+	console.log("Namn: " + namn);
 })
 
 lättButton.addEventListener('click', () => {
