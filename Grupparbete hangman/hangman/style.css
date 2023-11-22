@@ -139,3 +139,6 @@ background-color: lightgrey;
 
 
 /* dölja startview så länge! */ 
+#StartView {
+	display: none;
+}

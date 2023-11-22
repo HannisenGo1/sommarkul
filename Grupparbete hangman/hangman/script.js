@@ -1,6 +1,6 @@
 const jsonData = required('./svenska-ord.json')
 
-//knapparnas id: lätt, medium, svår ! 
+
 // Math.Random () för att slumpa fram ord från listan! 
 // input fältet för :: inputName    //console.log för att skriva ut namnet i consolen
 // Använd localStorage för att spara datan i webbläsaren.
@@ -43,6 +43,19 @@ buttonHighscore.addEventListener('click', () => {
 })
 
 //playView
+//Hangman:: path id="scaffold" , path id="legs"  path id="arms",path id="body",path id="head"
+const scaffoldGubbe = document.querySelector('#scaffold')
+const legsGubbe = document.querySelector('#legs')
+const armsGubbe = document.querySelector('#arms')
+const bodyGubbe = document.querySelector('#body')
+const headGubbe = document.querySelector('#head')
+//
+let incorrectGuess = 0;
+function handleIncorrectGuess() {
+	incorrectGuess ++;
+
+}
+
 
 
 
