@@ -1,5 +1,4 @@
-
-import {jsonData} from './svenska-ord.json'
+// import {jsonData} from './svenska-ord.json'
 
 
 // Math.Random () för att slumpa fram ord från listan! 
