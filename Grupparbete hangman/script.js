@@ -1,4 +1,4 @@
-//const jsonData = required('./svenska-ord.json')
+//const {jsonData} = required('./svenska-ord.json')
 
 
 // Math.Random () för att slumpa fram ord från listan! 
@@ -18,15 +18,17 @@
 const lättButton = document.querySelector('#buttonLätt')
 const mediumButton = document.querySelector('#buttonMedium')
 const svårButton = document.querySelector('#buttonSvår')
-let nameInput = document.querySelector('#inputName')
+let nameInput = document.getElementById('inputName')
 const buttonStart = document.querySelector('#startButton')
 const buttonHighscore = document.querySelector('#highscoreButton')
 const viewStart = document.querySelector('#startview')
 const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
 
-nameInput.addEventListener('click', () => {
-	console.log('');
+nameInput.addEventListener("change", (event) => {
+	let namn = nameInput.value;
+	console.log("namn:" + namn);
+	
 })
 
 lättButton.addEventListener('click', () => {
