@@ -1,4 +1,5 @@
-//const {jsonData} = required('./svenska-ord.json')
+
+import {jsonData} from './svenska-ord.json'
 
 
 // Math.Random () för att slumpa fram ord från listan! 
@@ -28,7 +29,6 @@ const labelName = document.querySelector('#labelForName')
 nameInput.addEventListener("change", (event) => {
 	let namn = nameInput.value;
 	console.log("namn:" + namn);
-	
 })
 
 lättButton.addEventListener('click', () => {
