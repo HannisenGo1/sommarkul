@@ -20,9 +20,10 @@ const buttonStart = document.querySelector('#startButton')
 const buttonHighscore = document.querySelector('#highscoreButton')
 const viewStart = document.querySelector('#startview')
 const viewPlay = document.querySelector('#playView')
+const labelName = document.querySelector('#labelForName')
 
 nameInput.addEventListener('click', () => {
-	console.log(inputName);
+	console.log(labelName);
 })
 
 lättButton.addEventListener('click', () => {
@@ -46,6 +47,8 @@ buttonHighscore.addEventListener('click', () => {
 
 
 //gameoverView
+
+
 
 
 //scorescreenView
