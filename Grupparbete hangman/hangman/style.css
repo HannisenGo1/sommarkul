@@ -69,24 +69,27 @@ background-color: rgb(127, 8, 8);
 
 
 .buttonForStart {
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	display: flex;
 	padding: 1em;
+flex-direction: column;
 	background-color: white;
-	width: 15em;
-	height: 8em;
-   gap: 3em;
+   gap: 1em;
+}
+.buttonForStart > button {
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+width: 30em;
+height: 4em;
 }
 #startButton {
-	background-color: rgb(78, 78, 239)
+	background-color: lightgrey;
 }
-#startButton:active {
-	background-color: green;
+#startButton:hover{
+	background-color: gray;
 }
 
 #highscoreButton {
-	background-color: blueviolet
+	background-color: lightgrey;
 }
-#highscoreButton:active {
-	background-color: green;
+#highscoreButton:hover {
+	background-color: gray;
 }
