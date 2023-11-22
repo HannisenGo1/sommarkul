@@ -91,6 +91,7 @@ height: 4em;
 }
 #startButton {
 	background-color: lightgrey;
+	border-radius: 1.5em;
 }
 #startButton:hover{
 	background-color: gray;
@@ -98,6 +99,7 @@ height: 4em;
 
 #highscoreButton {
 	background-color: lightgrey;
+	border-radius: 1.5em;
 }
 #highscoreButton:hover {
 	background-color: gray;
@@ -120,6 +122,7 @@ height: 4em;
 
 #backButton {
 	background-color: lightgrey;
+	border-radius: 1.5em;
 }
 #backButton:hover {
 	background-color: gray;
@@ -139,12 +142,14 @@ height: 4em;
  /*gameover */
 #tryagainButton {
 background-color: lightgrey;
+border-radius: 1.5em;
 }
 #tryagainButton:hover {
 background-color: grey;
 }
 #highscoreButton2 {
 	background-color: lightgrey;
+	border-radius: 1.5em;
 }
 #highscoreButton2:hover {
 	background-color: gray;
@@ -153,6 +158,7 @@ background-color: grey;
 
 
 /* scorescreen */
+
 
 /* dölja startview så länge! 
 #StartView {
