@@ -72,13 +72,21 @@ background-color: rgb(127, 8, 8);
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	display: flex;
 	padding: 1em;
-	flex-direction: column;
 	background-color: white;
+	width: 15em;
+	height: 8em;
+   gap: 3em;
 }
 #startButton {
 	background-color: rgb(78, 78, 239)
 }
+#startButton:active {
+	background-color: green;
+}
 
 #highscoreButton {
 	background-color: blueviolet
+}
+#highscoreButton:active {
+	background-color: green;
 }

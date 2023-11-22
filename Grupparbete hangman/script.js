@@ -2,11 +2,28 @@ const jsonData = required('./svenska-ord.json')
 
 //knapparnas id: lätt, medium, svår ! 
 // Math.Random () för att slumpa fram ord från listan! 
-// input fältet för :: inputName   
+// input fältet för :: inputName    //console.log för att skriva ut namnet i consolen
 
-let lättButton = document.querySelector('buttonLätt')
-let mediumButton = document.querySelector('buttonMedium')
-let svårButton = document.querySelector('buttonSvår')
+const lättButton = document.querySelector('buttonLätt')
+const mediumButton = document.querySelector('buttonMedium')
+const svårButton = document.querySelector('buttonSvår')
 let nameInput = document.querySelector('inputName')
-let buttonStart = document.querySelector('startButton')
-let buttonHighscore = document.querySelector('highscoreButton')
+const buttonStart = document.querySelector('startButton')
+const buttonHighscore = document.querySelector('highscoreButton')
+
+lättButton.addEventListener('click', () => {
+
+})
+mediumButton.addEventListener('click', () => {
+
+})
+svårButton.addEventListener('click', () => {
+
+})
+buttonStart.addEventListener('click', () => {
+
+})
+buttonHighscore.addEventListener('click', () => {
+
+})
+
