@@ -12,17 +12,17 @@
 	background-color: white;
 }
 
-.divForName>label {
+.divForName > label {
 	color: white;
 	font-size: 15px;
 }
 
-.divForName>p {
+.divForName > p {
 	margin-bottom: 0.6em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.divForName>input {
+.divForName > input {
 	border-radius: 3em;
 	padding: 0.5em;
 	height: 20px;
@@ -34,7 +34,7 @@
 	padding: 1em;
 }
 
-.svårighetsgrad>p {
+.svårighetsgrad > p {
 	margin: 1em;
 	font-family: Arial, sans-serif;
 }
@@ -43,26 +43,26 @@
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#buttonlätt {
+#buttonLätt {
 	background-color: rgb(161, 239, 45);
 	width: 5em;
 }
-#buttonlätt:active {
+#buttonLätt:active {
 	background-color: green;
 }
 
-#buttonmedium {
+#buttonMedium {
 	background-color: yellow;
 	width: 6em;
 }
-#buttonmedium:active{
+#buttonMedium:active{
 	background-color: orange;
 }
 
-#buttonsvår {
+#buttonSvår {
 	background-color: red;
 	width: 6em;
 }
-#buttonsvår:active {
+#buttonSvår:active {
 background-color: rgb(127, 8, 8);
 }
