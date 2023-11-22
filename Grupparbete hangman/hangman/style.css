@@ -39,7 +39,7 @@
 	font-family: Arial, sans-serif;
 }
 
-.svårighetsgrad>button {
+.svårighetsgrad > button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -65,4 +65,20 @@
 }
 #buttonSvår:active {
 background-color: rgb(127, 8, 8);
+}
+
+
+.buttonForStart {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	display: flex;
+	padding: 1em;
+	flex-direction: column;
+	background-color: white;
+}
+#startButton {
+	background-color: rgb(78, 78, 239)
+}
+
+#highscoreButton {
+	background-color: blueviolet
 }
