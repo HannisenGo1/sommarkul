@@ -8,8 +8,10 @@ const jsonData = required('./svenska-ord.json')
 //  JSON methods, stringify och parse.
 // Använd Date-funktionen för att spara tiden som en poäng sparas: let scoreTime = (new Date).getTime() 
 // poängVyn visas när man klickar på  " highscoreButton "
-// StartView   playView
 
+
+
+// StartView  
 const lättButton = document.querySelector('#buttonLätt')
 const mediumButton = document.querySelector('#buttonMedium')
 const svårButton = document.querySelector('#buttonSvår')
@@ -39,3 +41,11 @@ buttonHighscore.addEventListener('click', () => {
 
 })
 
+//playView
+
+
+
+//gameoverView
+
+
+//scorescreenView

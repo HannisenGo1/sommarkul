@@ -68,6 +68,7 @@ background-color: rgb(127, 8, 8);
 }
 
 
+
 .buttonForStart {
 	display: flex;
 	padding: 1em;
@@ -92,4 +93,52 @@ height: 4em;
 }
 #highscoreButton:hover {
 	background-color: gray;
+}
+.playViewButton {
+	display: flex;
+		padding: 1em;
+		flex-direction: column;
+		gap: 1em;
+}
+
+.playViewButton > button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		width: 30em;
+		height: 4em;
+}
+
+#backButton {
+	background-color: lightgrey;
+}
+#backButton:hover {
+	background-color: gray;
+}
+
+.gameover {
+		display: flex;
+			flex-direction: column;
+			padding: 1em;
+			background-color: white;
+}
+
+.gameover > button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 30em;
+	height: 4em;
+}
+#tryagainButton {
+background-color: lightgrey;
+}
+#tryagainButton:hover {
+background-color: grey;
+}
+
+#highscoreButton {
+background-color: lightgrey;
+}
+
+
+/* dölja startview så länge! */ 
+#StartView {
+	display: none;
 }
