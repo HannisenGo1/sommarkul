@@ -1,4 +1,4 @@
-import {words} from './svenska-ord.js'
+//import {words} from './svenska-ord.js'
 
 
 // Math.Random () för att slumpa fram ord från listan! 
@@ -26,36 +26,41 @@ const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
 const buttonBack = document.querySelector('#backButton')
 
+
 nameInput.addEventListener("change", (event) => {
-	let namn = nameInput.value;
-	console.log("Namn: " + namn);
+	const namn = event.target.value; //hämta värdet från input
+    localStorage.setItem("namn", + namn); // sparar värdet
+const sparadNamn = localStorage.getItem("namn");
+	if (sparadNamn) {
+		nameInput.value = sparadNamn; //om någon data finns sparat
+	}
 })
 
 lättButton.addEventListener('click', () => {
-const easywords = words.filter((word) => word.length > 15)
+const easywords = words.filter((word) => word.length > 14)
 
 console.log(easywords)
 })
 mediumButton.addEventListener('click', () => {
-const mediumwords = words.filter((word) => word.length >= 11 && word.length < 15)
+const mediumwords = words.filter((word) => word.length >= 10 && word.length < 13)
 
 console.log(mediumwords)
 })
 svårButton.addEventListener('click', () => {
-const hardwords = words.filter((word) => word.length >= 0 && word.length < 10)
+const hardwords = words.filter((word) => word.length >= 0 && word.length < 9)
 
 console.log(hardwords)
 })
 
 
-
+/*
 buttonStart.addEventListener('click', () => {
 
 })
 buttonHighscore.addEventListener('click', () => {
 
 })
-
+*/ 
 //playView
 //Hangman:: path id="scaffold" , path id="legs"  path id="arms",path id="body",path id="head"
 const scaffoldGubbe = document.querySelector('#scaffold')
@@ -77,8 +82,8 @@ const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 
 
 
-
-//gameoverView
+/* 
+//gameoverView 
 buttonStart.addEventListener('click', () => {
 
 })
@@ -98,3 +103,4 @@ buttonHighscore.addEventListener('click', () => {
 buttonBack.addEventListener('click', () => {
 
 })
+*/

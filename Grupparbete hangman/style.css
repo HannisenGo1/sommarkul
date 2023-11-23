@@ -1,10 +1,14 @@
 @media screen and (max-width: 350px) {
 	body {
 		font-size: 14px;
+		
 	}
 }
 main {
-	background-color: rgb(255, 227, 247);
+	background-image: url("blue.jpg");
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+	
 }
 
 /* StartView */  
@@ -167,7 +171,9 @@ background-color: grey;
 	background-color: gray;
 }
 
-
+.higscorediv {
+display: flex;
+}
 
 /* scorescreen 
 
