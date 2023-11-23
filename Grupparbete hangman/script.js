@@ -24,6 +24,7 @@ const buttonHighscore = document.querySelector('#highscoreButton')
 const viewStart = document.querySelector('#startview')
 const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
+const buttonBack = document.querySelector('#backButton')
 
 nameInput.addEventListener("change", (event) => {
 	let namn = nameInput.value;
@@ -31,14 +32,23 @@ nameInput.addEventListener("change", (event) => {
 })
 
 lättButton.addEventListener('click', () => {
+const easywords = words.filter((word) => word.length > 15)
 
+console.log(easywords)
 })
 mediumButton.addEventListener('click', () => {
+const mediumwords = words.filter((word) => word.length >= 11 && word.length < 15)
 
+console.log(mediumwords)
 })
 svårButton.addEventListener('click', () => {
+const hardwords = words.filter((word) => word.length >= 0 && word.length < 10)
 
+console.log(hardwords)
 })
+
+
+
 buttonStart.addEventListener('click', () => {
 
 })
@@ -60,6 +70,7 @@ function handleIncorrectGuess() {
 
 }
 
+
 // Alfabetet i en lista: 
 const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Å","Ä", "Ö"];
 
@@ -68,8 +79,22 @@ const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 
 
 //gameoverView
+buttonStart.addEventListener('click', () => {
 
+})
+buttonHighscore.addEventListener('click', () => {
+
+})
+buttonBack.addEventListener('click', () => {
+
+})
 
 
 
 //scorescreenView
+buttonHighscore.addEventListener('click', () => {
+})
+
+buttonBack.addEventListener('click', () => {
+
+})
