@@ -53,15 +53,15 @@ h1 {
 }
 
 #buttonLätt {
-	background-color: rgb(161, 239, 45);
+	background-color: rgb(129, 196, 29);
 	width: 5em;
 }
 #buttonLätt:active {
-	background-color: green;
+	background-color: rgba(0, 128, 0, 0.838);
 }
 
 #buttonMedium {
-	background-color: yellow;
+	background-color: rgb(215, 215, 7);
 	width: 6em;
 }
 #buttonMedium:active{
@@ -69,7 +69,7 @@ h1 {
 }
 
 #buttonSvår {
-	background-color: red;
+	background-color: rgb(204, 30, 30);
 	width: 6em;
 }
 #buttonSvår:active {
@@ -93,8 +93,20 @@ height: 4em;
 	background-color: lightgrey;
 	border-radius: 1.5em;
 }
-#startButton:hover{
-	background-color: gray;
+
+#buttonLätt:hover{
+	background-color: chartreuse;
+
+}
+
+#buttonMedium:hover{
+	background-color: rgb(218, 255, 8);
+
+}
+
+#buttonSvår:hover{
+	background-color: rgb(255, 6, 6);
+
 }
 
 #highscoreButton {
@@ -107,7 +119,7 @@ height: 4em;
 
 /* playView */ 
 
-.playViewButton {
+.playViewButton{
 	display: flex;
 		padding: 1em;
 		flex-direction: column;
