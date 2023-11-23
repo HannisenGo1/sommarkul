@@ -178,7 +178,7 @@ display: flex;
  /* scorescreen  */
 
 #StartView {
-	display: none; } 
+	display: block; } 
 
 #gameoverView {
 	display: none;
