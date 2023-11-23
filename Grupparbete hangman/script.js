@@ -30,7 +30,7 @@ nameInput.addEventListener("change", (event) => {
 	console.log("Namn: " + namn);
 })
 
-lättButton.addEventListener('click', () => {
+lättButton.addEventListener('click', () => #playView {
 
 })
 mediumButton.addEventListener('click', () => {

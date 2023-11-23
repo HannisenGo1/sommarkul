@@ -173,3 +173,39 @@ background-color: grey;
 
 #StartView {
 	display: none; } 
+
+#gameoverView {
+	display: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    padding: 2em;
+    margin: 0;
+	background-color: rgb(255, 227, 247);
+    font-family: Arial, sans-serif;
+}
+
+#keyboard-container {
+    display: grid;
+	grid-template-columns: repeat(11, 1fr);
+	border: solid 1px #000 ;    
+	gap: 8px;
+	
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+	border-radius: 15%;
+    text-align: center;
+	cursor: pointer;
+    line-height: 40px;
+    transition: background-color 0.3s;
+}
+
+.key:hover {
+    background-color: #eeeeeee4;
+}
