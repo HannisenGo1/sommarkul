@@ -1,22 +1,23 @@
 @media screen and (max-width: 350px) {
 	body {
 		font-size: 14px;
-		
+
 	}
 }
+
 main {
 	background-image: url("blue.jpg");
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-	
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
 }
 
-/* StartView */  
+/* StartView */
 h1 {
 	font-size: 30px;
 	text-align: left;
 	padding: 1em;
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .divForName {
@@ -25,17 +26,17 @@ h1 {
 	padding: 1em;
 }
 
-.divForName > label {
+.divForName>label {
 	color: white;
 	font-size: 15px;
 }
 
-.divForName > p {
+.divForName>p {
 	margin-bottom: 0.6em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.divForName > input {
+.divForName>input {
 	border-radius: 3em;
 	padding: 0.5em;
 	height: 20px;
@@ -47,12 +48,12 @@ h1 {
 	padding: 1em;
 }
 
-.svårighetsgrad > p {
+.svårighetsgrad>p {
 	margin: 1em;
 	font-family: Arial, sans-serif;
 }
 
-.svårighetsgrad > button {
+.svårighetsgrad>button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -60,6 +61,7 @@ h1 {
 	background-color: rgb(129, 196, 29);
 	width: 5em;
 }
+
 #buttonLätt:active {
 	background-color: rgba(0, 128, 0, 0.838);
 }
@@ -68,7 +70,8 @@ h1 {
 	background-color: rgb(215, 215, 7);
 	width: 6em;
 }
-#buttonMedium:active{
+
+#buttonMedium:active {
 	background-color: orange;
 }
 
@@ -76,8 +79,9 @@ h1 {
 	background-color: rgb(204, 30, 30);
 	width: 6em;
 }
+
 #buttonSvår:active {
-background-color: rgb(127, 8, 8);
+	background-color: rgb(127, 8, 8);
 }
 
 
@@ -85,30 +89,32 @@ background-color: rgb(127, 8, 8);
 .buttonForStart {
 	display: flex;
 	padding: 1em;
-flex-direction: column;
-   gap: 1em;
+	flex-direction: column;
+	gap: 1em;
 }
-.buttonForStart > button {
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-width: 30em;
-height: 4em;
+
+.buttonForStart>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 30em;
+	height: 4em;
 }
+
 #startButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
 }
 
-#buttonLätt:hover{
+#buttonLätt:hover {
 	background-color: chartreuse;
 
 }
 
-#buttonMedium:hover{
+#buttonMedium:hover {
 	background-color: rgb(218, 255, 8);
 
 }
 
-#buttonSvår:hover{
+#buttonSvår:hover {
 	background-color: rgb(255, 6, 6);
 
 }
@@ -117,65 +123,109 @@ height: 4em;
 	background-color: lightgrey;
 	border-radius: 1.5em;
 }
+
 #highscoreButton:hover {
 	background-color: gray;
 }
 
-/* playView */ 
+/* playView */
 
-.playViewButton{
+.playViewButton {
 	display: flex;
-		padding: 1em;
-		flex-direction: column;
-		gap: 1em;
+	padding: 1em;
+	flex-direction: column;
+	gap: 1em;
 }
 
-.playViewButton > button {
+.playViewButton>button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-		width: 30em;
-		height: 4em;
+	width: 30em;
+	height: 4em;
 }
 
 #backButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
 }
+
 #backButton:hover {
 	background-color: gray;
 }
 
 .gameover {
-		display: flex;
-		padding: 1em;
-		gap: 2em;
-		
+	display: flex;
+	padding: 1em;
+	gap: 2em;
+
 }
-.gameover > button {
+
+.gameover>button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	width: 30em;
 	height: 4em;
 }
- /*gameover */
+
+/*gameover */
 #tryagainButton {
-background-color: lightgrey;
-border-radius: 1.5em;
+	background-color: lightgrey;
+	border-radius: 1.5em;
 }
+
 #tryagainButton:hover {
-background-color: grey;
+	background-color: grey;
 }
+
 #highscoreButton2 {
 	background-color: lightgrey;
 	border-radius: 1.5em;
 }
+
 #highscoreButton2:hover {
 	background-color: gray;
 }
 
 .highscorediv {
-display: flex;
+	display: flex;
 }
 
-/* scorescreen 
+/* scorescreen  */
 
 #StartView {
-	display: none; } */
+	display: block;
+}
+
+#gameoverView {
+	display: none;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	padding: 2em;
+	margin: 0;
+	background-color: rgb(255, 227, 247);
+	font-family: Arial, sans-serif;
+}
+
+#keyboard-container {
+	display: grid;
+	grid-template-columns: repeat(11, 1fr);
+	border: solid 1px #000;
+	gap: 8px;
+
+}
+
+.key {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #000;
+	border-radius: 15%;
+	text-align: center;
+	cursor: pointer;
+	line-height: 40px;
+	transition: background-color 0.3s;
+}
+
+.key:hover {
+	background-color: #eeeeeee4;
+}
