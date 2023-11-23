@@ -29,7 +29,7 @@ const buttonBack = document.querySelector('#backButton')
 
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
-    localStorage.setItem("namn", + namn); // sparar värdet
+    localStorage.setItem("namn", namn); // sparar värdet
 const sparadNamn = localStorage.getItem("namn");
 	if (sparadNamn) {
 		nameInput.value = sparadNamn; //om någon data finns sparat
@@ -94,13 +94,16 @@ buttonBack.addEventListener('click', () => {
 
 })
 
+*/
 
-
-//scorescreenView
+scorescreenView
 buttonHighscore.addEventListener('click', () => {
-})
+sparadNamn = localStorage.getItem("namn");
+if (sparadNamn) {
+	highscorediv.textContent = sparadNamn
+} 
+}); //visar upp det sparade namnet genom att ta inputen från  nameinput funktionen! och visar upp den i highscore div.
 
 buttonBack.addEventListener('click', () => {
 
 })
-*/
