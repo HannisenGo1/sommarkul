@@ -25,7 +25,7 @@ const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
 const buttonBack = document.querySelector('#backButton')
 
-// Sparar 1 namn än sålänge ! 
+// Sparar 1 namn än sålänge,lokalt ! 
 
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
@@ -75,12 +75,6 @@ console.log(hardwords)
 
 
 
-//funktion för felaktiga & rätta bokstäver 
-// Vid klickning av " tips/hint : ta bort 2 bokstäver - gråfärg"
-// rätt = grönt, fel= rött    "disable"
-
-
-
 /*
 buttonStart.addEventListener('click', () => {
 
@@ -113,12 +107,22 @@ const armsGubbe = document.querySelector('#arms')
 const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
 
+
 // Fel gissningar  / lägga till så den hamnar i scorescreen
 let incorrectGuess = 0;
+let correctGuess = 0;
 function handleIncorrectGuess() {
 	incorrectGuess ++;
-
+if (correctGuess === true) {
+	//slumpade bokstäverna, rätt 
+} else if (incorrectGuess === true) {
+	//slumpade bokstäverna, fel
 }
+}
+
+//funktion för felaktiga & rätta bokstäver 
+// Vid klickning av " tips/hint : ta bort 2 bokstäver - gråfärg"
+// rätt = grönt, fel= rött    "disable"
 
 
 

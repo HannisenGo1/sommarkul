@@ -188,11 +188,10 @@ h1 {
 	display: flex;
 }
 
-/* scorescreen  */
+ /* scorescreen  */
 
 #StartView {
-	display: block;
-}
+	display: block; } 
 
 #gameoverView {
 	display: none;
