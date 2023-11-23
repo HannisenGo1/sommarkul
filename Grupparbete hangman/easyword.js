@@ -1,3 +1,4 @@
+/*   
 import {words} from './svenska-ord.js'
 
 // let easywords = []
@@ -75,3 +76,4 @@ function getRandomInt(max) {
 const word = easywords[getRandomInt(easywords.length)]
 
 console.log(word)
+*/ 
