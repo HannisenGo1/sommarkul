@@ -87,29 +87,45 @@ h1 {
 	background-color: rgb(127, 8, 8);
 }
 
+.startOchHigh{
+	display: flex;
+	gap: 1em;
+	flex-direction: row;;
+} 
 
-
-.buttonForStart {
+.buttonForStart,
+.highscorediv {
 	display: flex;
 	padding: 1em;
 	flex-direction: column;
 	gap: 1em;
 }
+/* Text för input namnen*/
+.Highscoretext{
+	display:flex;
 
-.buttonForStart>button {
+}
+
+.buttonForStart>button,
+.highscorediv > button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	width: 20em;
+	width: 18em;
 	height: 4em;
 }
 
-#startButton {
+#startButton, 
+#highscoreButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
-	display: block;
+	
 }
-#startButton:hover{
+#startButton:hover,
+#highscoreButton:hover{
 	background-color: gray;
 }
+
+
+*/
 
 #buttonLätt:hover {
 	background-color: chartreuse;
@@ -126,15 +142,7 @@ h1 {
 
 }
 
-#highscoreButton {
-	background-color: lightgrey;
-	border-radius: 1.5em;
-	width: 2em;
-}
 
-#highscoreButton:hover {
-	background-color: gray;
-}
 
 /* playView */
 
@@ -192,31 +200,7 @@ h1 {
 	background-color: gray;
 }
 
-// ändra här
-.highscorediv {
-	display: flex;
-	padding: 1em;
-	flex-direction: column;
-	gap: 1em;
-}
 
-
-#highscoreButton {
-	background-color: lightgrey;
-		border-radius: 1.5em;
-		display: block;
-		width: 20em;
-		height: 4em;
-		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-#high-score {
-	border-radius: 0.5em;
-	margin: 2em 3em 0 3em;
-	text-align: center;
-	font-family: "Arial";
-} */ 
 
  /* scorescreen  */
 

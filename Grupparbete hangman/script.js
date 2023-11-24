@@ -25,8 +25,51 @@ const viewPlay = document.querySelector('#playView');
 const labelName = document.querySelector('#labelForName');
 const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
+const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
+const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
+//div för lätt,m,svår
+const startForButtonDiv = document.querySelector('.buttonForStart');
+const highScoreDiv = document.querySelector('.highscorediv');
 
 
+buttonStart.addEventListener('click', () => {
+if (buttonStart) {
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('visible');
+highScoreDiv.classList.add('hidden'); 
+startMeny.classList.add('hidden');
+}
+});
+
+buttonHighscore.addEventListener('click', () => {
+if (buttonHighscore){
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+highScoreDiv.classList.add('hidden'); 
+startMeny.classList.add('hidden');
+}
+});
+
+buttonBack.addEventListener('click', () => {
+	if (buttonBack){
+	startForButtonDiv.classList.add('visible')
+	highScoreDiv.classList.add('visible')
+	}
+})
+
+
+
+
+lättButton.addEventListener('click', () => {
+if (svårighetsgradDiv) {
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+const easywords = words.filter((word) => word.length > 14)
+const randomWord = Math.floor(Math.random() * easywords.length);
+const valdaOrd = easywords[randomWord];
+console.log(valdaOrd)
+}
+});
 // Sparar 1 namn än sålänge,lokalt ! 
 
 nameInput.addEventListener("change", (event) => {
@@ -78,18 +121,7 @@ const valdaOrd = easywords[randomWord];
 console.log(valdaOrd)
 })      
 */
-const startForButtonDiv = document.querySelector('.buttonForStart');
-lättButton.addEventListener('click', () => {
-const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
-if (svårighetsgradDiv) {
-startForButtonDiv.classList.add('hidden');
-svårighetsgradDiv.classList.add('hidden');
-const easywords = words.filter((word) => word.length > 14)
-const randomWord = Math.floor(Math.random() * easywords.length);
-const valdaOrd = easywords[randomWord];
-console.log(valdaOrd)
-}
-});
+
 
 
 
@@ -186,17 +218,17 @@ buttonBack.addEventListener('click', () => {
 
 const highscore = document.querySelector('#high-score')
 
-scorescreenView
+//scorescreenView
 // Visar endast namnen med denna funktionen .
-buttonHighscore.addEventListener('click', () => {
-sparadNamn = localStorage.getItem("namn");
-if (sparadNamn) {
-	highscorediv.textContent = sparadNamn
-} 
-}); 
-nameInput.addEventListener('input', event => { // input namn för highscore
-	highscore.innerText = event.target.value
-})
+//buttonHighscore.addEventListener('click', () => {
+//sparadNamn = localStorage.getItem("namn");
+//if (sparadNamn) {
+//	highscorediv.textContent = sparadNamn
+//} 
+//}); 
+//nameInput.addEventListener('input', event => { // input namn för highscore
+//	highscore.innerText = event.target.value
+//})
 // lägg till så att den visar både vunna & förlorade med antal gissningar , ordets längd, datum+tid för omgången
 
 
