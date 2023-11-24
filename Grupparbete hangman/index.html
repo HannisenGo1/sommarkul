@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="script.js" defer type="application/javascript"></script>
+	<script type="module" src="script.js"> </script>
+	<script type="module" src="svenska-ord.js"> </script>
 	<script src="easyword.js" defer type="application/javascript"></script>
 
 
@@ -49,9 +50,9 @@
 			<label for="inputName"> </label>
 			<input id="input-Name" type="text"  placeholder="Skriv in ditt namn" />
 		</div>
-		<p> Välj svårighetsgrad! </p>
-
+		
 		<div class="svårighetsgrad">
+			
 			<button id="buttonLätt">  Lätt </button>
 			<p> 15 + bokstäver </p>
 			<button id="buttonMedium"> Medium </button>
@@ -60,7 +61,7 @@
 			<p> 1 - 10 bokstäver</p>
 		</div>
 	<div class ="buttonForStart">
-
+<button id="startButton">Starta här </button>
 	</div>
         <div class="highscorediv">
 			<div id="high-score">  </div>
