@@ -78,10 +78,11 @@ const valdaOrd = easywords[randomWord];
 console.log(valdaOrd)
 })      
 */
+const startForButtonDiv = document.querySelector('.buttonForStart');
 lättButton.addEventListener('click', () => {
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 if (svårighetsgradDiv) {
-buttonStart.classList.add('startButton');
+startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
 const easywords = words.filter((word) => word.length > 14)
 const randomWord = Math.floor(Math.random() * easywords.length);
