@@ -28,7 +28,7 @@ const tangentbord = document.querySelector('#keyboard-container');
 
 
 // Sparar 1 namn än sålänge,lokalt ! 
-/*
+
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
     localStorage.setItem("namn", namn); // sparar värdet
@@ -37,7 +37,7 @@ const sparadNamn = localStorage.getItem("namn");
 		nameInput.value = sparadNamn; //om någon data finns sparat
 	}
 });
-
+/* 
 // Fel gissningar  / lägga till så den hamnar i scorescreen
 let incorrectGuess = 0;
 let correctGuess = 0;
