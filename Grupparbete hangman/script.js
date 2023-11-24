@@ -24,6 +24,7 @@ const viewStart = document.querySelector('#startview')
 const viewPlay = document.querySelector('#playView')
 const labelName = document.querySelector('#labelForName')
 const buttonBack = document.querySelector('#backButton')
+const tangentbord = document.querySelector('#keyboard-container')
 
 // Sparar 1 namn än sålänge,lokalt ! 
 
