@@ -121,11 +121,8 @@ const valdaOrd = easywords[randomWord];
 console.log(valdaOrd)
 })      
 */
-<<<<<<< HEAD
-
-=======
 const easywords = words.filter((word) => word.length > 14)
-const startForButtonDiv = document.querySelector('.buttonForStart');
+startForButtonDiv = document.querySelector('.buttonForStart');
 lättButton.addEventListener('click', () => {
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 if (svårighetsgradDiv) {
@@ -135,7 +132,6 @@ const chosenWord = easywords [randomInt(easywords.length)]
 console.log(chosenWord)
 }
 });
->>>>>>> dcb9984587fc77ff5ab63295cd138c79bf8d3996
 
 
 
