@@ -1,0 +1,240 @@
+@media screen and (max-width: 350px) {
+	body {
+		font-size: 14px;
+
+	}
+}
+
+main {
+	background-image: url("blue.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+}
+
+/* StartView */
+h1 {
+	font-size: 30px;
+	text-align: left;
+	padding: 1em;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.divForName {
+	display: flex;
+	flex-direction: column;
+	padding: 1em;
+}
+
+.divForName>label {
+	color: white;
+	font-size: 15px;
+}
+
+.divForName>p {
+	margin-bottom: 0.6em;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.divForName>input {
+	border-radius: 3em;
+	padding: 0.5em;
+	height: 20px;
+	width: 120px;
+}
+
+.svårighetsgrad {
+	display: flex;
+	padding: 1em;
+}
+
+.svårighetsgrad>p {
+	margin: 1em;
+	font-family: Arial, sans-serif;
+}
+
+.svårighetsgrad>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#buttonLätt {
+	background-color: rgb(129, 196, 29);
+	width: 5em;
+}
+
+#buttonLätt:active {
+	background-color: rgba(0, 128, 0, 0.838);
+}
+
+#buttonMedium {
+	background-color: rgb(215, 215, 7);
+	width: 6em;
+}
+
+#buttonMedium:active {
+	background-color: orange;
+}
+
+#buttonSvår {
+	background-color: rgb(204, 30, 30);
+	width: 6em;
+}
+
+#buttonSvår:active {
+	background-color: rgb(127, 8, 8);
+}
+
+
+
+.buttonForStart {
+	display: flex;
+	padding: 1em;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.buttonForStart>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 30em;
+	height: 4em;
+}
+
+#startButton {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+}
+
+#buttonLätt:hover {
+	background-color: chartreuse;
+
+}
+
+#buttonMedium:hover {
+	background-color: rgb(218, 255, 8);
+
+}
+
+#buttonSvår:hover {
+	background-color: rgb(255, 6, 6);
+
+}
+
+#highscoreButton {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+	width: 2em;
+}
+
+#highscoreButton:hover {
+	background-color: gray;
+}
+
+/* playView */
+
+.playViewButton {
+	display: flex;
+	padding: 1em;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.playViewButton>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 30em;
+	height: 4em;
+}
+
+#backButton {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+}
+
+#backButton:hover {
+	background-color: gray;
+}
+
+.gameover {
+	display: flex;
+	padding: 1em;
+	gap: 2em;
+
+}
+
+.gameover>button {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	width: 30em;
+	height: 4em;
+}
+
+/*gameover */
+#tryagainButton {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+}
+
+#tryagainButton:hover {
+	background-color: grey;
+}
+
+#highscoreButton2 {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+}
+
+#highscoreButton2:hover {
+	background-color: gray;
+}
+
+/* .highscorediv {
+	display: block;
+	border: 1px solid black;
+	
+}
+
+#high-score {
+	border-radius: 0.5em;
+	margin: 2em 3em 0 3em;
+	text-align: center;
+	font-family: "Arial";
+} */ 
+
+ /* scorescreen  */
+
+#StartView {
+	display: block; } 
+
+#gameoverView {
+	display: none;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	padding: 2em;
+	margin: 0;
+	background-color: rgb(255, 227, 247);
+	font-family: Arial, sans-serif;
+}
+
+#keyboard-container {
+	display: grid;
+	grid-template-columns: repeat(11, 1fr);
+	border: solid 1px #000;
+	gap: 8px;
+
+}
+
+.key {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #000;
+	border-radius: 15%;
+	text-align: center;
+	cursor: pointer;
+	line-height: 40px;
+	transition: background-color 0.3s;
+}
+
+.key:hover {
+	background-color: #eeeeeee4;
+}
