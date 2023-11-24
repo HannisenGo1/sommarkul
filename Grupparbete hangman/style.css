@@ -98,7 +98,7 @@ h1 {
 
 .buttonForStart>button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	width: 30em;
+	width: 20em;
 	height: 4em;
 }
 
@@ -106,6 +106,9 @@ h1 {
 	background-color: lightgrey;
 	border-radius: 1.5em;
 	display: block;
+}
+#startButton:hover{
+	background-color: gray;
 }
 
 #buttonLätt:hover {
@@ -197,11 +200,24 @@ h1 {
 	background-color: gray;
 }
 
-/* .highscorediv {
-	display: block;
-	border: 1px solid black;
-	
+// ändra här
+.highscorediv {
+	display: flex;
+	padding: 1em;
+	flex-direction: column;
+	gap: 1em;
 }
+
+
+#highscoreButton {
+	background-color: lightgrey;
+		border-radius: 1.5em;
+		display: block;
+		width: 20em;
+		height: 4em;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 
 #high-score {
 	border-radius: 0.5em;
@@ -253,4 +269,8 @@ body {
 /* Dölj funktion för knapparna när man klickar */ 
 .hidden {
 	display:none;
+}
+/*Visa funktion för knapparna */
+.visible {
+	display:block;
 }
