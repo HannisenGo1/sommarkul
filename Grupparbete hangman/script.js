@@ -13,18 +13,18 @@
 
 
 
-// StartView  
-const lättButton = document.querySelector('#buttonLätt')
-const mediumButton = document.querySelector('#buttonMedium')
-const svårButton = document.querySelector('#buttonSvår')
-let nameInput = document.getElementById('input-Name')
-const buttonStart = document.querySelector('#startButton')
-const buttonHighscore = document.querySelector('#highscoreButton')
-const viewStart = document.querySelector('#startview')
-const viewPlay = document.querySelector('#playView')
-const labelName = document.querySelector('#labelForName')
-const buttonBack = document.querySelector('#backButton')
-const tangentbord = document.querySelector('#keyboard-container')
+// StartView   ALLA VARIABLER 
+const lättButton = document.getElementById('buttonLätt');
+const mediumButton = document.getElementById('buttonMedium');
+const svårButton = document.getElementById('buttonSvår');
+let nameInput = document.getElementById('input-Name');
+const buttonStart = document.querySelector('#startButton');
+const buttonHighscore = document.querySelector('#highscoreButton');
+const viewStart = document.querySelector('#startview');
+const viewPlay = document.querySelector('#playView');
+const labelName = document.querySelector('#labelForName');
+const buttonBack = document.querySelector('#backButton');
+const tangentbord = document.querySelector('#keyboard-container');
 
 // Sparar 1 namn än sålänge,lokalt ! 
 
@@ -35,9 +35,38 @@ const sparadNamn = localStorage.getItem("namn");
 	if (sparadNamn) {
 		nameInput.value = sparadNamn; //om någon data finns sparat
 	}
-})
+});
+
+// Fel gissningar  / lägga till så den hamnar i scorescreen
+let incorrectGuess = 0;
+let correctGuess = 0;
 
 
+function handleIncorrectGuess() {
+	incorrectGuess ++;
+if (correctGuess === true) {
+	//slumpade bokstäverna, rätt 
+} else if (incorrectGuess === true) {
+	//slumpade bokstäverna, fel
+}
+}
+
+
+
+
+ let tries = 0;
+ while (true) {
+	let guesses = prompt;
+tries ++;
+ 
+ if (guesses === countGuess){
+	//ändra färg grönt 
+ }else {
+	//ändra färgen till rött
+ }
+ }
+
+// countGuess för antal försök räknade.
 lättButton.addEventListener('click', () => {
 const easywords = words.filter((word) => word.length > 14)
 easywords= words[Math.floor(Math.random() * words.length)];
@@ -89,10 +118,12 @@ buttonHighscore.addEventListener('click', () => {
 // Alfabetet i en lista: 
 const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Å","Ä", "Ö"];
 
-// variabeln heter: words för hela listan med alla ord 
+// variabeln heter: words för hela listan med alla ord: const words
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
+
 } 
 
 
@@ -109,21 +140,16 @@ const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
 
 
-// Fel gissningar  / lägga till så den hamnar i scorescreen
-let incorrectGuess = 0;
-let correctGuess = 0;
-function handleIncorrectGuess() {
-	incorrectGuess ++;
-if (correctGuess === true) {
-	//slumpade bokstäverna, rätt 
-} else if (incorrectGuess === true) {
-	//slumpade bokstäverna, fel
-}
-}
+
 
 //funktion för felaktiga & rätta bokstäver 
 // Vid klickning av " tips/hint : ta bort 2 bokstäver - gråfärg"
 // rätt = grönt, fel= rött    "disable"
+// Antal gissningar : 
+// gissningar = 0
+// gissningar += 1 
+// skriver ut variabeln:
+// console.log ("Du gjorde " + (tries) + "Gissningar")
 
 
 
@@ -142,6 +168,7 @@ buttonBack.addEventListener('click', () => {
 })
 
 */
+const highscore = document.querySelector('#high-score')
 
 scorescreenView
 // Visar endast namnen med denna funktionen .
@@ -151,6 +178,9 @@ if (sparadNamn) {
 	highscorediv.textContent = sparadNamn
 } 
 }); 
+nameInput.addEventListener('input', event => { // input namn för highscore
+	highscore.innerText = event.target.value
+})
 // lägg till så att den visar både vunna & förlorade med antal gissningar , ordets längd, datum+tid för omgången
 
 

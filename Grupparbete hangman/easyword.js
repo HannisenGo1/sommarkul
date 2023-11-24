@@ -1,15 +1,15 @@
 /*   
 import {words} from './svenska-ord.js'
 
-// let easywords = []
+// let hardwords = []
 // let a = 0
 // for (let i = 0; i < words.length; i++){
 //     if (words[i].length >= 10 && words[i].length < 13){
-//         easywords[a] = words[i]
+//         hardwords[a] = words[i]
 //         a++
 //     }
 // }
-// console.log(easywords)
+// console.log(hardwords)
 
 const easywords = words.filter((word) => word.length >= 10 && word.length < 13)
 
@@ -19,7 +19,7 @@ console.log(easywords)
 
 // let b = 0
 // for (let i = 0; i < words.length; i++){
-//     if (words[i].length >= 13 && words[i].length < 15){
+//     if (words[i].length >= 10 && words[i].length < 13){
 //         mediumwords[b] = words[i]
 //         b++
 //     }
