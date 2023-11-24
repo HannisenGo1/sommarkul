@@ -121,14 +121,27 @@ const valdaOrd = easywords[randomWord];
 console.log(valdaOrd)
 })      
 */
+<<<<<<< HEAD
 
-
+=======
+const easywords = words.filter((word) => word.length > 14)
+const startForButtonDiv = document.querySelector('.buttonForStart');
+lättButton.addEventListener('click', () => {
+const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
+if (svårighetsgradDiv) {
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+const chosenWord = easywords [randomInt(easywords.length)]
+console.log(chosenWord)
+}
+});
+>>>>>>> dcb9984587fc77ff5ab63295cd138c79bf8d3996
 
 
 
 /*
 mediumButton.addEventListener('click', () => {
-const mediumwords = words.filter((word) => word.length >= 10 && word.length < 13)
+const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
 mediumwords= words[Math.floor(Math.random() * words.length)];
 if (mediumButton) {
 
@@ -141,8 +154,8 @@ console.log(mediumwords)
 
 
 svårButton.addEventListener('click', () => {
-const hardwords = words.filter((word) => word.length >= 0 && word.length < 9)
-hardwords= words[Math.floor(Math.random() * words.length)];
+const hardwords = words.filter((word) => word.length == 10 && word.length == 11)
+hardwords = words[Math.floor(Math.random() * words.length)];
 if (svårButton) {
 
 }
@@ -169,9 +182,8 @@ const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 // variabeln heter: words för hela listan med alla ord: const words
 
 
-function getRandomInt(max) {
+function randomInt(max) {
     return Math.floor(Math.random() * max);
-
 } 
 
 
@@ -186,6 +198,26 @@ const legsGubbe = document.querySelector('#legs')
 const armsGubbe = document.querySelector('#arms')
 const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
+
+//Slumpar fram ett ord ur easywords-listan, skapa dashes ('_ _ _'), och ersätt dashes med bokstäver
+//när man trycker på rätt tangent:
+
+const chosenWord = easywords[randomInt(easywords.length)]
+
+let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
+const submissionField = document.getElementById('line-form')
+submissionField.innerHTML = displayedWord
+window.addEventListener('keyup', e => {
+	let wordArray = chosenWord.split("")
+	let dashes = document.getElementsByClassName('dash')
+	if (wordArray.includes(e.key)){
+		wordArray.forEach((letter, index) => {
+			if (letter === e.key){
+				dashes[index].innerText = letter
+			} 
+		})
+	}
+})
 
 
 

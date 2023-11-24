@@ -168,6 +168,14 @@ h1 {
 	background-color: gray;
 }
 
+.dash{
+	font-size: 24px;
+    border-bottom: solid 2px black;
+    width: 1em;
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
 .gameover {
 	display: flex;
 	padding: 1em;
