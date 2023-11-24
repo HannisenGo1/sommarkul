@@ -60,6 +60,7 @@ h1 {
 #buttonLätt {
 	background-color: rgb(129, 196, 29);
 	width: 5em;
+	display: block;
 }
 
 #buttonLätt:active {
@@ -69,6 +70,7 @@ h1 {
 #buttonMedium {
 	background-color: rgb(215, 215, 7);
 	width: 6em;
+	display: block;
 }
 
 #buttonMedium:active {
@@ -78,6 +80,7 @@ h1 {
 #buttonSvår {
 	background-color: rgb(204, 30, 30);
 	width: 6em;
+	display: block;
 }
 
 #buttonSvår:active {
@@ -102,6 +105,7 @@ h1 {
 #startButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
+	display: block;
 }
 
 #buttonLätt:hover {
@@ -237,4 +241,8 @@ body {
 
 .key:hover {
 	background-color: #eeeeeee4;
+}
+/* Dölj funktion för knapparna när man klickar */ 
+.hidden {
+	display:none;
 }

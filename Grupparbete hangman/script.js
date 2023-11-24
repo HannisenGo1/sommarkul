@@ -1,4 +1,4 @@
-//import {words} from './svenska-ord.js'
+import {words} from './svenska-ord.js'
 
 // Math.Random () för att slumpa fram ord från listan! 
 // input fältet för :: inputName    //console.log för att skriva ut namnet i consolen
@@ -26,8 +26,9 @@ const labelName = document.querySelector('#labelForName');
 const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
 
-// Sparar 1 namn än sålänge,lokalt ! 
 
+// Sparar 1 namn än sålänge,lokalt ! 
+/*
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
     localStorage.setItem("namn", namn); // sparar värdet
@@ -65,20 +66,35 @@ tries ++;
 	//ändra färgen till rött
  }
  }
+ */ 
 
-// countGuess för antal försök räknade.
-lättButton.addEventListener('click', () => {
+
+ // väljer ut slumpat ord när man trycker på lätt knappen!!!
+/* lättButton.addEventListener('click', () => {
+
 const easywords = words.filter((word) => word.length > 14)
-easywords= words[Math.floor(Math.random() * words.length)];
-if (lättButton) {
-	
+const randomWord = Math.floor(Math.random() * easywords.length);
+const valdaOrd = easywords[randomWord];
+console.log(valdaOrd)
+})      
+*/
+const startForButtonDiv = document.querySelector('.buttonForStart');
+lättButton.addEventListener('click', () => {
+const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
+if (svårighetsgradDiv) {
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+const easywords = words.filter((word) => word.length > 14)
+const randomWord = Math.floor(Math.random() * easywords.length);
+const valdaOrd = easywords[randomWord];
+console.log(valdaOrd)
 }
-
-console.log(easywords)
-})
+});
 
 
 
+
+/*
 mediumButton.addEventListener('click', () => {
 const mediumwords = words.filter((word) => word.length >= 10 && word.length < 13)
 mediumwords= words[Math.floor(Math.random() * words.length)];
@@ -155,7 +171,7 @@ const headGubbe = document.querySelector('#head')
 
 
 
-/* 
+
 //gameoverView 
 buttonStart.addEventListener('click', () => {
 
@@ -167,7 +183,7 @@ buttonBack.addEventListener('click', () => {
 
 })
 
-*/
+
 const highscore = document.querySelector('#high-score')
 
 scorescreenView
