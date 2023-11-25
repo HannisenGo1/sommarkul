@@ -254,6 +254,13 @@ body {
 .hidden {
 	display:none;
 }
+
+/* Dölj-funktion för gubben; existerar fortfarande, men gömd */
+.invisible{
+	visibility: hidden;
+}
+
+
 /*Visa funktion för knapparna */
 .visible {
 	display:block;

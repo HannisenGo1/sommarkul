@@ -122,25 +122,28 @@ console.log(valdaOrd)
 })      
 */
 const easywords = words.filter((word) => word.length > 14)
-startForButtonDiv = document.querySelector('.buttonForStart');
 lättButton.addEventListener('click', () => {
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 if (svårighetsgradDiv) {
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
-const chosenWord = easywords [randomInt(easywords.length)]
+const chosenWord = easywords[randomInt(easywords.length)]
 console.log(chosenWord)
+// return chosenWord
 }
 });
 
 
+// const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
+// chosenWord = mediumwords[randomInt(mediumwords.length)];
+
+// const hardwords = words.filter((word) => word.length == 10 && word.length == 11)
+// chosenWord = hardwords[randomInt(hardwords.length)];
 
 /*
 mediumButton.addEventListener('click', () => {
-const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
-mediumwords= words[Math.floor(Math.random() * words.length)];
 if (mediumButton) {
-
+const chosenWord = mediumwords[randomInt(mediumwords.length)]
 }
 
 console.log(mediumwords)
@@ -150,8 +153,6 @@ console.log(mediumwords)
 
 
 svårButton.addEventListener('click', () => {
-const hardwords = words.filter((word) => word.length == 10 && word.length == 11)
-hardwords = words[Math.floor(Math.random() * words.length)];
 if (svårButton) {
 
 }
@@ -195,11 +196,19 @@ const armsGubbe = document.querySelector('#arms')
 const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
 
+lättButton.addEventListener('click', () => {
+	scaffoldGubbe.classList.add('invisible')
+	legsGubbe.classList.add('invisible')
+	armsGubbe.classList.add('invisible')
+	bodyGubbe.classList.add('invisible')
+	headGubbe.classList.add('invisible')
+})
+
 //Slumpar fram ett ord ur easywords-listan, skapa dashes ('_ _ _'), och ersätt dashes med bokstäver
 //när man trycker på rätt tangent:
 
 const chosenWord = easywords[randomInt(easywords.length)]
-
+let incorrectGuess = 0
 let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
 const submissionField = document.getElementById('line-form')
 submissionField.innerHTML = displayedWord
@@ -210,8 +219,31 @@ window.addEventListener('keyup', e => {
 		wordArray.forEach((letter, index) => {
 			if (letter === e.key){
 				dashes[index].innerText = letter
-			} 
-		})
+			}
+				// if (incorrectGuess === 1){
+				// 	scaffoldGubbe.classList.remove('hidden')
+				// }
+			})
+		}
+		else{
+			incorrectGuess++
+			console.log(incorrectGuess)
+			if (incorrectGuess === 1){
+				scaffoldGubbe.classList.remove('invisible')
+			}
+			else if (incorrectGuess === 2){
+				headGubbe.classList.remove('invisible')
+			}
+			else if (incorrectGuess === 3){
+				bodyGubbe.classList.remove('invisible')
+			}
+			else if (incorrectGuess === 4){
+				armsGubbe.classList.remove('invisible')
+			}
+			else{
+				legsGubbe.classList.remove('invisible')
+				// Game Over-popup!
+			}
 	}
 })
 
