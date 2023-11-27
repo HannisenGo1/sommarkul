@@ -47,28 +47,39 @@ h1 {
 
 .svårighetsgrad {
 display: flex;
+justify-content: space-around;
+
+}
+.svårighetsgradButtons {
+	text-align: center;
+		font-size: 1.2em;
+		display: inline-block;
+}
+.svårighetsgradButtons > p {
+	margin-bottom: 20px;
 }
 
-.svårighetsgrad>p {
-	margin: 1em;
-	font-family: 'Franklin Gothic Medium',
+
+/* .svårighetsgradText {
+margin: 1em;
+font-family: 'Franklin Gothic Medium',
 		'Arial Narrow',
 		Arial,
 		sans-serif;
 		font-size: 1.2em;
+} */ 
+
+.svårighetsgrad>button {
+	
 }
 
-.svårighetsgrad> button {
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-size: 1.2em;
-}
+
 #buttonLätt, 
 #buttonMedium,
 #buttonSvår {
 	margin-right: 5em;
 	width: 5em;
 	height: 4em;
-	
 	}
 
 #buttonLätt {
@@ -205,20 +216,30 @@ display: flex;
     margin-top: 2em;
 }
 
+
+/*gameover */
+
 .gameover {
 	display: flex;
 	padding: 1em;
 	gap: 2em;
+	width: 400px;
+	height: 550px;
+	position: absolute;
+	left: 5%;
+	top: 20%;
+	background-color: rgb(232, 128, 62);		
+	border: 5px solid darkred;
+	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 
 }
 
-.gameover>button {
+.gameoverButton {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	width: 30em;
 	height: 4em;
+	display: flex;
 }
-
-/*gameover */
 #tryagainButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
