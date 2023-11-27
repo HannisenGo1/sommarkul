@@ -19,8 +19,8 @@ let nameInput = document.getElementById('input-Name');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
 const viewStart = document.querySelector('#startview');
-const viewPlay = document.querySelector('#playView');
-const labelName = document.querySelector('#labelForName');
+const viewPlay = document.querySelector('.playView');
+const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
@@ -40,25 +40,40 @@ const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11
 const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 
+svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
+
 buttonStart.addEventListener('click', () => {
+if (buttonStart) {
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
+labelName.classList.add('hidden');
+}
 });
 
+
 buttonHighscore.addEventListener('click', () => {
+if (buttonHighscore){
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
+labelName.classList.add('hidden');
+// göra en highscore div som sparar & visar namnen! 
+}
 });
 
+
 buttonBack.addEventListener('click', () => {
-	startForButtonDiv.classList.add('visible')
-	highScoreDiv.classList.add('visible')
-	}
-	)
+    
+    if (buttonBack){
+    startForButtonDiv.classList.add('visible')
+    highScoreDiv.classList.add('visible')
+    }
+})
+
+
 
 // Sparar 1 namn än sålänge,lokalt ! 
 
@@ -71,38 +86,11 @@ const sparadNamn = localStorage.getItem("namn");
 	}
 });
 /* 
-// Fel gissningar  / lägga till så den hamnar i scorescreen
-let incorrectGuess = 0;
-let correctGuess = 0;
-
-
-function handleIncorrectGuess() {
-	incorrectGuess ++;
-if (correctGuess === true) {
-	//slumpade bokstäverna, rätt 
-} else if (incorrectGuess === true) {
-	//slumpade bokstäverna, fel
-}
-}
 
 
 
 
- let tries = 0;
- while (true) {
-	let guesses = prompt;
-tries ++;
- 
- if (guesses === countGuess){
-	//ändra färg grönt 
- }else {
-	//ändra färgen till rött
- }
- }
- */ 
-
-
- // väljer ut slumpat ord när man trycker på lätt knappen!!!
+ // väljer ut slumpat ord när man trycker på lätt knappen!
 /* lättButton.addEventListener('click', () => {
 
 const easywords = words.filter((word) => word.length > 14)
@@ -151,17 +139,11 @@ const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 // variabeln heter: words för hela listan med alla ord: const words
 
 
-function randomInt(max) {
-    return Math.floor(Math.random() * max);
-} 
-
-
-
-
+const randomInt = max => Math.floor(Math.random() * max);
 
 
 //playView
-//Hangman:: path id="scaffold" , path id="legs"  path id="arms",path id="body",path id="head"
+
 const scaffoldGubbe = document.querySelector('#scaffold')
 const legsGubbe = document.querySelector('#legs')
 const armsGubbe = document.querySelector('#arms')
@@ -193,12 +175,14 @@ lättButton.addEventListener('click', () => {
 mediumButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = mediumwords[randomInt(mediumwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
 svårButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = hardwords[randomInt(hardwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
@@ -219,8 +203,7 @@ window.addEventListener('keyup', e => {
 			}
 			})
 			correctGuess++
-		}
-		else{
+		}else{
 			incorrectGuess++
 			console.log(incorrectGuess)
 			if (incorrectGuess === 1){
@@ -235,8 +218,7 @@ window.addEventListener('keyup', e => {
 			}
 			else if (incorrectGuess === 4){
 				armsGubbe.classList.remove('invisible')
-			}
-			else{
+			}else{
 				legsGubbe.classList.remove('invisible')
 				// Game Over-popup!
 				// Ser antagligen ut ungefär så här:
@@ -245,29 +227,8 @@ window.addEventListener('keyup', e => {
 			}
 			console.log(dashes)
 	}
-	// tentativ kod för att kolla om man har vunnit. Värt att anteckna att detta inte funkar just nu,
-	// eftersom 'dashes' hänvisar till de genererade elementen, som aldrig förändras --
-	// måste kanske läsa av den skapade texten på något annat sätt, t.ex. genom att läsa av innerText på alla
-	// dash-index och köra en join...? Har provat med att göra '!includes('_')', men funkar inte p.g.a.
-	//att dashes inte är en funktion, utan en serie utvalda HTML-boxar. Men något i den här stilen: 
-	// if (dashes.innerText == wordArray){
-	// // Du Vann-popup!
-	// console.log('Du vann!')
-	// }
 })
 }
-
-
-
-
-//funktion för felaktiga & rätta bokstäver 
-// Vid klickning av " tips/hint : ta bort 2 bokstäver - gråfärg"
-// rätt = grönt, fel= rött    "disable"
-// Antal gissningar : 
-// gissningar = 0
-// gissningar += 1 
-// skriver ut variabeln:
-// console.log ("Du gjorde " + (tries) + "Gissningar")
 
 
 
