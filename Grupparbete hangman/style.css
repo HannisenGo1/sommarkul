@@ -1,11 +1,12 @@
 @media screen and (max-width: 350px) {
-	body {
+	body,
+	main {
 		font-size: 14px;
 
 	}
 }
 
-main {
+main{
 	background-image: url("blue.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -224,7 +225,7 @@ body {
 	align-items: center;
 	padding: 2em;
 	margin: 0;
-	background-color: rgb(255, 227, 247);
+	background-color: rgb(255, 249, 253);
 	font-family: Arial, sans-serif;
 }
 
@@ -233,6 +234,7 @@ body {
 	grid-template-columns: repeat(11, 1fr);
 	border: solid 1px #000;
 	gap: 8px;
+	padding: 2em;
 
 }
 
