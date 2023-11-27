@@ -23,6 +23,7 @@ const viewPlay = document.querySelector('.playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
+const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 //div för lätt,m,svår
@@ -41,11 +42,13 @@ const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
+svårighetsgradText.classList.add('hidden');//texten är gömd tills -II- 
 
 buttonStart.addEventListener('click', () => {
 if (buttonStart) {
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('visible');
+svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
@@ -57,6 +60,7 @@ buttonHighscore.addEventListener('click', () => {
 if (buttonHighscore){
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
+svårighetsgradText.classList.add('hidden');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
@@ -68,10 +72,13 @@ labelName.classList.add('hidden');
 buttonBack.addEventListener('click', () => {
     
     if (buttonBack){
-    startForButtonDiv.classList.add('visible')
-    highScoreDiv.classList.add('visible')
+    startForButtonDiv.classList.remove('hidden');
+    highScoreDiv.classList.remove('hidden');
+	svårighetsgradDiv.classList.remove('hidden');
+	startMeny.classList.add('visible');
     }
 })
+
 
 
 
@@ -158,6 +165,7 @@ function startGame(){
 	headGubbe.classList.add('invisible')
 	startForButtonDiv.classList.add('hidden');
 	svårighetsgradDiv.classList.add('hidden');
+	svårighetsgradText.classList.remove('visible') 
 	correctGuess = 0
 	incorrectGuess = 0
 	totalGuess = 0

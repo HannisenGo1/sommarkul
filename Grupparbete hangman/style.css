@@ -48,7 +48,7 @@ h1 {
 display: flex;
 }
 
-.svårighetsgrad>p {
+.svårighetsgradText {
 	margin: 1em;
 	font-family: 'Franklin Gothic Medium',
 		'Arial Narrow',
@@ -72,7 +72,6 @@ display: flex;
 
 #buttonLätt {
 	background-color: rgb(129, 196, 29);
-	
 }
 
 #buttonLätt:hover {
@@ -100,7 +99,7 @@ display: flex;
 .startOchHigh{
 	display: flex;
 	gap: 1em;
-	flex-direction: row;
+
 } 
 
 .buttonForStart,
@@ -155,9 +154,7 @@ display: flex;
 
 
 /* playView */
-#playView {
 
-}
 .playViewButton {
 	display: flex;
 	padding: 1em;
