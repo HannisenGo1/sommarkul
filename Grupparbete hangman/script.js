@@ -22,11 +22,13 @@ const viewStart = document.querySelector('#startview');
 const viewPlay = document.querySelector('.playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
-const tangentbord = document.querySelector('#keyboard-container');
+const tangentbord = document.querySelector('.keyboard-container');
+const tangenter = document.querySelector('.key')
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')
+const userNameField = document.querySelector('.user-name')
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -35,6 +37,8 @@ let chosenWord = ''
 let incorrectGuess = 0
 let correctGuess = 0
 let totalGuess = 0
+let userName = ''
+let sparadNamn = ''
 const startForButtonDiv = document.querySelector('.buttonForStart');
 const highScoreDiv = document.querySelector('.highscorediv');
 const easywords = words.filter((word) => word.length > 14)
@@ -43,11 +47,9 @@ const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
-<<<<<<< HEAD
-svårighetsgradText.classList.add('hidden');//texten är gömd tills -II- 
-=======
 highScoreWindow.classList.add('hidden');
->>>>>>> 9997e16ed46c65fc2b79db60357968836930601f
+tangentbord.classList.add('hidden')
+svårighetsgradText.classList.add('hidden')
 
 buttonStart.addEventListener('click', () => {
 if (buttonStart) {
@@ -57,6 +59,7 @@ svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
+sparaNamn()
 }
 });
 
@@ -77,17 +80,11 @@ highScoreWindow.classList.remove('hidden');
 
 buttonBack.addEventListener('click', () => {
     if (buttonBack){
-<<<<<<< HEAD
     startForButtonDiv.classList.remove('hidden');
     highScoreDiv.classList.remove('hidden');
-	svårighetsgradDiv.classList.remove('hidden');
+	labelName.classList.remove('hidden');
+	highScoreWindow.classList.add('hidden');
 	startMeny.classList.add('visible');
-=======
-    highScoreWindow.classList.add('hidden')
-	startForButtonDiv.classList.remove('hidden');
-	highScoreDiv.classList.remove('hidden');
-	console.log('Test')
->>>>>>> 9997e16ed46c65fc2b79db60357968836930601f
     }
 })
 
@@ -96,14 +93,25 @@ buttonBack.addEventListener('click', () => {
 
 // Sparar 1 namn än sålänge,lokalt ! 
 
-nameInput.addEventListener("change", (event) => {
-	const namn = event.target.value; //hämta värdet från input
-    localStorage.setItem("namn", namn); // sparar värdet
-const sparadNamn = localStorage.getItem("namn");
-	if (sparadNamn) {
-		nameInput.value = sparadNamn; //om någon data finns sparat
-	}
-});
+function sparaNamn(){
+	const userName = nameInput.value; //hämta värdet från input
+	localStorage.setItem("namn", userName); // sparar värdet
+	const sparadNamn = localStorage.getItem("namn");
+	console.log(sparadNamn)
+	let newName = document.createElement('div')
+	newName.innerText = sparadNamn
+	userNameField.appendChild(newName)
+}
+
+
+// nameInput.addEventListener("change", (event) => {
+// 	const namn = event.target.value; //hämta värdet från input
+//     localStorage.setItem("namn", namn); // sparar värdet
+// 	const sparadNamn = localStorage.getItem("namn");
+// 	if (sparadNamn) {
+// 		nameInput.value = sparadNamn; //om någon data finns sparat
+// 	}
+// });
 /* 
 
 
@@ -222,7 +230,8 @@ window.addEventListener('keyup', e => {
 			}
 			})
 			correctGuess++
-		}else{
+		}
+		else{
 			incorrectGuess++
 			console.log(incorrectGuess)
 			if (incorrectGuess === 1){
@@ -243,7 +252,6 @@ window.addEventListener('keyup', e => {
 				// gameOverView.classList.add('visible')
 				// totalGuess = incorrectGuess + correctGuess
 			}
-			console.log(dashes)
 	}
 })
 }
