@@ -25,6 +25,7 @@ const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
+const highScoreWindow = document.querySelector('.highscorewindow')
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -41,6 +42,7 @@ const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
+highScoreWindow.classList.add('hidden');
 
 buttonStart.addEventListener('click', () => {
 if (buttonStart) {
@@ -60,16 +62,18 @@ svårighetsgradDiv.classList.add('hidden');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
+highScoreWindow.classList.remove('hidden');
 // göra en highscore div som sparar & visar namnen! 
 }
 });
 
 
 buttonBack.addEventListener('click', () => {
-    
     if (buttonBack){
-    startForButtonDiv.classList.add('visible')
-    highScoreDiv.classList.add('visible')
+    highScoreWindow.classList.add('hidden')
+	startForButtonDiv.classList.remove('hidden');
+	highScoreDiv.classList.remove('hidden');
+	console.log('Test')
     }
 })
 

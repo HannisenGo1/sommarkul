@@ -14,6 +14,7 @@ main{
 }
 
 /* StartView */
+
 h1 {
 	font-size: 30px;
 	text-align: left;
@@ -102,9 +103,24 @@ h1 {
 	gap: 1em;
 }
 /* Text för input namnen*/
-.Highscoretext{
+.highscoretext{
 	display:flex;
+}
+.user-name, .date, .time{
+	flex-direction: column;
+	margin-left: 3.5em;
+	margin-top: 1em;
+}
 
+.highscorewindow{
+	width: 400px;
+	height: 550px;
+	position: absolute;
+	left: 5%;
+	top: 20%;
+	background-color: rgb(232, 128, 62);
+	border: 5px solid darkred;
+	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
 
 .buttonForStart>button,
@@ -163,6 +179,7 @@ h1 {
 #backButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
+	margin-left: 13em;
 }
 
 #backButton:hover {
