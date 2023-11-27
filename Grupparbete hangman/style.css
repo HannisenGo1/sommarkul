@@ -45,33 +45,43 @@ h1 {
 }
 
 .svårighetsgrad {
-	display: flex;
-	padding: 1em;
+display: flex;
 }
 
 .svårighetsgrad>p {
 	margin: 1em;
-	font-family: Arial, sans-serif;
+	font-family: 'Franklin Gothic Medium',
+		'Arial Narrow',
+		Arial,
+		sans-serif;
+		font-size: 1.2em;
 }
 
-.svårighetsgrad>button {
+.svårighetsgrad> button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1.2em;
 }
+#buttonLätt, 
+#buttonMedium,
+#buttonSvår {
+	margin-right: 5em;
+	width: 5em;
+	height: 4em;
+	
+	}
 
 #buttonLätt {
 	background-color: rgb(129, 196, 29);
-	width: 5em;
-	display: block;
+	
 }
 
-#buttonLätt:active {
+#buttonLätt:hover {
 	background-color: rgba(0, 128, 0, 0.838);
 }
 
 #buttonMedium {
 	background-color: rgb(215, 215, 7);
-	width: 6em;
-	display: block;
+	
 }
 
 #buttonMedium:active {
@@ -80,8 +90,7 @@ h1 {
 
 #buttonSvår {
 	background-color: rgb(204, 30, 30);
-	width: 6em;
-	display: block;
+	
 }
 
 #buttonSvår:active {
@@ -91,7 +100,7 @@ h1 {
 .startOchHigh{
 	display: flex;
 	gap: 1em;
-	flex-direction: row;;
+	flex-direction: row;
 } 
 
 .buttonForStart,
@@ -146,7 +155,9 @@ h1 {
 
 
 /* playView */
+#playView {
 
+}
 .playViewButton {
 	display: flex;
 	padding: 1em;
@@ -262,47 +273,63 @@ body {
 	visibility: hidden;
 }
 
-@-webkit-keyframes swinging{
-    0%{-webkit-transform: rotate(10deg);}
-    50%{-webkit-transform: rotate(-5deg)}
-    100%{-webkit-transform: rotate(10deg);}
-}
- 
-@keyframes swinging{
-    0%{transform: rotate(10deg);}
-    50%{transform: rotate(-5deg)}
-    100%{transform: rotate(10deg);}
-}
- 
-#head{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 75% 0;
-    -webkit-animation: swinging 3.5s ease-in-out forwards 2;
-    animation: swinging 3.5s ease-in-out forwards 2;
-}
-
-#body{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 75% 0;
-    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
-    animation: swinging 3.4s ease-in-out forwards 2;
-}
-
-#arms{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 75% 0;
-    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
-    animation: swinging 3.4s ease-in-out forwards 2;
-}
-
-#legs{
-    -webkit-transform-origin: 50% 0;
-    transform-origin: 75% 0;
-    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
-    animation: swinging 3.4s ease-in-out forwards 2;
-}
 
 /*Visa funktion för knapparna */
 .visible {
 	display:block;
+}
+@-webkit-keyframes swinging {
+	0% {
+		-webkit-transform: rotate(10deg);
+	}
+
+	50% {
+		-webkit-transform: rotate(-5deg)
+	}
+
+	100% {
+		-webkit-transform: rotate(10deg);
+	}
+}
+
+@keyframes swinging {
+	0% {
+		transform: rotate(10deg);
+	}
+
+	50% {
+		transform: rotate(-5deg)
+	}
+
+	100% {
+		transform: rotate(10deg);
+	}
+}
+
+#head {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 75% 0;
+	-webkit-animation: swinging 3.5s ease-in-out forwards 2;
+	animation: swinging 3.5s ease-in-out forwards 2;
+}
+
+#body {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 75% 0;
+	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
+	animation: swinging 3.4s ease-in-out forwards 2;
+}
+
+#arms {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 75% 0;
+	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
+	animation: swinging 3.4s ease-in-out forwards 2;
+}
+
+#legs {
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 75% 0;
+	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
+	animation: swinging 3.4s ease-in-out forwards 2;
 }

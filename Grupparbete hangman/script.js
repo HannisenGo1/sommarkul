@@ -149,11 +149,9 @@ const legsGubbe = document.querySelector('#legs')
 const armsGubbe = document.querySelector('#arms')
 const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
-const groundShadow = document.querySelector('#ground')
 
 function startGame(){
 	scaffoldGubbe.classList.add('invisible')
-	groundShadow.classList.add('invisible')
 	legsGubbe.classList.add('invisible')
 	armsGubbe.classList.add('invisible')
 	bodyGubbe.classList.add('invisible')
@@ -177,6 +175,7 @@ mediumButton.addEventListener('click', () => {
 	chosenWord = mediumwords[randomInt(mediumwords.length)]
 	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
+	
 })
 
 svårButton.addEventListener('click', () => {
@@ -207,7 +206,6 @@ window.addEventListener('keyup', e => {
 			incorrectGuess++
 			console.log(incorrectGuess)
 			if (incorrectGuess === 1){
-				groundShadow.classList.remove('invisible')
 				scaffoldGubbe.classList.remove('invisible')
 			}
 			else if (incorrectGuess === 2){
