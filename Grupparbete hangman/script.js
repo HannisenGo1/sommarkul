@@ -46,10 +46,10 @@ const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
-highScoreWindow.classList.add('hidden');
-gameover.classList.add('hidden');
-gameoverButton.classList.add('hidden');
-
+highScoreWindow.classList.add('hidden'); //highscore div
+gameover.classList.add('hidden');  //gameover view 
+gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
+startMeny.classList.add('visible')
 
 buttonStart.addEventListener('click', () => {
 if (buttonStart) {
@@ -57,8 +57,8 @@ startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('visible');
 svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
-startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
+startMeny.classList.add('visible')
 }
 });
 
@@ -72,7 +72,9 @@ highScoreDiv.classList.add('hidden');
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
 highScoreWindow.classList.remove('hidden');
+
 // göra en highscore div som sparar & visar namnen! 
+// det gamla spelet måste börja på 0 när man trycker på "kör igen"
 }
 });
 
@@ -82,17 +84,30 @@ buttonBack.addEventListener('click', () => {
     highScoreWindow.classList.add('hidden')
 	startForButtonDiv.classList.remove('hidden');
 	highScoreDiv.classList.remove('hidden');
+gameover.classList.add('hidden');
+gameoverButton.classList.add('hidden');
+startMeny.classList.add('visible')
 	console.log('Test')
     }
 })
 
+
+
+
 tryagainButton.addEventListener('click', () =>{
 if (tryagainButton) {
 startForButtonDiv.classList.remove('hidden');
-svårighetsgradDiv.classList.remove('hidden');
-gameover.classList.add('visible');
-gameoverButton.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+gameover.classList.remove('visible');
+gameoverButton.classList.remove('visible');
 
+} else if (buttonBack) {
+	highScoreWindow.classList.add('hidden')
+	startForButtonDiv.classList.remove('hidden');
+	highScoreDiv.classList.remove('hidden');
+gameover.classList.add('hidden');
+gameoverButton.classList.add('hidden');
+startMeny.classList.add('visible')
 }
 })
 
@@ -105,6 +120,7 @@ gameoverButton.classList.add('hidden');
 
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
+
     localStorage.setItem("namn", namn); // sparar värdet
 const sparadNamn = localStorage.getItem("namn");
 	if (sparadNamn) {
@@ -267,15 +283,7 @@ window.addEventListener('keyup', e => {
 
 
 //gameoverView 
-buttonStart.addEventListener('click', () => {
 
-})
-buttonHighscore.addEventListener('click', () => {
-
-})
-buttonBack.addEventListener('click', () => {
-
-})
 
 
 const highscore = document.querySelector('#high-score')
@@ -292,8 +300,3 @@ const highscore = document.querySelector('#high-score')
 //	highscore.innerText = event.target.value
 //})
 // lägg till så att den visar både vunna & förlorade med antal gissningar , ordets längd, datum+tid för omgången
-
-
-buttonBack.addEventListener('click', () => {
-
-})
