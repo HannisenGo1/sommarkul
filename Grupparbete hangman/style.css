@@ -84,6 +84,7 @@ font-family: 'Franklin Gothic Medium',
 
 #buttonLätt {
 	background-color: rgb(129, 196, 29);
+	
 }
 
 #buttonLätt:hover {
@@ -111,7 +112,7 @@ font-family: 'Franklin Gothic Medium',
 .startOchHigh{
 	display: flex;
 	gap: 1em;
-
+	flex-direction: row;
 } 
 
 .buttonForStart,
@@ -181,7 +182,9 @@ font-family: 'Franklin Gothic Medium',
 
 
 /* playView */
+#playView {
 
+}
 .playViewButton {
 	display: flex;
 	padding: 1em;
@@ -275,13 +278,12 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-#keyboard-container {
+.keyboard-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
 	border: solid 1px #000;
 	gap: 8px;
 	padding: 2em;
-
 }
 
 .key {

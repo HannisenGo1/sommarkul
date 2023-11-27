@@ -22,8 +22,13 @@ const viewStart = document.querySelector('#startview');
 const viewPlay = document.querySelector('.playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
+<<<<<<< HEAD
 const buttonBack2 = document.querySelector('#backButton2');
 const tangentbord = document.querySelector('#keyboard-container');
+=======
+const tangentbord = document.querySelector('.keyboard-container');
+const tangenter = document.querySelector('.key')
+>>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
@@ -31,6 +36,7 @@ const highScoreWindow = document.querySelector('.highscorewindow')//highscore me
 const gameover = document.querySelector('.gameover') //gameover meny
 const tryagainButton = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
+const userNameField = document.querySelector('.user-name')
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -39,6 +45,8 @@ let chosenWord = ''
 let incorrectGuess = 0
 let correctGuess = 0
 let totalGuess = 0
+let userName = ''
+let sparadNamn = ''
 const startForButtonDiv = document.querySelector('.buttonForStart');
 const highScoreDiv = document.querySelector('.highscorediv');
 const easywords = words.filter((word) => word.length > 14)
@@ -59,6 +67,7 @@ svårighetsgradDiv.classList.add('visible');
 svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 labelName.classList.add('hidden');
+sparaNamn()
 startMeny.classList.add('visible')
 }
 });
@@ -95,19 +104,31 @@ startMeny.classList.add('visible')
 
 
 tryagainButton.addEventListener('click', () =>{
-if (tryagainButton) {
 startForButtonDiv.classList.remove('hidden');
 svårighetsgradDiv.classList.add('hidden');
 gameover.classList.remove('visible');
 gameoverButton.classList.remove('visible');
+<<<<<<< HEAD
 highScoreDiv.classList.remove('hidden');
 
 
 } 
+=======
+})
+
+buttonBack.addEventListener('click', () =>{
+	highScoreWindow.classList.add('hidden')
+	startForButtonDiv.classList.remove('hidden');
+	highScoreDiv.classList.remove('hidden');
+gameover.classList.add('hidden');
+gameoverButton.classList.add('hidden');
+startMeny.classList.add('visible')
+>>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 })
 
 
 
+<<<<<<< HEAD
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
 
@@ -117,6 +138,78 @@ const sparadNamn = localStorage.getItem("namn");
 		nameInput.value = sparadNamn; //om någon data finns sparat
 	}
 });
+=======
+
+
+
+// Sparar 1 namn än sålänge,lokalt ! 
+
+function sparaNamn(){
+	const userName = nameInput.value; //hämta värdet från input
+	localStorage.setItem("namn", userName); // sparar värdet
+	const sparadNamn = localStorage.getItem("namn");
+	console.log(sparadNamn)
+	let newName = document.createElement('div')
+	newName.innerText = sparadNamn
+	userNameField.appendChild(newName)
+}
+
+
+// nameInput.addEventListener("change", (event) => {
+// 	const namn = event.target.value; //hämta värdet från input
+//     localStorage.setItem("namn", namn); // sparar värdet
+// 	const sparadNamn = localStorage.getItem("namn");
+// 	if (sparadNamn) {
+// 		nameInput.value = sparadNamn; //om någon data finns sparat
+// 	}
+// });
+/* 
+
+
+
+
+ // väljer ut slumpat ord när man trycker på lätt knappen!
+/* lättButton.addEventListener('click', () => {
+
+const easywords = words.filter((word) => word.length > 14)
+const randomWord = Math.floor(Math.random() * easywords.length);
+const valdaOrd = easywords[randomWord];
+console.log(valdaOrd)
+})      
+*/
+
+/*
+mediumButton.addEventListener('click', () => {
+if (mediumButton) {
+const chosenWord = mediumwords[randomInt(mediumwords.length)]
+}
+
+console.log(mediumwords)
+})
+
+
+
+
+svårButton.addEventListener('click', () => {
+if (svårButton) {
+
+}
+
+console.log(hardwords)
+})
+
+
+
+
+/*
+buttonStart.addEventListener('click', () => {
+
+})
+buttonHighscore.addEventListener('click', () => {
+
+})
+*/ 
+>>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 
 
 // Alfabetet i en lista: 
@@ -193,7 +286,8 @@ window.addEventListener('keyup', e => {
 			}
 			})
 			correctGuess++
-		}else{
+		}
+		else{
 			incorrectGuess++
 			console.log(incorrectGuess)
 			if (incorrectGuess === 1){
@@ -211,10 +305,13 @@ window.addEventListener('keyup', e => {
 				legsGubbe.classList.remove('invisible')
 				gameover.classList.add('visible'); //Gameover popup!!!
 				gameoverButton.classList.add('visible')
+<<<<<<< HEAD
 				
 				// totalGuess = incorrectGuess + correctGuess
+=======
+				totalGuess = incorrectGuess + correctGuess
+>>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 			}
-			console.log(dashes)
 	}
 })
 }
