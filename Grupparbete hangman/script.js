@@ -166,18 +166,21 @@ function startGame(){
 lättButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = easywords[randomInt(easywords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
 mediumButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = mediumwords[randomInt(mediumwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
 svårButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = hardwords[randomInt(hardwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
