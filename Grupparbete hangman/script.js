@@ -21,8 +21,8 @@ let nameInput = document.getElementById('input-Name');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
 const viewStart = document.querySelector('#startview');
-const viewPlay = document.querySelector('#playView');
-const labelName = document.querySelector('#labelForName');
+const viewPlay = document.querySelector('.playView');
+const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
 const tangentbord = document.querySelector('#keyboard-container');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
@@ -38,6 +38,7 @@ startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
+labelName.classList.add('hidden');
 }
 });
 
@@ -47,13 +48,16 @@ startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
+labelName.classList.add('hidden');
 }
 });
 
 buttonBack.addEventListener('click', () => {
+	
 	if (buttonBack){
 	startForButtonDiv.classList.add('visible')
 	highScoreDiv.classList.add('visible')
+
 	}
 })
 
@@ -64,6 +68,8 @@ lättButton.addEventListener('click', () => {
 if (svårighetsgradDiv) {
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
+labelName.classList.add('hidden');
+highScoreDiv.classList.add('hidden'); 
 const easywords = words.filter((word) => word.length > 14)
 const randomWord = Math.floor(Math.random() * easywords.length);
 const valdaOrd = easywords[randomWord];
@@ -81,38 +87,11 @@ const sparadNamn = localStorage.getItem("namn");
 	}
 });
 /* 
-// Fel gissningar  / lägga till så den hamnar i scorescreen
-let incorrectGuess = 0;
-let correctGuess = 0;
-
-
-function handleIncorrectGuess() {
-	incorrectGuess ++;
-if (correctGuess === true) {
-	//slumpade bokstäverna, rätt 
-} else if (incorrectGuess === true) {
-	//slumpade bokstäverna, fel
-}
-}
 
 
 
 
- let tries = 0;
- while (true) {
-	let guesses = prompt;
-tries ++;
- 
- if (guesses === countGuess){
-	//ändra färg grönt 
- }else {
-	//ändra färgen till rött
- }
- }
- */ 
-
-
- // väljer ut slumpat ord när man trycker på lätt knappen!!!
+ // väljer ut slumpat ord när man trycker på lätt knappen!
 /* lättButton.addEventListener('click', () => {
 
 const easywords = words.filter((word) => word.length > 14)
@@ -178,10 +157,7 @@ const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","
 // variabeln heter: words för hela listan med alla ord: const words
 
 
-function randomInt(max) {
-    return Math.floor(Math.random() * max);
-} 
-
+const randomInt = max => Math.floor(Math.random() * max);
 
 
 
@@ -197,7 +173,7 @@ const headGubbe = document.querySelector('#head')
 
 //Slumpar fram ett ord ur easywords-listan, skapa dashes ('_ _ _'), och ersätt dashes med bokstäver
 //när man trycker på rätt tangent:
-
+let incorrectGuess = 0; // variabeln för att räkna antal fel gissningar 
 const chosenWord = easywords[randomInt(easywords.length)]
 
 let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
@@ -213,19 +189,25 @@ window.addEventListener('keyup', e => {
 			} 
 		})
 	}
+
+incorrectGuess ++;
+
+ // lägga in när användaren gjort av med alla chanser " Game over"
+if (incorrectGuess === 0){
+	scaffoldGubbe.style.display = 'block';
+	} else if (incorrectGuess === 1) {             //om fel gissning 1 
+	headGubbe.style.display = 'block';//skriver ut huvudet genom skapad css klass block
+} else if(incorrectGuess === 2){
+	bodyGubbe.style.display ='block';
+}	else if (incorrectGuess === 3) {
+	armsGubbe.style.display = 'block';
+} else if (incorrectGuess === 4){
+	legsGubbe.style.display = 'block';
+} else if (incorrectGuess === 5){
+	console.log('Gameover')   // ändra med gameover View! 
+}
+
 })
-
-
-
-
-//funktion för felaktiga & rätta bokstäver 
-// Vid klickning av " tips/hint : ta bort 2 bokstäver - gråfärg"
-// rätt = grönt, fel= rött    "disable"
-// Antal gissningar : 
-// gissningar = 0
-// gissningar += 1 
-// skriver ut variabeln:
-// console.log ("Du gjorde " + (tries) + "Gissningar")
 
 
 
