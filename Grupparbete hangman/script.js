@@ -22,6 +22,7 @@ const viewStart = document.querySelector('#startview');
 const viewPlay = document.querySelector('.playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
+const buttonBack2 = document.querySelector('#backButton2');
 const tangentbord = document.querySelector('#keyboard-container');
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
@@ -74,7 +75,7 @@ labelName.classList.add('hidden');
 highScoreWindow.classList.remove('hidden');
 
 // göra en highscore div som sparar & visar namnen! 
-// det gamla spelet måste börja på 0 när man trycker på "kör igen"
+
 }
 });
 
@@ -93,30 +94,19 @@ startMeny.classList.add('visible')
 
 
 
-
 tryagainButton.addEventListener('click', () =>{
 if (tryagainButton) {
 startForButtonDiv.classList.remove('hidden');
 svårighetsgradDiv.classList.add('hidden');
 gameover.classList.remove('visible');
 gameoverButton.classList.remove('visible');
+highScoreDiv.classList.remove('hidden');
 
-} else if (buttonBack) {
-	highScoreWindow.classList.add('hidden')
-	startForButtonDiv.classList.remove('hidden');
-	highScoreDiv.classList.remove('hidden');
-gameover.classList.add('hidden');
-gameoverButton.classList.add('hidden');
-startMeny.classList.add('visible')
-}
+
+} 
 })
 
 
-
-
-
-
-// Sparar 1 namn än sålänge,lokalt ! 
 
 nameInput.addEventListener("change", (event) => {
 	const namn = event.target.value; //hämta värdet från input
@@ -127,52 +117,6 @@ const sparadNamn = localStorage.getItem("namn");
 		nameInput.value = sparadNamn; //om någon data finns sparat
 	}
 });
-/* 
-
-
-
-
- // väljer ut slumpat ord när man trycker på lätt knappen!
-/* lättButton.addEventListener('click', () => {
-
-const easywords = words.filter((word) => word.length > 14)
-const randomWord = Math.floor(Math.random() * easywords.length);
-const valdaOrd = easywords[randomWord];
-console.log(valdaOrd)
-})      
-*/
-
-/*
-mediumButton.addEventListener('click', () => {
-if (mediumButton) {
-const chosenWord = mediumwords[randomInt(mediumwords.length)]
-}
-
-console.log(mediumwords)
-})
-
-
-
-
-svårButton.addEventListener('click', () => {
-if (svårButton) {
-
-}
-
-console.log(hardwords)
-})
-
-
-
-
-/*
-buttonStart.addEventListener('click', () => {
-
-})
-buttonHighscore.addEventListener('click', () => {
-
-})
-*/ 
 
 
 // Alfabetet i en lista: 
@@ -268,8 +212,6 @@ window.addEventListener('keyup', e => {
 				gameover.classList.add('visible'); //Gameover popup!!!
 				gameoverButton.classList.add('visible')
 				
-				// Ser antagligen ut ungefär så här:
-				// gameOverView.classList.add('visible')
 				// totalGuess = incorrectGuess + correctGuess
 			}
 			console.log(dashes)
