@@ -260,6 +260,45 @@ body {
 	visibility: hidden;
 }
 
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg)}
+    100%{-webkit-transform: rotate(10deg);}
+}
+ 
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(10deg);}
+}
+ 
+#head{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 75% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards 2;
+    animation: swinging 3.5s ease-in-out forwards 2;
+}
+
+#body{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 75% 0;
+    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
+    animation: swinging 3.4s ease-in-out forwards 2;
+}
+
+#arms{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 75% 0;
+    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
+    animation: swinging 3.4s ease-in-out forwards 2;
+}
+
+#legs{
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 75% 0;
+    -webkit-animation: swinging 3.4s ease-in-out forwards 2;
+    animation: swinging 3.4s ease-in-out forwards 2;
+}
 
 /*Visa funktion för knapparna */
 .visible {
