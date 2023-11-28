@@ -19,19 +19,22 @@ let nameInput = document.getElementById('input-Name');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
 const viewStart = document.querySelector('#startview');
-const viewPlay = document.querySelector('.playView');
+const viewPlay = document.querySelector('#playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
+const buttonBack2 = document.querySelector('#backButton2');
 const tangentbord = document.querySelector('.keyboard-container');
 const tangent = document.querySelectorAll('.key')
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
-const gameover = document.querySelector('.gameover') //gameover meny
+const gameover = document.querySelector('.gameover') //gameoverdiv
 const tryagainButton = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
 const userNameField = document.querySelector('.user-name')
+const divHighscore = document.querySelector('#highscorediv') //highscoreknapp i div
+
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -54,9 +57,18 @@ svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, till
 highScoreWindow.classList.add('hidden'); //highscore div
 gameover.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
-startMeny.classList.add('visible')
+startMeny.classList.add('visible');
+// ViewGameover.classList.add('hidden'); //gameover menyn
 
 buttonStart.addEventListener('click', () => {
+if (buttonStart) {
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.remove('hidden');
+highScoreDiv.classList.add('hidden'); 
+labelName.classList.add('hidden');
+sparaNamn()
+startMeny.classList.add('visible')
+}
 	if (buttonStart) {
 		startForButtonDiv.classList.add('hidden');
 		svårighetsgradDiv.classList.add('visible');
@@ -69,7 +81,19 @@ buttonStart.addEventListener('click', () => {
 });
 
 
+StartView  //startview
+viewPlay //playview
+
+
+
 buttonHighscore.addEventListener('click', () => {
+if (buttonHighscore){
+startForButtonDiv.classList.add('hidden');
+svårighetsgradDiv.classList.add('hidden');
+highScoreDiv.classList.add('hidden'); 
+startMeny.classList.add('hidden');
+labelName.classList.add('hidden');
+highScoreWindow.classList.remove('hidden');
 	if (buttonHighscore){
 	startForButtonDiv.classList.add('hidden');
 	svårighetsgradDiv.classList.add('hidden');
@@ -94,11 +118,8 @@ buttonBack.addEventListener('click', () => {
 gameover.classList.add('hidden');
 gameoverButton.classList.add('hidden');
 startMeny.classList.add('visible')
-	console.log('Test')
     }
 })
-
-
 
 
 tryagainButton.addEventListener('click', () =>{
@@ -162,38 +183,6 @@ console.log(valdaOrd)
 })      
 */
 
-/*
-mediumButton.addEventListener('click', () => {
-if (mediumButton) {
-const chosenWord = mediumwords[randomInt(mediumwords.length)]
-}
-
-console.log(mediumwords)
-})
-
-
-
-
-svårButton.addEventListener('click', () => {
-if (svårButton) {
-
-}
-
-console.log(hardwords)
-})
-
-
-
-
-/*
-buttonStart.addEventListener('click', () => {
-
-})
-buttonHighscore.addEventListener('click', () => {
-
-})
-*/ 
-
 
 // Alfabetet i en lista: 
 const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Å","Ä", "Ö"];
@@ -223,13 +212,13 @@ function startGame(){
 	bodyGubbe.classList.add('invisible')
 	headGubbe.classList.add('invisible')
 	startForButtonDiv.classList.add('hidden');
-	svårighetsgradDiv.classList.add('hidden');
-	svårighetsgradText.classList.remove('visible') 
+	svårighetsgradDiv.classList.add('hidden'); 
 	correctGuess = 0
 	incorrectGuess = 0
 	totalGuess = 0
 	guessArray = []
 }
+
 
 lättButton.addEventListener('click', () => {
 	startGame()
