@@ -346,27 +346,35 @@ body {
 #head {
 	-webkit-transform-origin: 50% 0;
 	transform-origin: 75% 0;
-	-webkit-animation: swinging 3.5s ease-in-out forwards 2;
-	animation: swinging 3.5s ease-in-out forwards 2;
+	-webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
 #body {
 	-webkit-transform-origin: 50% 0;
 	transform-origin: 75% 0;
-	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
-	animation: swinging 3.4s ease-in-out forwards 2;
+	-webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
 #arms {
 	-webkit-transform-origin: 50% 0;
 	transform-origin: 75% 0;
-	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
-	animation: swinging 3.4s ease-in-out forwards 2;
+	-webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
 #legs {
 	-webkit-transform-origin: 50% 0;
 	transform-origin: 75% 0;
-	-webkit-animation: swinging 3.4s ease-in-out forwards 2;
-	animation: swinging 3.4s ease-in-out forwards 2;
+	-webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+	animation: swinging 3.5s ease-in-out forwards infinite;
+}
+
+.correct{
+	background-color: green;
+}
+
+.incorrect{
+	background-color: red;
 }
