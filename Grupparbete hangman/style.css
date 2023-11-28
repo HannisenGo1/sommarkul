@@ -69,9 +69,6 @@ font-family: 'Franklin Gothic Medium',
 		font-size: 1.2em;
 } */ 
 
-.svårighetsgrad>button {
-	
-}
 
 
 #buttonLätt, 
@@ -84,7 +81,6 @@ font-family: 'Franklin Gothic Medium',
 
 #buttonLätt {
 	background-color: rgb(129, 196, 29);
-	
 }
 
 #buttonLätt:hover {
@@ -111,15 +107,15 @@ font-family: 'Franklin Gothic Medium',
 
 .startOchHigh{
 	display: flex;
-	gap: 1em;
 	flex-direction: row;
+	gap: 1em;
+
 } 
 
 .buttonForStart,
 .highscorediv {
 	display: flex;
 	padding: 1em;
-	flex-direction: column;
 	gap: 1em;
 }
 /* Text för input namnen*/
@@ -138,8 +134,8 @@ font-family: 'Franklin Gothic Medium',
 	position: absolute;
 	left: 5%;
 	top: 20%;
-	background-color: rgb(232, 128, 62);
-	border: 5px solid darkred;
+    background-color: rgb(214, 246, 241);
+	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
 
@@ -182,9 +178,7 @@ font-family: 'Franklin Gothic Medium',
 
 
 /* playView */
-#playView {
 
-}
 .playViewButton {
 	display: flex;
 	padding: 1em;
@@ -228,8 +222,8 @@ font-family: 'Franklin Gothic Medium',
 	position: absolute;
 	left: 5%;
 	top: 20%;
-	background-color: rgb(232, 128, 62);		
-	border: 5px solid darkred;
+	background-color: rgb(214, 246, 241);		
+	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 
 }
@@ -247,6 +241,15 @@ font-family: 'Franklin Gothic Medium',
 
 #tryagainButton:hover {
 	background-color: grey;
+}
+#backButton2 {
+	background-color: lightgrey;
+	border-radius: 1.5em;
+	margin-left: 13em;
+}
+
+#backButton2:hover {
+	background-color: gray;
 }
 
 #highscoreButton2 {
@@ -278,12 +281,13 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-.keyboard-container {
+#keyboard-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
 	border: solid 1px #000;
 	gap: 8px;
 	padding: 2em;
+
 }
 
 .key {
@@ -308,6 +312,13 @@ body {
 /* Dölj-funktion för gubben; existerar fortfarande, men gömd */
 .invisible{
 	visibility: hidden;
+}
+
+.incorrect {
+	color:red;
+}
+.correct {
+	color:green;
 }
 
 
