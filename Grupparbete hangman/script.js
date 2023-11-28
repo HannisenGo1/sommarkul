@@ -19,24 +19,22 @@ let nameInput = document.getElementById('input-Name');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
 const viewStart = document.querySelector('#startview');
-const viewPlay = document.querySelector('.playView');
+const viewPlay = document.querySelector('#playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
-<<<<<<< HEAD
-const buttonBack2 = document.querySelector('#backButton2');
-const tangentbord = document.querySelector('#keyboard-container');
-=======
 const tangentbord = document.querySelector('.keyboard-container');
 const tangenter = document.querySelector('.key')
->>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
-const gameover = document.querySelector('.gameover') //gameover meny
+const gameover = document.querySelector('.gameover') //gameoverdiv
+const ViewGameover = document.querySelector('#gameoverView') //gameover meny section
 const tryagainButton = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
 const userNameField = document.querySelector('.user-name')
+const divHighscore = document.querySelector('#highscorediv') //highscoreknapp i div
+
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -58,12 +56,13 @@ svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, till
 highScoreWindow.classList.add('hidden'); //highscore div
 gameover.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
-startMeny.classList.add('visible')
+startMeny.classList.add('visible');
+// ViewGameover.classList.add('hidden'); //gameover menyn
 
 buttonStart.addEventListener('click', () => {
 if (buttonStart) {
 startForButtonDiv.classList.add('hidden');
-svårighetsgradDiv.classList.add('visible');
+svårighetsgradDiv.classList.remove('hidden');
 svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 labelName.classList.add('hidden');
@@ -71,6 +70,11 @@ sparaNamn()
 startMeny.classList.add('visible')
 }
 });
+
+
+StartView  //startview
+viewPlay //playview
+
 
 
 buttonHighscore.addEventListener('click', () => {
@@ -104,41 +108,22 @@ startMeny.classList.add('visible')
 
 
 tryagainButton.addEventListener('click', () =>{
+	if(tryagainButton) { 
 startForButtonDiv.classList.remove('hidden');
 svårighetsgradDiv.classList.add('hidden');
 gameover.classList.remove('visible');
 gameoverButton.classList.remove('visible');
-<<<<<<< HEAD
-highScoreDiv.classList.remove('hidden');
+buttonHighscore.classList.remove('visible');
+startMeny.classList.add('visible');
 
-
-} 
-=======
-})
-
-buttonBack.addEventListener('click', () =>{
-	highScoreWindow.classList.add('hidden')
-	startForButtonDiv.classList.remove('hidden');
-	highScoreDiv.classList.remove('hidden');
-gameover.classList.add('hidden');
-gameoverButton.classList.add('hidden');
-startMeny.classList.add('visible')
->>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
+}
 })
 
 
 
-<<<<<<< HEAD
-nameInput.addEventListener("change", (event) => {
-	const namn = event.target.value; //hämta värdet från input
 
-    localStorage.setItem("namn", namn); // sparar värdet
-const sparadNamn = localStorage.getItem("namn");
-	if (sparadNamn) {
-		nameInput.value = sparadNamn; //om någon data finns sparat
-	}
-});
-=======
+
+
 
 
 
@@ -209,7 +194,6 @@ buttonHighscore.addEventListener('click', () => {
 
 })
 */ 
->>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 
 
 // Alfabetet i en lista: 
@@ -305,20 +289,11 @@ window.addEventListener('keyup', e => {
 				legsGubbe.classList.remove('invisible')
 				gameover.classList.add('visible'); //Gameover popup!!!
 				gameoverButton.classList.add('visible')
-<<<<<<< HEAD
-				
-				// totalGuess = incorrectGuess + correctGuess
-=======
 				totalGuess = incorrectGuess + correctGuess
->>>>>>> 840e87044539b5cb7f3112b00ebd484359b7510c
 			}
 	}
 })
 }
-
-
-
-
 
 
 //gameoverView 
