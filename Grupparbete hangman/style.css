@@ -6,7 +6,7 @@
 	}
 }
 
-main{
+main, body{
 	background-image: url("blue.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -60,17 +60,6 @@ justify-content: space-around;
 }
 
 
-/* .svårighetsgradText {
-margin: 1em;
-font-family: 'Franklin Gothic Medium',
-		'Arial Narrow',
-		Arial,
-		sans-serif;
-		font-size: 1.2em;
-} */ 
-
-
-
 #buttonLätt, 
 #buttonMedium,
 #buttonSvår {
@@ -109,6 +98,7 @@ font-family: 'Franklin Gothic Medium',
 	display: flex;
 	flex-direction: row;
 	gap: 1em;
+	flex-direction: space-around;
 
 } 
 
@@ -139,18 +129,17 @@ font-family: 'Franklin Gothic Medium',
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
 
-.buttonForStart>button,
-.highscorediv > button {
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	width: 18em;
-	height: 4em;
-}
+
 
 #startButton, 
 #highscoreButton {
 	background-color: lightgrey;
 	border-radius: 1.5em;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		width: 18em;
+		height: 4em;
 	
+	display: inline-block;
 }
 #startButton:hover,
 #highscoreButton:hover{
@@ -277,7 +266,6 @@ body {
 	align-items: center;
 	padding: 2em;
 	margin: 0;
-	background-color: rgb(255, 249, 253);
 	font-family: Arial, sans-serif;
 }
 

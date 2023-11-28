@@ -22,14 +22,13 @@ const viewStart = document.querySelector('#startview');
 const viewPlay = document.querySelector('#playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
+const buttonBack2 = document.querySelector('#backButton2');
 const tangentbord = document.querySelector('.keyboard-container');
 const tangenter = document.querySelector('.key')
-const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
 const gameover = document.querySelector('.gameover') //gameoverdiv
-const ViewGameover = document.querySelector('#gameoverView') //gameover meny section
 const tryagainButton = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
 const userNameField = document.querySelector('.user-name')
@@ -63,7 +62,6 @@ buttonStart.addEventListener('click', () => {
 if (buttonStart) {
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.remove('hidden');
-svårighetsgradText.classList.add('visible');
 highScoreDiv.classList.add('hidden'); 
 labelName.classList.add('hidden');
 sparaNamn()
@@ -81,7 +79,6 @@ buttonHighscore.addEventListener('click', () => {
 if (buttonHighscore){
 startForButtonDiv.classList.add('hidden');
 svårighetsgradDiv.classList.add('hidden');
-svårighetsgradText.classList.add('hidden');
 highScoreDiv.classList.add('hidden'); 
 startMeny.classList.add('hidden');
 labelName.classList.add('hidden');
@@ -101,29 +98,18 @@ buttonBack.addEventListener('click', () => {
 gameover.classList.add('hidden');
 gameoverButton.classList.add('hidden');
 startMeny.classList.add('visible')
-	console.log('Test')
     }
 })
 
 
-
 tryagainButton.addEventListener('click', () =>{
-	if(tryagainButton) { 
 startForButtonDiv.classList.remove('hidden');
 svårighetsgradDiv.classList.add('hidden');
 gameover.classList.remove('visible');
 gameoverButton.classList.remove('visible');
 buttonHighscore.classList.remove('visible');
 startMeny.classList.add('visible');
-
-}
-})
-
-
-
-
-
-
+ })
 
 
 
@@ -163,38 +149,6 @@ console.log(valdaOrd)
 })      
 */
 
-/*
-mediumButton.addEventListener('click', () => {
-if (mediumButton) {
-const chosenWord = mediumwords[randomInt(mediumwords.length)]
-}
-
-console.log(mediumwords)
-})
-
-
-
-
-svårButton.addEventListener('click', () => {
-if (svårButton) {
-
-}
-
-console.log(hardwords)
-})
-
-
-
-
-/*
-buttonStart.addEventListener('click', () => {
-
-})
-buttonHighscore.addEventListener('click', () => {
-
-})
-*/ 
-
 
 // Alfabetet i en lista: 
 const alfabetet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Å","Ä", "Ö"];
@@ -220,12 +174,13 @@ function startGame(){
 	bodyGubbe.classList.add('invisible')
 	headGubbe.classList.add('invisible')
 	startForButtonDiv.classList.add('hidden');
-	svårighetsgradDiv.classList.add('hidden');
-	svårighetsgradText.classList.remove('visible') 
+	svårighetsgradDiv.classList.add('hidden'); 
 	correctGuess = 0
 	incorrectGuess = 0
 	totalGuess = 0
+	//lägg in maxgissningar 
 }
+
 
 lättButton.addEventListener('click', () => {
 	startGame()
