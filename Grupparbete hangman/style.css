@@ -275,7 +275,7 @@ body {
 	border: solid 1px #000;
 	gap: 8px;
 	padding: 2em;
-
+	margin-top: 3em;
 }
 
 .key {
@@ -376,4 +376,13 @@ body {
 
 .incorrect{
 	background-color: red;
+}
+
+.game-over-word-was{
+	font-size: 26px;
+	margin-left: 5em;
+}
+.show-word{
+	font-size: 32px;
+	margin-left: 3em;
 }
