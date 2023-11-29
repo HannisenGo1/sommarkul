@@ -269,7 +269,7 @@ body {
 	font-family: Arial, sans-serif;
 }
 
-#keyboard-container {
+.keyboard-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
 	border: solid 1px #000;

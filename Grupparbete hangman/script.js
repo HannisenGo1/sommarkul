@@ -69,15 +69,6 @@ labelName.classList.add('hidden');
 sparaNamn()
 startMeny.classList.add('visible')
 }
-	if (buttonStart) {
-		startForButtonDiv.classList.add('hidden');
-		svårighetsgradDiv.classList.add('visible');
-		svårighetsgradText.classList.add('visible');
-		highScoreDiv.classList.add('hidden'); 
-		labelName.classList.add('hidden');
-		sparaNamn()
-		startMeny.classList.add('visible')
-	}
 });
 
 
@@ -107,7 +98,7 @@ highScoreWindow.classList.remove('hidden');
 	// det gamla spelet måste börja på 0 när man trycker på "kör igen"
 	}
 	}
-);
+});
 
 
 buttonBack.addEventListener('click', () => {
