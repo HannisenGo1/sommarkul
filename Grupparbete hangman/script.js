@@ -24,13 +24,12 @@ const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
 const buttonBack2 = document.querySelector('#backButton2');
 const tangentbord = document.querySelector('.keyboard-container');
-const tangent = document.querySelectorAll('.key')
-const svårighetsgradText = document.querySelector('.svårighetsgradText');
+const tangenter = document.querySelector('.key')
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
-const gameover = document.querySelector('.gameover') //gameoverdiv
-const tryagainButton = document.querySelector('#tryagainButton'); //igen knapp
+const gameOver = document.querySelector('.gameover') //gameoverdiv
+const försökIgenKnapp = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
 const userNameField = document.querySelector('.user-name')
 const divHighscore = document.querySelector('#highscorediv') //highscoreknapp i div
@@ -45,7 +44,6 @@ let correctGuess = 0
 let totalGuess = 0
 let userName = ''
 let sparadNamn = ''
-let gameState = 'start-view'
 const startForButtonDiv = document.querySelector('.buttonForStart');
 const highScoreDiv = document.querySelector('.highscorediv');
 const easywords = words.filter((word) => word.length > 14)
@@ -55,91 +53,57 @@ const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
 highScoreWindow.classList.add('hidden'); //highscore div
-gameover.classList.add('hidden');  //gameover view 
+gameOver.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
-startMeny.classList.add('visible');
-// ViewGameover.classList.add('hidden'); //gameover menyn
 
-buttonStart.addEventListener('click', () => {
-if (buttonStart) {
-startForButtonDiv.classList.add('hidden');
-svårighetsgradDiv.classList.remove('hidden');
-highScoreDiv.classList.add('hidden'); 
-labelName.classList.add('hidden');
-sparaNamn()
-startMeny.classList.add('visible')
-}
+
+// FIXA ALLA KNAPPAR SÅ ATT DET FUNKAR I GAMEOVER MENYN ! 
+// KOLLA CSSEN OCH SNYGGA TILL ! 
+// 
+
+// Funktion när man trycker på Starta här knappen !  Fungerar ! 
+function functionKnappar() {
 	if (buttonStart) {
-		startForButtonDiv.classList.add('hidden');
-		svårighetsgradDiv.classList.add('visible');
-		svårighetsgradText.classList.add('visible');
-		highScoreDiv.classList.add('hidden'); 
-		labelName.classList.add('hidden');
-		sparaNamn()
-		startMeny.classList.add('visible')
+		svårighetsgradDiv.classList.remove('hidden');
+		labelName.classList.add('hidden')
+		sparaNamn();
+		startMeny.classList.add ('hidden');
+		gameOver.classList.add('hidden');
 	}
-});
+}
+buttonStart.addEventListener('click', functionKnappar );
 
 
-StartView  //startview
-viewPlay //playview
+// Highscore diven , lägga till input name & localstorage med date,tid och incorrect eller correct gissning ! 
 
-
-
-buttonHighscore.addEventListener('click', () => {
-if (buttonHighscore){
-startForButtonDiv.classList.add('hidden');
-svårighetsgradDiv.classList.add('hidden');
-highScoreDiv.classList.add('hidden'); 
-startMeny.classList.add('hidden');
-labelName.classList.add('hidden');
-highScoreWindow.classList.remove('hidden');
-	if (buttonHighscore){
-	startForButtonDiv.classList.add('hidden');
+// Fungerar när man trycker på highscore !!! 
+function showHighscore() {
 	svårighetsgradDiv.classList.add('hidden');
-	svårighetsgradText.classList.add('hidden');
-	highScoreDiv.classList.add('hidden'); 
-	startMeny.classList.add('hidden');
+	startMeny.classList.add('hidden')
 	labelName.classList.add('hidden');
 	highScoreWindow.classList.remove('hidden');
+}
+buttonHighscore.addEventListener('click', showHighscore);
 
-	// göra en highscore div som sparar & visar namnen! 
-	// det gamla spelet måste börja på 0 när man trycker på "kör igen"
-	}
-	}
-);
-
-
-buttonBack.addEventListener('click', () => {
-    if (buttonBack){
-    highScoreWindow.classList.add('hidden')
-	startForButtonDiv.classList.remove('hidden');
-	highScoreDiv.classList.remove('hidden');
-gameover.classList.add('hidden');
-gameoverButton.classList.add('hidden');
-startMeny.classList.add('visible')
-    }
-})
-
-
-tryagainButton.addEventListener('click', () =>{
-	startForButtonDiv.classList.remove('hidden');
-	svårighetsgradDiv.classList.add('hidden');
-	gameover.classList.remove('visible');
-	gameoverButton.classList.remove('visible');
-})
-
-buttonBack.addEventListener('click', () =>{
+//fungerar när man trycker tillbaka i highscore menyn ! 
+function tillbakaKnappen() {
 	highScoreWindow.classList.add('hidden')
-	startForButtonDiv.classList.remove('hidden');
-	highScoreDiv.classList.remove('hidden');
-gameover.classList.add('hidden');
-gameoverButton.classList.add('hidden');
-startMeny.classList.add('visible')
-})
+    gameOver.classList.add('hidden');
+    gameoverButton.classList.add('hidden');
+    startMeny.classList.add('visible')
+}
+buttonBack.addEventListener('click', tillbakaKnappen)
+buttonBack2.addEventListener('click', tillbakaKnappen)
 
-
-
+// fungerar när man trycker på kör igen knappen
+function körIgenKnappen() {
+gameOver.classList.remove('visible');
+svårighetsgradDiv.classList.add('hidden');
+gameoverButton.classList.remove('visible');
+buttonHighscore.classList.remove('visible');
+startMeny.classList.add('visible');
+}
+ försökIgenKnapp.addEventListener('click', körIgenKnappen)
 
 
 
@@ -155,10 +119,6 @@ function sparaNamn(){
 	userNameField.appendChild(newName)
 }
 
-// const gameState = {
-// 	playerName: 'David',
-// 	scores: []  // { name, correctGuesses, incorrectGuesses, ... }
-// }
 
 // nameInput.addEventListener("change", (event) => {
 // 	const namn = event.target.value; //hämta värdet från input
@@ -168,20 +128,10 @@ function sparaNamn(){
 // 		nameInput.value = sparadNamn; //om någon data finns sparat
 // 	}
 // });
-/* 
 
 
 
 
- // väljer ut slumpat ord när man trycker på lätt knappen!
-/* lättButton.addEventListener('click', () => {
-
-const easywords = words.filter((word) => word.length > 14)
-const randomWord = Math.floor(Math.random() * easywords.length);
-const valdaOrd = easywords[randomWord];
-console.log(valdaOrd)
-})      
-*/
 
 
 // Alfabetet i en lista: 
@@ -200,35 +150,32 @@ const legsGubbe = document.querySelector('#legs')
 const armsGubbe = document.querySelector('#arms')
 const bodyGubbe = document.querySelector('#body')
 const headGubbe = document.querySelector('#head')
-// const gubbe = { scaffold, legs, arms, body, head }
-// gubbe.legs
-// let gubbe = [scaffold, legs, arms, .. ]
 
 function startGame(){
-	gameState = 'game-view'
 	scaffoldGubbe.classList.add('invisible')
 	legsGubbe.classList.add('invisible')
 	armsGubbe.classList.add('invisible')
 	bodyGubbe.classList.add('invisible')
-	headGubbe.classList.add('invisible')
-	startForButtonDiv.classList.add('hidden');
-	svårighetsgradDiv.classList.add('hidden'); 
+	headGubbe.classList.add('invisible') 
 	correctGuess = 0
 	incorrectGuess = 0
 	totalGuess = 0
-	guessArray = []
+	//lägg in maxgissningar 
 }
 
 
 lättButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = easywords[randomInt(easywords.length)]
+	svårighetsgradDiv.classList.remove('visible');
+	buttonBack.classList.add('visible'); 
 	gameplay()
 })
 
 mediumButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = mediumwords[randomInt(mediumwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 	
 })
@@ -236,70 +183,31 @@ mediumButton.addEventListener('click', () => {
 svårButton.addEventListener('click', () => {
 	startGame()
 	chosenWord = hardwords[randomInt(hardwords.length)]
+	svårighetsgradDiv.classList.remove('visible');
 	gameplay()
 })
 
 //Skapar dashes ('_ _ _'), och ersätter dashes med bokstäver
 //när man trycker på rätt tangent:
 
-let guessArray = []
-
-// Helig David-text; vårda med omsorg
-
-function checkIfVictory(guesses, secretLetters) {
-	// guesses: lista med strängar, varje sträng är en bokstav
-	// secretLetters: lista med strängar, varje är en bokstav
-	for( let i=0; i<secretLetters.length; i++ ) {
-		let letter = secretLetters[i]
-		// Har vi gissat på den här bokstaven?
-		if( guessArray.includes(letter) ) {
-			// Bra, letter fanns. Kolla nästa
-		}
-		else {
-			// Aj då! Bokstaven har inte blivit gissat på!
-			return false
-		}
-	}
-	return true
-}
-
 function gameplay(){
 let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
 const submissionField = document.getElementById('line-form')
 submissionField.innerHTML = displayedWord
 window.addEventListener('keyup', e => {
-	console.log('keyup', e.key, gameState);
-	if (gameState != 'game-view'){
-		return
-	}
 	let wordArray = chosenWord.split("")
 	let dashes = document.getElementsByClassName('dash')
 	if (wordArray.includes(e.key)){
-		tangent.forEach(t => {
-			if (t.innerText === (e.key).toUpperCase()) {
-					t.classList.add('correct')
-					}
-				})
-				wordArray.forEach((letter, index) => {
-					if (letter.toUpperCase() === e.key.toUpperCase()) {
-						dashes[index].innerText = letter.toUpperCase()
-					}
-				})
-				correctGuess++
-				guessArray.push(e.key)
+		wordArray.forEach((letter, index) => {
+			if (letter === e.key){
+				dashes[index].innerText = letter
 			}
-			else if (guessArray.includes(e.key)){
-				e.preventDefault()
-			}
-			else{
-			//const felTangent = ?
-			tangent.forEach(t => {
-				if (t.innerText === (e.key).toUpperCase()) {
-						t.classList.add('incorrect')
-						}
-					})
+			})
+			correctGuess++
+		}
+		else{
 			incorrectGuess++
-			guessArray.push(e.key)
+			console.log(incorrectGuess)
 			if (incorrectGuess === 1){
 				scaffoldGubbe.classList.remove('invisible')
 			}
@@ -313,22 +221,13 @@ window.addEventListener('keyup', e => {
 				armsGubbe.classList.remove('invisible')
 			}else{
 				legsGubbe.classList.remove('invisible')
-				gameover.classList.add('visible'); //Gameover popup!!!
+				gameOver.classList.add('visible'); //Gameover popup!!!
 				gameoverButton.classList.add('visible')
-				tangent.forEach(t => {
-						t.classList.remove('correct')
-						t.classList.remove('incorrect')
-					})
-					gameState = 'game-over-view'
+				totalGuess = incorrectGuess + correctGuess
 			}
 	}
 })
 }
-
-// function updateGubbeIncorrectGuess() {}
-// function updateGubbeCorrectGuess() {}
-
-
 
 
 //gameoverView 
