@@ -56,7 +56,6 @@ svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, till
 highScoreWindow.classList.add('hidden'); //highscore div
 gameOver.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
-startMeny.classList.add('visible');
 // ViewGameover.classList.add('hidden'); //gameover menyn
 
 function functionKnappar() {
@@ -64,7 +63,7 @@ function functionKnappar() {
 		svårighetsgradDiv.classList.remove('hidden');
 		labelName.classList.add('hidden')
 		sparaNamn();
-		startMeny.classList.add ('hidden');
+		startMeny.classList.add('hidden');
 		gameOver.classList.add('hidden');
 	}
 }
