@@ -73,6 +73,18 @@ svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, till
 highScoreWindow.classList.add('hidden'); //highscore div
 gameOver.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
+<<<<<<< HEAD
+// ViewGameover.classList.add('hidden'); //gameover menyn
+
+function functionKnappar() {
+	if (buttonStart) {
+		svårighetsgradDiv.classList.remove('hidden');
+		labelName.classList.add('hidden')
+		sparaNamn();
+		startMeny.classList.add('hidden');
+		gameOver.classList.add('hidden');
+	}
+=======
 startMeny.classList.add('visible');
 tangentbord.classList.add('hidden');
 sortButtonGuess.classList.add('hidden')
@@ -88,6 +100,7 @@ function hideAll(){
 	tangentbord.classList.add('hidden')
 	submissionField.classList.add('hidden')
 	highScoreWindow.classList.add('hidden');
+>>>>>>> 7ce0e4b56e87be9d86a8255c93191197114eaac3
 }
 
 buttonStart.addEventListener('click', () =>{

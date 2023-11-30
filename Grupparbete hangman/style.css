@@ -276,7 +276,12 @@ body {
 	border: solid 1px #000;
 	gap: 8px;
 	padding: 2em;
+<<<<<<< HEAD
+	margin-top: 1em;
+
+=======
 	margin-top: 3em;
+>>>>>>> 7ce0e4b56e87be9d86a8255c93191197114eaac3
 }
 
 .key {
