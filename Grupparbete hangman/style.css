@@ -112,15 +112,14 @@ justify-content: space-around;
 .highscoretext{
 	display:flex;
 }
-.user-name, .date, .time{
+.user-name, .player-result, .wrong-guesses, .word-length, .date-time{
 	flex-direction: column;
-	margin-left: 3.5em;
+	margin-left: 1.5em;
 	margin-top: 1em;
 }
 
 .highscorewindow{
-	width: 400px;
-	height: 550px;
+	padding: 1em;
 	position: absolute;
 	left: 5%;
 	top: 20%;
@@ -129,7 +128,9 @@ justify-content: space-around;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
 
-
+.rubrik{
+	font-weight: bold;
+}
 
 #startButton, 
 #highscoreButton {
@@ -371,11 +372,11 @@ body {
 }
 
 .correct{
-	background-color: green;
+	background-color: rgb(68, 234, 68);
 }
 
 .incorrect{
-	background-color: red;
+	background-color: rgb(216, 40, 40);
 }
 
 .game-over-word-was{

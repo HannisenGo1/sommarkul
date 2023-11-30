@@ -28,13 +28,19 @@ const svårighetsgradText = document.querySelector('.svårighetsgradText');
 const startMeny = document.querySelector('.startOchHigh')  //div m start o highscore
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
+const sortButtonDate = document.querySelector('#sort-button-date')
+const sortButtonGuess = document.querySelector('#sort-button-guesses')
 const gameOver = document.querySelector('.gameover') //gameoverdiv
 const gameOverWordWas = document.querySelector('.game-over-word-was')
 const gameOverShowWord = document.querySelector('.show-word')
 const gameOverMessage = document.querySelector('.game-over-message')
 const försökIgenKnapp = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
-const userNameField = document.querySelector('.user-name')
+const highscoreName = document.querySelector('.user-name')
+const highscoreResult = document.querySelector ('.player-result')
+const highscoreGuesses = document.querySelector('.wrong-guesses')
+const highscoreWordLength = document.querySelector('.word-length')
+const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
 
 //div för lätt,m,svår
@@ -48,9 +54,16 @@ let totalGuess = 0
 let userName = ''
 let sparadNamn = ''
 let gameState = 'start-view'
+let highscorePrinted = false
+let playerlist = []
+let player = {}
 let guessArray = []
+let correctGuessList = []
+let correctGuessListUnique = []
 let wordArray = []
+let uniqueWordLetters = []
 let Victory = null
+let playerResult = ''
 const easywords = words.filter((word) => word.length > 14)
 const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
 const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
@@ -61,7 +74,8 @@ highScoreWindow.classList.add('hidden'); //highscore div
 gameOver.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
 startMeny.classList.add('visible');
-tangentbord.classList.add('hidden')
+tangentbord.classList.add('hidden');
+sortButtonGuess.classList.add('hidden')
 // ViewGameover.classList.add('hidden'); //gameover menyn
 
 function hideAll(){
@@ -91,11 +105,26 @@ buttonBack.addEventListener('click', () => {
 function Highscore(){
 	hideAll()
 	highScoreWindow.classList.remove('hidden')
+	if (gameState = 'start-view' && highscorePrinted === false){
+		printHighScore()
+		highscorePrinted = true
+	}
 }
 
 buttonHighscore.addEventListener('click', Highscore)
 buttonHighscore2.addEventListener('click', Highscore)
-	
+
+sortButtonDate.addEventListener('click', () =>{
+	sortButtonGuess.classList.remove('hidden')
+	sortButtonDate.classList.add('hidden')
+	// playerlist.sort(sortByDate)
+})
+
+sortButtonGuess.addEventListener('click', () =>{
+	sortButtonGuess.classList.add('hidden')
+	sortButtonDate.classList.remove('hidden')
+	// playerlist.sort(sortByGuesses)
+})
 	// fungerar när man trycker på kör igen knappen
 	function körIgenKnappen() {
 		hideAll()
@@ -142,11 +171,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 	function sparaNamn(){
 		let userName = nameInput.value; //hämta värdet från input
 		localStorage.setItem("namn", userName); // sparar värdet
-		let sparadNamn = localStorage.getItem("namn");
-		console.log(sparadNamn)
-		let newName = document.createElement('p')
-		newName.innerText = sparadNamn
-		userNameField.appendChild(newName)
+		sparadNamn = localStorage.getItem("namn");
 	}
 	
 	
@@ -175,6 +200,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 	
 	//playView
 	
+	const shadowGubbe = document.querySelector('#ground')
 	const scaffoldGubbe = document.querySelector('#scaffold')
 	const legsGubbe = document.querySelector('#legs')
 	const armsGubbe = document.querySelector('#arms')
@@ -183,6 +209,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 	
 	function startGame(){
 		gameState = 'game-view'
+		shadowGubbe.classList.add('invisible')
 		scaffoldGubbe.classList.add('invisible')
 		legsGubbe.classList.add('invisible')
 		armsGubbe.classList.add('invisible')
@@ -193,7 +220,6 @@ buttonHighscore2.addEventListener('click', Highscore)
 		incorrectGuess = 0
 		totalGuess = 0
 		guessArray = []
-		//lägg in maxgissningar 
 	}
 	
 	function checkIfVictory(guessArray, wordArray) {
@@ -204,11 +230,14 @@ buttonHighscore2.addEventListener('click', Highscore)
 			// Har vi gissat på den här bokstaven?
 			if( guessArray.includes(letter) ) {
 				// Bra, letter fanns. Kolla nästa
+				if (correctGuessListUnique.length === uniqueWordLetters.length){
 						Victory = true
+					}
 				}
 			else {
 				// Aj då! Bokstaven har inte blivit gissat på!
 				Victory = false
+				return
 			}
 		}
 	}
@@ -216,6 +245,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 	//när man trycker på rätt tangent:
 	
 	function gameplay(){
+		correctGuessList = []
 		let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
 		submissionField.innerHTML = displayedWord
 		window.addEventListener('keyup', e => {
@@ -224,6 +254,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 			}
 			wordArray = chosenWord.split("")
 			console.log(wordArray)
+			uniqueWordLetters = new Set(wordArray)
 			let dashes = document.getElementsByClassName('dash')
 			if (wordArray.includes(e.key)){
 				tangent.forEach(t => {
@@ -236,15 +267,41 @@ buttonHighscore2.addEventListener('click', Highscore)
 						dashes[index].innerText = letter.toUpperCase()
 					}
 				})
-				correctGuess++
 				guessArray.push(e.key)
+				correctGuessList.push(e.key)
+				correctGuessListUnique = new Set(correctGuessList)
+				console.log(uniqueWordLetters)
+				console.log(correctGuessListUnique)
+				correctGuess++
 				checkIfVictory(guessArray, wordArray)
 				if (Victory === true){
+					tangent.forEach(t => {
+						t.classList.remove('correct')
+						t.classList.remove('incorrect')
+					})
+					// OBS - måste skriva if/else-satser för om det finns värden sparade i localStorage eller ej.
+					// if (localStorage.getItem("playerliststring") != null, förslagsvis.)
+					playerlist = localStorage.getItem("playerlist")
+					playerlist = JSON.parse(playerlist)
+					gameState = 'game-over-view'
 					console.log('Du vann!')
-					// localStorage.setItem(incorrectGuess)
+					playerResult = 'Vinst'
+					gameOver.classList.add('visible');
+					gameoverButton.classList.add('visible')
 					gameOverWordWas.innerText = `Ordet var:`
 					gameOverShowWord.innerText = `${chosenWord}`
 					gameOverMessage.innerText = `Grattis! Du hade bara ${incorrectGuess} fel.`
+					player = {}
+					playerlist.push(player)
+					playerlist[playerlist.length - 1].name = sparadNamn
+					playerlist[playerlist.length - 1].result = playerResult
+					playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+					playerlist[playerlist.length - 1].wordlength = wordArray.length
+					playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+					playerlist.sort(sortByGuesses)
+					let playerliststring = JSON.stringify(playerlist)
+					localStorage.setItem("playerlist", playerliststring)
+					printHighScore()
 				}
 			}
 			else if (guessArray.includes(e.key)){
@@ -260,6 +317,7 @@ buttonHighscore2.addEventListener('click', Highscore)
 				guessArray.push(e.key)
 				console.log(incorrectGuess)
 				if (incorrectGuess === 1){
+					shadowGubbe.classList.remove('invisible')
 					scaffoldGubbe.classList.remove('invisible')
 				}
 				else if (incorrectGuess === 2){
@@ -271,28 +329,87 @@ buttonHighscore2.addEventListener('click', Highscore)
 				else if (incorrectGuess === 4){
 					armsGubbe.classList.remove('invisible')
 				}else{
-					legsGubbe.classList.remove('invisible')
-					gameOver.classList.add('visible'); //Gameover popup!!!
-					gameoverButton.classList.add('visible')
 					tangent.forEach(t => {
 						t.classList.remove('correct')
 						t.classList.remove('incorrect')
-						gameOverWordWas.innerText = `Ordet var:`
-						gameOverShowWord.innerText = `${chosenWord}`
-						gameOverMessage.innerText = `Synd! Vill du försöka igen?`
 					})
+					legsGubbe.classList.remove('invisible')
+					gameOver.classList.add('visible'); //Gameover popup!!!
+					gameoverButton.classList.add('visible')
+					playerResult = 'Förlust'
+					gameOverWordWas.innerText = `Ordet var:`
+					gameOverShowWord.innerText = `${chosenWord}`
+					gameOverMessage.innerText = `Synd! Du hade ${incorrectGuess} fel. Vill du försöka igen?`
+					playerlist = localStorage.getItem("playerlist")
+					playerlist = JSON.parse(playerlist)
+					player = {}
+					playerlist.push(player)
+					playerlist[playerlist.length - 1].name = sparadNamn
+					playerlist[playerlist.length - 1].result = playerResult
+					playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+					playerlist[playerlist.length - 1].wordlength = wordArray.length
+					playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+					playerlist.sort(sortByGuesses)
+					let playerliststring = JSON.stringify(playerlist)
+					localStorage.setItem("playerlist", playerliststring)
+					console.log(playerlist)
 					gameState = 'game-over-view'
 				}
 			}
 		})
 	}
+
+	function sortByGuesses(a, b){
+		return a.wrongguesses - b.wrongguesses
+	}
+
+	function sortByDate(a, b){
+		return a.date - b.date
+	}
+
+	function printHighScore(){
+		playerlist = localStorage.getItem("playerlist")
+		playerlist = JSON.parse(playerlist)
+		if (highscorePrinted === false){
+			for (let i = 0; i < playerlist.length; i++){
+			let newName = document.createElement('p')
+			let newResult = document.createElement('p')
+			let newGuesses = document.createElement('p')
+			let newWordLength = document.createElement('p')
+			let newDate = document.createElement('p')
+			newName.innerText = playerlist[i].name
+			newResult.innerText = playerlist[i].result
+			newGuesses.innerText = playerlist[i].wrongguesses
+			newWordLength.innerText = playerlist[i].wordlength
+			newDate.innerText = playerlist[i].date
+			highscoreName.appendChild(newName)
+			highscoreResult.appendChild(newResult)
+			highscoreGuesses.appendChild(newGuesses)
+			highscoreWordLength.appendChild(newWordLength)
+			highscoreDate.appendChild(newDate)
+			}
+		}
+		else{
+			let newName = document.createElement('p')
+			let newResult = document.createElement('p')
+			let newGuesses = document.createElement('p')
+			let newWordLength = document.createElement('p')
+			let newDate = document.createElement('p')
+			newName.innerText = playerlist[playerlist.length - 1].name
+			newResult.innerText = playerlist[playerlist.length - 1].result
+			newGuesses.innerText = playerlist[playerlist.length - 1].wrongguesses
+			newWordLength.innerText = playerlist[playerlist.length - 1].wordlength
+			newDate.innerText = playerlist[playerlist.length - 1].date
+			highscoreName.appendChild(newName)
+			highscoreResult.appendChild(newResult)
+			highscoreGuesses.appendChild(newGuesses)
+			highscoreWordLength.appendChild(newWordLength)
+			highscoreDate.appendChild(newDate)
+		}
+}
 	
 	
 	//gameoverView 
-	
-	
-	
-	const highscore = document.querySelector('#high-score')
 	
 	//scorescreenView
 	// Visar endast namnen med denna funktionen .
