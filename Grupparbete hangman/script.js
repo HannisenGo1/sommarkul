@@ -15,14 +15,13 @@ import {words} from './svenska-ord.js'
 const lättButton = document.getElementById('buttonLätt');
 const mediumButton = document.getElementById('buttonMedium');
 const svårButton = document.getElementById('buttonSvår');
-let nameInput = document.getElementById('input-Name');
+const nameInput = document.getElementById('input-Name');
+const startForButtonDiv = document.querySelector('.startOchHigh');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
-const viewStart = document.querySelector('#startview');
-const viewPlay = document.querySelector('#playView');
 const labelName = document.querySelector('.divForName');
 const buttonBack = document.querySelector('#backButton');
-const buttonBack2 = document.querySelector('#backButton2');
+const buttonHighscore2 = document.querySelector('#highscoreButtonSmall');
 const tangentbord = document.querySelector('.keyboard-container');
 const tangent = document.querySelectorAll('.key');
 const svårighetsgradText = document.querySelector('.svårighetsgradText');
@@ -30,9 +29,13 @@ const startMeny = document.querySelector('.startOchHigh')  //div m start o highs
 const svårighetsgradDiv = document.querySelector('.svårighetsgrad');
 const highScoreWindow = document.querySelector('.highscorewindow')//highscore meny
 const gameOver = document.querySelector('.gameover') //gameoverdiv
+const gameOverWordWas = document.querySelector('.game-over-word-was')
+const gameOverShowWord = document.querySelector('.show-word')
+const gameOverMessage = document.querySelector('.game-over-message')
 const försökIgenKnapp = document.querySelector('#tryagainButton'); //igen knapp
 const gameoverButton = document.querySelector('.gameoverButton')//div för knapparna
 const userNameField = document.querySelector('.user-name')
+const submissionField = document.getElementById('line-form')
 
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
@@ -46,7 +49,8 @@ let userName = ''
 let sparadNamn = ''
 let gameState = 'start-view'
 let guessArray = []
-const startForButtonDiv = document.querySelector('.startOchHigh');
+let wordArray = []
+let Victory = null
 const easywords = words.filter((word) => word.length > 14)
 const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
 const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
@@ -56,6 +60,7 @@ svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, till
 highScoreWindow.classList.add('hidden'); //highscore div
 gameOver.classList.add('hidden');  //gameover view 
 gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
+<<<<<<< HEAD
 // ViewGameover.classList.add('hidden'); //gameover menyn
 
 function functionKnappar() {
@@ -66,32 +71,48 @@ function functionKnappar() {
 		startMeny.classList.add('hidden');
 		gameOver.classList.add('hidden');
 	}
+=======
+startMeny.classList.add('visible');
+tangentbord.classList.add('hidden')
+// ViewGameover.classList.add('hidden'); //gameover menyn
+
+function hideAll(){
+	svårighetsgradDiv.classList.add('hidden')
+	labelName.classList.add('hidden')
+	startMeny.classList.add ('hidden');
+	startMeny.classList.remove('visible')
+	gameOver.classList.add('hidden');
+	gameOver.classList.remove('visible')
+	tangentbord.classList.add('hidden')
+	submissionField.classList.add('hidden')
+	highScoreWindow.classList.add('hidden');
+>>>>>>> 7ce0e4b56e87be9d86a8255c93191197114eaac3
 }
 
-buttonStart.addEventListener('click', functionKnappar);
+buttonStart.addEventListener('click', () =>{
+	hideAll()
+	sparaNamn()
+	svårighetsgradDiv.classList.remove('hidden')
+});
 
+//fungerar när man trycker tillbaka i highscore menyn ! 
+buttonBack.addEventListener('click', () => { 
+	hideAll()
+	startMeny.classList.remove('hidden')
+})
 
-buttonHighscore.addEventListener('click', () => {
-	if (buttonHighscore){
-		startForButtonDiv.classList.add('hidden');
-		svårighetsgradDiv.classList.add('hidden'); 
-		startMeny.classList.add('hidden');
-		labelName.classList.add('hidden');
-		highScoreWindow.classList.remove('hidden');
-	}})
-	
-	//fungerar när man trycker tillbaka i highscore menyn ! 
-	function tillbakaKnappen() {
-		highScoreWindow.classList.add('hidden')
-		gameOver.classList.add('hidden');
-		gameoverButton.classList.add('hidden');
-		startMeny.classList.add('visible')
-	}
-	buttonBack.addEventListener('click', tillbakaKnappen)
-	buttonBack2.addEventListener('click', tillbakaKnappen)
+function Highscore(){
+	hideAll()
+	highScoreWindow.classList.remove('hidden')
+}
+
+buttonHighscore.addEventListener('click', Highscore)
+buttonHighscore2.addEventListener('click', Highscore)
 	
 	// fungerar när man trycker på kör igen knappen
 	function körIgenKnappen() {
+		hideAll()
+		labelName.classList.remove('hidden')
 		gameOver.classList.remove('visible');
 		svårighetsgradDiv.classList.add('hidden');
 		gameoverButton.classList.remove('visible');
@@ -99,17 +120,44 @@ buttonHighscore.addEventListener('click', () => {
 		startMeny.classList.add('visible');
 	}
 	försökIgenKnapp.addEventListener('click', körIgenKnappen)
+
+	lättButton.addEventListener('click', () => {
+		startGame()
+		chosenWord = easywords[randomInt(easywords.length)]
+		svårighetsgradDiv.classList.remove('visible');
+		svårighetsgradDiv.classList.add('hidden');
+		buttonBack.classList.add('visible');
+		submissionField.classList.remove('hidden')
+		gameplay()
+	})
 	
+	mediumButton.addEventListener('click', () => {
+		startGame()
+		chosenWord = mediumwords[randomInt(mediumwords.length)]
+		svårighetsgradDiv.classList.remove('visible');
+		svårighetsgradDiv.classList.add('hidden');
+		submissionField.classList.remove('hidden')
+		gameplay()
+		
+	})
 	
+	svårButton.addEventListener('click', () => {
+		startGame()
+		chosenWord = hardwords[randomInt(hardwords.length)]
+		svårighetsgradDiv.classList.remove('visible');
+		svårighetsgradDiv.classList.add('hidden');
+		submissionField.classList.remove('hidden')
+		gameplay()
+	})
 	
 	// Sparar 1 namn än sålänge,lokalt ! 
 	
 	function sparaNamn(){
-		const userName = nameInput.value; //hämta värdet från input
+		let userName = nameInput.value; //hämta värdet från input
 		localStorage.setItem("namn", userName); // sparar värdet
-		const sparadNamn = localStorage.getItem("namn");
+		let sparadNamn = localStorage.getItem("namn");
 		console.log(sparadNamn)
-		let newName = document.createElement('div')
+		let newName = document.createElement('p')
 		newName.innerText = sparadNamn
 		userNameField.appendChild(newName)
 	}
@@ -152,7 +200,8 @@ buttonHighscore.addEventListener('click', () => {
 		legsGubbe.classList.add('invisible')
 		armsGubbe.classList.add('invisible')
 		bodyGubbe.classList.add('invisible')
-		headGubbe.classList.add('invisible') 
+		headGubbe.classList.add('invisible')
+		tangentbord.classList.remove('hidden')
 		correctGuess = 0
 		incorrectGuess = 0
 		totalGuess = 0
@@ -160,59 +209,34 @@ buttonHighscore.addEventListener('click', () => {
 		//lägg in maxgissningar 
 	}
 	
-	
-	lättButton.addEventListener('click', () => {
-		startGame()
-		chosenWord = easywords[randomInt(easywords.length)]
-		svårighetsgradDiv.classList.remove('visible');
-		buttonBack.classList.add('visible'); 
-		gameplay()
-	})
-	
-	mediumButton.addEventListener('click', () => {
-		startGame()
-		chosenWord = mediumwords[randomInt(mediumwords.length)]
-		svårighetsgradDiv.classList.remove('visible');
-		gameplay()
-		
-	})
-	
-	svårButton.addEventListener('click', () => {
-		startGame()
-		chosenWord = hardwords[randomInt(hardwords.length)]
-		svårighetsgradDiv.classList.remove('visible');
-		gameplay()
-	})
-	
-	function checkIfVictory(guesses, secretLetters) {
+	function checkIfVictory(guessArray, wordArray) {
 		// guesses: lista med strängar, varje sträng är en bokstav
-		// secretLetters: lista med strängar, varje är en bokstav
-		for( let i=0; i<secretLetters.length; i++ ) {
-			let letter = secretLetters[i]
+		// wordArray: lista med strängar, varje är en bokstav
+		for( let i = 0; i < wordArray.length; i++ ) {
+			let letter = wordArray[i]
 			// Har vi gissat på den här bokstaven?
 			if( guessArray.includes(letter) ) {
 				// Bra, letter fanns. Kolla nästa
-			}
+						Victory = true
+				}
 			else {
 				// Aj då! Bokstaven har inte blivit gissat på!
-				return false
+				Victory = false
 			}
 		}
-		return true
 	}
-	
 	//Skapar dashes ('_ _ _'), och ersätter dashes med bokstäver
 	//när man trycker på rätt tangent:
 	
 	function gameplay(){
 		let displayedWord = chosenWord.replace(/./g, '<span class="dash">_</span>')
-		const submissionField = document.getElementById('line-form')
 		submissionField.innerHTML = displayedWord
 		window.addEventListener('keyup', e => {
 			if (gameState != 'game-view'){
 				return
 			}
-			let wordArray = chosenWord.split("")
+			wordArray = chosenWord.split("")
+			console.log(wordArray)
 			let dashes = document.getElementsByClassName('dash')
 			if (wordArray.includes(e.key)){
 				tangent.forEach(t => {
@@ -227,6 +251,14 @@ buttonHighscore.addEventListener('click', () => {
 				})
 				correctGuess++
 				guessArray.push(e.key)
+				checkIfVictory(guessArray, wordArray)
+				if (Victory === true){
+					console.log('Du vann!')
+					// localStorage.setItem(incorrectGuess)
+					gameOverWordWas.innerText = `Ordet var:`
+					gameOverShowWord.innerText = `${chosenWord}`
+					gameOverMessage.innerText = `Grattis! Du hade bara ${incorrectGuess} fel.`
+				}
 			}
 			else if (guessArray.includes(e.key)){
 				e.preventDefault()
@@ -255,10 +287,12 @@ buttonHighscore.addEventListener('click', () => {
 					legsGubbe.classList.remove('invisible')
 					gameOver.classList.add('visible'); //Gameover popup!!!
 					gameoverButton.classList.add('visible')
-					totalGuess = incorrectGuess + correctGuess
 					tangent.forEach(t => {
 						t.classList.remove('correct')
 						t.classList.remove('incorrect')
+						gameOverWordWas.innerText = `Ordet var:`
+						gameOverShowWord.innerText = `${chosenWord}`
+						gameOverMessage.innerText = `Synd! Vill du försöka igen?`
 					})
 					gameState = 'game-over-view'
 				}
