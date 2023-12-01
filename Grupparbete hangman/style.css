@@ -7,7 +7,7 @@
 }
 
 main, body{
-	background-image: url("blue.jpg");
+	background-color: #C3BABA;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 
@@ -15,11 +15,14 @@ main, body{
 
 /* StartView */
 
+
+
 h1 {
 	font-size: 30px;
 	text-align: left;
 	padding: 1em;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	
 }
 
 .divForName {
@@ -65,33 +68,34 @@ justify-content: space-around;
 #buttonSvår {
 	margin-right: 5em;
 	width: 5em;
-	height: 4em;
+	height: 3em;
+	border-radius: 10%;
 	}
 
 #buttonLätt {
-	background-color: rgb(129, 196, 29);
+	background-color: rgb(168, 239, 168)
 }
 
 #buttonLätt:hover {
-	background-color: rgba(0, 128, 0, 0.838);
+	background-color: rgb(205, 244, 205)
 }
 
 #buttonMedium {
-	background-color: rgb(215, 215, 7);
+	background-color: rgb(235, 190, 106)
 	
 }
 
-#buttonMedium:active {
-	background-color: orange;
+#buttonMedium:hover {
+	background-color: rgb(229, 194, 130)
 }
 
 #buttonSvår {
-	background-color: rgb(204, 30, 30);
+	background-color: rgb(245, 85, 85)
 	
 }
 
-#buttonSvår:active {
-	background-color: rgb(127, 8, 8);
+#buttonSvår:hover {
+	background-color: rgb(238, 118, 118)
 }
 
 .startOchHigh{
@@ -123,7 +127,7 @@ justify-content: space-around;
 	position: absolute;
 	left: 5%;
 	top: 20%;
-    background-color: rgb(214, 246, 241);
+    background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
@@ -145,24 +149,6 @@ justify-content: space-around;
 #startButton:hover,
 #highscoreButton:hover{
 	background-color: gray;
-}
-
-
-*/
-
-#buttonLätt:hover {
-	background-color: chartreuse;
-
-}
-
-#buttonMedium:hover {
-	background-color: rgb(218, 255, 8);
-
-}
-
-#buttonSvår:hover {
-	background-color: rgb(255, 6, 6);
-
 }
 
 
@@ -212,7 +198,7 @@ justify-content: space-around;
 	position: absolute;
 	left: 5%;
 	top: 20%;
-	background-color: rgb(214, 246, 241);		
+	background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 
@@ -225,32 +211,43 @@ justify-content: space-around;
 	display: flex;
 }
 #tryagainButton {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
 }
 
 #tryagainButton:hover {
-	background-color: grey;
+	background-color: #E9E3E6;
 }
 #backButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 	margin-left: 13em;
 }
 
 #backButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
 }
 
 #highscoreButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 }
 
 #highscoreButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
 }
 
+#highscoreButtonSmall{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#highscoreButtonSmall:hover{
+	background-color: #E9E3E6;
+
+}
 
 
  /* scorescreen  */
@@ -273,15 +270,11 @@ body {
 .keyboard-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
-	border: solid 1px #000;
+	/* border: solid 1px #000; */
+
 	gap: 8px;
 	padding: 2em;
-<<<<<<< HEAD
-	margin-top: 1em;
-
-=======
 	margin-top: 3em;
->>>>>>> 7ce0e4b56e87be9d86a8255c93191197114eaac3
 }
 
 .key {
@@ -290,14 +283,15 @@ body {
 	border: 1px solid #000;
 	border-radius: 15%;
 	text-align: center;
-	cursor: pointer;
+	/* cursor: pointer; */
 	line-height: 40px;
+	background-color: #40434E;
 	transition: background-color 0.3s;
 }
 
-.key:hover {
+/* .key:hover {
 	background-color: #eeeeeee4;
-}
+} */
 /* Dölj funktion för knapparna när man klickar */ 
 .hidden {
 	display:none;
@@ -309,10 +303,10 @@ body {
 }
 
 .incorrect {
-	background-color:rgb(199, 38, 38);
+	background-color:rgb(118, 57, 57)
 }
 .correct {
-	background-color:rgb(34, 180, 34);
+	background-color:rgb(147, 198, 137)
 }
 
 
@@ -376,13 +370,7 @@ body {
 	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
-.correct{
-	background-color: rgb(68, 234, 68);
-}
 
-.incorrect{
-	background-color: rgb(216, 40, 40);
-}
 
 .game-over-word-was{
 	font-size: 26px;
@@ -391,4 +379,37 @@ body {
 .show-word{
 	font-size: 32px;
 	margin-left: 3em;
+}
+
+#sort-button-date{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-date:hover{
+	background-color: #E9E3E6;
+}
+
+#sort-button-guesses{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-guesses:hover{
+	background-color: #E9E3E6;
+}
+
+#backButton{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	margin-left: 13em;
+	padding: 0.5em;
+
+}
+
+#backButton:hover{
+	background-color: #E9E3E6;
+
 }
