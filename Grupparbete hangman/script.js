@@ -100,6 +100,8 @@ buttonStart.addEventListener('click', () =>{
 buttonBack.addEventListener('click', () => { 
 	hideAll()
 	startMeny.classList.remove('hidden')
+	nameInput.classList.remove('hidden')
+	labelName.classList.remove('hidden')
 })
 
 function Highscore(){
@@ -110,7 +112,7 @@ function Highscore(){
 		highscorePrinted = true
 	}
 }
- // endast om användaren går in på input fältet innan . 
+
 
 function validateInput() {
 	if (nameInput.value.length >=2) { //om input är mer än 2
