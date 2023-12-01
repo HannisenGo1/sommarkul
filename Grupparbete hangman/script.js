@@ -42,6 +42,7 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
+const h1text =document.querySelector('.Hangmantext')
 
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
@@ -88,6 +89,7 @@ function hideAll(){
 	tangentbord.classList.add('hidden')
 	submissionField.classList.add('hidden')
 	highScoreWindow.classList.add('hidden');
+	h1text.classList.add('hidden')
 }
 
 buttonStart.addEventListener('click', () =>{
