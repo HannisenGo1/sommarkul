@@ -50,12 +50,13 @@
 	<div class="divForName">
 			
 			<label for="inputName"> Skriv in ditt namn </label>
-			<input id="input-Name" type="text"  placeholder="Skriv in ditt namn" />
+			<input id="input-Name" type="text" minlength="2" placeholder="Skriv in ditt namn" required/>
+		<p class="error-message"> var vänlig skriv in ditt namn</p>
 	</div>
 
 <div class ="startOchHigh">
 
-		<button id="startButton">Spela här! </button>
+		<button id="startButton" type="button">Spela här! </button>
 		<button id="highscoreButton"> Highscore </button>
 
 </div>
