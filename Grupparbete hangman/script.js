@@ -16,7 +16,7 @@ const lättButton = document.getElementById('buttonLätt');
 const mediumButton = document.getElementById('buttonMedium');
 const svårButton = document.getElementById('buttonSvår');
 const nameInput = document.getElementById('input-Name');
-const labelnameInput = document.getElementById('inputName').value;
+const labelnameInput = document.getElementById('inputName');
 const startForButtonDiv = document.querySelector('.startOchHigh');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
@@ -43,7 +43,6 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
-
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -77,7 +76,7 @@ gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
 startMeny.classList.add('visible');
 tangentbord.classList.add('hidden');
 sortButtonGuess.classList.add('hidden')
-// ViewGameover.classList.add('hidden'); //gameover menyn
+//ViewGameover.classList.add('hidden'); //gameover menyn
 
 function hideAll(){
 	svårighetsgradDiv.classList.add('hidden')
@@ -92,10 +91,6 @@ function hideAll(){
 }
 
 buttonStart.addEventListener('click', () =>{
-	if (labelnameInput.length <2 ) {
-		document.querySelector('.error-message').style.display = 'block';
-		return;
-	}
 	hideAll()
 	sparaNamn()
 	svårighetsgradDiv.classList.remove('hidden')

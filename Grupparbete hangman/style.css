@@ -1,7 +1,7 @@
 @media screen and (max-width: 350px) {
 	body,
 	main {
-		font-size: 14px;
+		font-size: 9px;
 
 	}
 }
@@ -10,22 +10,35 @@ main, body{
 	background-image: url("blue.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
 
 }
 
 /* StartView */
 
-h1 {
-	font-size: 30px;
-	text-align: left;
-	padding: 1em;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+#StartView {
+align-items: center;
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin: 1.2em;
 }
+
+h1 {
+	font-size: 25px;
+	text-align: center
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 
 .divForName {
 	display: flex;
 	flex-direction: column;
-	padding: 1em;
+	padding: 0.5em;
+	margin: 1em; 
 }
 
 .divForName>label {
@@ -34,7 +47,6 @@ h1 {
 }
 
 .divForName>p {
-	margin-bottom: 0.6em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -45,19 +57,18 @@ h1 {
 	width: 120px;
 }
 
+
 .svårighetsgrad {
 display: flex;
 justify-content: space-around;
-
 }
+
 .svårighetsgradButtons {
 	text-align: center;
 		font-size: 1.2em;
 		display: inline-block;
 }
-.svårighetsgradButtons > p {
-	margin-bottom: 20px;
-}
+
 
 
 #buttonLätt, 
@@ -96,9 +107,9 @@ justify-content: space-around;
 
 .startOchHigh{
 	display: flex;
-	flex-direction: row;
+	flex-direction: center;
 	gap: 1em;
-	flex-direction: space-around;
+	padding: 1em;
 
 } 
 
@@ -107,6 +118,7 @@ justify-content: space-around;
 	display: flex;
 	padding: 1em;
 	gap: 1em;
+	
 }
 /* Text för input namnen*/
 .highscoretext{
@@ -137,9 +149,9 @@ justify-content: space-around;
 	background-color: lightgrey;
 	border-radius: 1.5em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-		width: 18em;
+		width: 12em;
 		height: 4em;
-	
+	/* align-items: center; */ 
 	display: inline-block;
 }
 #startButton:hover,
@@ -148,7 +160,6 @@ justify-content: space-around;
 }
 
 
-*/
 
 #buttonLätt:hover {
 	background-color: chartreuse;
@@ -254,9 +265,6 @@ justify-content: space-around;
 
 
  /* scorescreen  */
-
-#StartView {
-	display: block; } 
 
 #gameoverView {
 	display: none;

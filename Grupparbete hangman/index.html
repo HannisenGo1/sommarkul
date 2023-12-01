@@ -20,12 +20,13 @@
 		
 
 	<section id="StartView">
-		<h1>Hangman</h1>
+	<div class="h1">	
+		<h1>Hangman</h1> </div>
 
 		<!-- Ni kan kopiera denna SVG.
 		    Använd CSS för att göra individuella "path" synliga, när man gissar fel.
 		    -->
-		<figure class="">
+		<figure class="hangman">
 			<svg width="301" height="365" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<ellipse id="ground" cx="250.5" cy="536" rx="250.5" ry="29" fill="black" fill-opacity="0.06" />
 				<path id="scaffold" fill-rule="evenodd" clip-rule="evenodd"
@@ -49,9 +50,9 @@
 		
 	<div class="divForName">
 			
-			<label for="inputName"> Skriv in ditt namn </label>
-			<input id="input-Name" type="text" minlength="2" placeholder="Skriv in ditt namn" required/>
-		<p class="error-message"> var vänlig skriv in ditt namn</p>
+		<label for="inputName"> Skriv in ditt namn </label>
+		<input id="input-Name" type="text" minlength="2" placeholder="Skriv in ditt namn" required/>
+		
 	</div>
 
 <div class ="startOchHigh">
@@ -87,22 +88,23 @@
 
 <div class="svårighetsgrad">
 
-	<div class="svårighetsgradButtons"> 
-	<button id="buttonLätt">  Lätt </button>
-	<p id="lätt"> 15+ Bokstäver</p>
+	<div class="svårighetsgradButtons">
+		<button id="buttonLätt"> Lätt </button>
+		<p id="lätt"> 15+ Bokstäver</p>
 	</div>
 
 	<div class="svårighetsgradButtons">
-	<button id="buttonMedium"> Medium </button>
-	<p id ="medium">12-14 Bokstäver</p>
+		<button id="buttonMedium"> Medium </button>
+		<p id="medium">12-14 Bokstäver</p>
 	</div>
 
 	<div class="svårighetsgradButtons">
-	<button id="buttonSvår"> Svår </button> 
-	<p id= "svår"> 10-11 Bokstäver</p>	
+		<button id="buttonSvår"> Svår </button>
+		<p id="svår"> 10-11 Bokstäver</p>
 	</div>
 
 </div>
+
 
 
 	
