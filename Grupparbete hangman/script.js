@@ -110,6 +110,22 @@ function Highscore(){
 		highscorePrinted = true
 	}
 }
+ // endast om användaren går in på input fältet innan . 
+
+function validateInput() {
+	if (nameInput.value.length >=2) { //om input är mer än 2
+		buttonStart.removeAttribute('disabled'); //tas bort om användaren fyller i kravet
+	} else {
+		buttonStart.setAttribute('disabled', 'true');//inaktiverar knapp om input ej är uppfylld.
+	}
+}
+validateInput();
+nameInput.addEventListener('input', validateInput);
+nameInput.addEventListener('keypress', function (event) {
+	if (event.key === 'Enter' && nameInput.value.length >=2) { //om kravet är fyllt kan man trycka på enter för "starta här!"
+		buttonStart.click();
+	}
+})
 
 buttonHighscore.addEventListener('click', Highscore)
 buttonHighscore2.addEventListener('click', Highscore)
