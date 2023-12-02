@@ -42,6 +42,7 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
+const h1text =document.querySelector('.Hangmantext')
 
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
@@ -88,6 +89,7 @@ function hideAll(){
 	tangentbord.classList.add('hidden')
 	submissionField.classList.add('hidden')
 	highScoreWindow.classList.add('hidden');
+	h1text.classList.add('hidden')
 }
 
 buttonStart.addEventListener('click', () =>{
@@ -100,6 +102,8 @@ buttonStart.addEventListener('click', () =>{
 buttonBack.addEventListener('click', () => { 
 	hideAll()
 	startMeny.classList.remove('hidden')
+	nameInput.classList.remove('hidden')
+	labelName.classList.remove('hidden')
 })
 
 function Highscore(){
@@ -110,6 +114,22 @@ function Highscore(){
 		highscorePrinted = true
 	}
 }
+
+
+function validateInput() {
+	if (nameInput.value.length >=2) { //om input är mer än 2
+		buttonStart.removeAttribute('disabled'); //tas bort om användaren fyller i kravet
+	} else {
+		buttonStart.setAttribute('disabled', 'true');//inaktiverar knapp om input ej är uppfylld.
+	}
+}
+validateInput();
+nameInput.addEventListener('input', validateInput);
+nameInput.addEventListener('keypress', function (event) {
+	if (event.key === 'Enter' && nameInput.value.length >=2) { //om kravet är fyllt kan man trycka på enter för "starta här!"
+		buttonStart.click();
+	}
+})
 
 buttonHighscore.addEventListener('click', Highscore)
 buttonHighscore2.addEventListener('click', Highscore)
