@@ -43,6 +43,11 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
+<<<<<<< HEAD
+=======
+const h1text =document.querySelector('.Hangmantext')
+
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -88,6 +93,10 @@ function hideAll(){
 	tangentbord.classList.add('hidden')
 	submissionField.classList.add('hidden')
 	highScoreWindow.classList.add('hidden');
+<<<<<<< HEAD
+=======
+	h1text.classList.add('hidden')
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 }
 
 buttonStart.addEventListener('click', () =>{
@@ -100,6 +109,8 @@ buttonStart.addEventListener('click', () =>{
 buttonBack.addEventListener('click', () => { 
 	hideAll()
 	startMeny.classList.remove('hidden')
+	nameInput.classList.remove('hidden')
+	labelName.classList.remove('hidden')
 })
 
 function Highscore(){
@@ -111,19 +122,47 @@ function Highscore(){
 	}
 }
 
+
+function validateInput() {
+	if (nameInput.value.length >=2) { //om input är mer än 2
+		buttonStart.removeAttribute('disabled'); //tas bort om användaren fyller i kravet
+	} else {
+		buttonStart.setAttribute('disabled', 'true');//inaktiverar knapp om input ej är uppfylld.
+	}
+}
+validateInput();
+nameInput.addEventListener('input', validateInput);
+nameInput.addEventListener('keypress', function (event) {
+	if (event.key === 'Enter' && nameInput.value.length >=2) { //om kravet är fyllt kan man trycka på enter för "starta här!"
+		buttonStart.click();
+	}
+})
+
 buttonHighscore.addEventListener('click', Highscore)
 buttonHighscore2.addEventListener('click', Highscore)
 
 sortButtonDate.addEventListener('click', () =>{
 	sortButtonGuess.classList.remove('hidden')
 	sortButtonDate.classList.add('hidden')
-	// playerlist.sort(sortByDate)
+	clearHighScore()
+	playerlist = localStorage.getItem("playerlist")
+	playerlist = JSON.parse(playerlist)
+	playerlist.sort(sortByDate)
+	let playerliststring = JSON.stringify(playerlist)
+	localStorage.setItem("playerlist", playerliststring)
+	printNewHighScore()
 })
 
 sortButtonGuess.addEventListener('click', () =>{
 	sortButtonGuess.classList.add('hidden')
 	sortButtonDate.classList.remove('hidden')
-	// playerlist.sort(sortByGuesses)
+	clearHighScore()
+	playerlist = localStorage.getItem("playerlist")
+	playerlist = JSON.parse(playerlist)
+	playerlist.sort(sortByGuesses)
+	let playerliststring = JSON.stringify(playerlist)
+	localStorage.setItem("playerlist", playerliststring)
+	printNewHighScore()
 })
 	// fungerar när man trycker på kör igen knappen
 	function körIgenKnappen() {
@@ -275,15 +314,11 @@ sortButtonGuess.addEventListener('click', () =>{
 				correctGuess++
 				checkIfVictory(guessArray, wordArray)
 				if (Victory === true){
+					gameState = 'game-over-view'
 					tangent.forEach(t => {
 						t.classList.remove('correct')
 						t.classList.remove('incorrect')
 					})
-					// OBS - måste skriva if/else-satser för om det finns värden sparade i localStorage eller ej.
-					// if (localStorage.getItem("playerliststring") != null, förslagsvis.)
-					playerlist = localStorage.getItem("playerlist")
-					playerlist = JSON.parse(playerlist)
-					gameState = 'game-over-view'
 					console.log('Du vann!')
 					playerResult = 'Vinst'
 					gameOver.classList.add('visible');
@@ -291,17 +326,39 @@ sortButtonGuess.addEventListener('click', () =>{
 					gameOverWordWas.innerText = `Ordet var:`
 					gameOverShowWord.innerText = `${chosenWord}`
 					gameOverMessage.innerText = `Grattis! Du hade bara ${incorrectGuess} fel.`
-					player = {}
-					playerlist.push(player)
-					playerlist[playerlist.length - 1].name = sparadNamn
-					playerlist[playerlist.length - 1].result = playerResult
-					playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
-					playerlist[playerlist.length - 1].wordlength = wordArray.length
-					playerlist[playerlist.length - 1].date = new Date().toLocaleString()
-					playerlist.sort(sortByGuesses)
-					let playerliststring = JSON.stringify(playerlist)
-					localStorage.setItem("playerlist", playerliststring)
-					printHighScore()
+					// OBS - måste skriva if/else-satser för om det finns värden sparade i localStorage eller ej.
+					// if (localStorage.getItem("playerliststring") != null, förslagsvis.)
+					if (localStorage.getItem("playerlist") === null){
+						playerlist = []
+						player = {}
+						playerlist.push(player)
+						playerlist[playerlist.length - 1].name = sparadNamn
+						playerlist[playerlist.length - 1].result = playerResult
+						playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+						playerlist[playerlist.length - 1].wordlength = wordArray.length
+						playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+						playerlist.sort(sortByGuesses)
+						let playerliststring = JSON.stringify(playerlist)
+						localStorage.setItem("playerlist", playerliststring)
+						printHighScore()
+						highscorePrinted = true
+					}
+					else{
+						playerlist = localStorage.getItem("playerlist")
+						playerlist = JSON.parse(playerlist)
+						player = {}
+						playerlist.push(player)
+						playerlist[playerlist.length - 1].name = sparadNamn
+						playerlist[playerlist.length - 1].result = playerResult
+						playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+						playerlist[playerlist.length - 1].wordlength = wordArray.length
+						playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+						playerlist.sort(sortByGuesses)
+						let playerliststring = JSON.stringify(playerlist)
+						localStorage.setItem("playerlist", playerliststring)
+						printHighScore()
+						highscorePrinted = true
+					}
 				}
 			}
 			else if (guessArray.includes(e.key)){
@@ -333,27 +390,45 @@ sortButtonGuess.addEventListener('click', () =>{
 						t.classList.remove('correct')
 						t.classList.remove('incorrect')
 					})
+					gameState = 'game-over-view'
+					playerResult = 'Förlust'
 					legsGubbe.classList.remove('invisible')
 					gameOver.classList.add('visible'); //Gameover popup!!!
 					gameoverButton.classList.add('visible')
-					playerResult = 'Förlust'
 					gameOverWordWas.innerText = `Ordet var:`
 					gameOverShowWord.innerText = `${chosenWord}`
 					gameOverMessage.innerText = `Synd! Du hade ${incorrectGuess} fel. Vill du försöka igen?`
-					playerlist = localStorage.getItem("playerlist")
-					playerlist = JSON.parse(playerlist)
-					player = {}
-					playerlist.push(player)
-					playerlist[playerlist.length - 1].name = sparadNamn
-					playerlist[playerlist.length - 1].result = playerResult
-					playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
-					playerlist[playerlist.length - 1].wordlength = wordArray.length
-					playerlist[playerlist.length - 1].date = new Date().toLocaleString()
-					playerlist.sort(sortByGuesses)
-					let playerliststring = JSON.stringify(playerlist)
-					localStorage.setItem("playerlist", playerliststring)
-					console.log(playerlist)
-					gameState = 'game-over-view'
+					if (localStorage.getItem("playerlist") === null){
+						playerlist = []
+						player = {}
+						playerlist.push(player)
+						playerlist[playerlist.length - 1].name = sparadNamn
+						playerlist[playerlist.length - 1].result = playerResult
+						playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+						playerlist[playerlist.length - 1].wordlength = wordArray.length
+						playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+						playerlist.sort(sortByGuesses)
+						let playerliststring = JSON.stringify(playerlist)
+						localStorage.setItem("playerlist", playerliststring)
+						printHighScore()
+						highscorePrinted = true
+					}
+					else{
+						playerlist = localStorage.getItem("playerlist")
+						playerlist = JSON.parse(playerlist)
+						player = {}
+						playerlist.push(player)
+						playerlist[playerlist.length - 1].name = sparadNamn
+						playerlist[playerlist.length - 1].result = playerResult
+						playerlist[playerlist.length - 1].wrongguesses = incorrectGuess
+						playerlist[playerlist.length - 1].wordlength = wordArray.length
+						playerlist[playerlist.length - 1].date = new Date().toLocaleString()
+						playerlist.sort(sortByGuesses)
+						let playerliststring = JSON.stringify(playerlist)
+						localStorage.setItem("playerlist", playerliststring)
+						printHighScore()
+						highscorePrinted = true
+					}
 				}
 			}
 		})
@@ -364,30 +439,14 @@ sortButtonGuess.addEventListener('click', () =>{
 	}
 
 	function sortByDate(a, b){
-		return a.date - b.date
+		return new Date(b.date) - new Date(a.date)
 	}
 
 	function printHighScore(){
 		playerlist = localStorage.getItem("playerlist")
 		playerlist = JSON.parse(playerlist)
 		if (highscorePrinted === false){
-			for (let i = 0; i < playerlist.length; i++){
-			let newName = document.createElement('p')
-			let newResult = document.createElement('p')
-			let newGuesses = document.createElement('p')
-			let newWordLength = document.createElement('p')
-			let newDate = document.createElement('p')
-			newName.innerText = playerlist[i].name
-			newResult.innerText = playerlist[i].result
-			newGuesses.innerText = playerlist[i].wrongguesses
-			newWordLength.innerText = playerlist[i].wordlength
-			newDate.innerText = playerlist[i].date
-			highscoreName.appendChild(newName)
-			highscoreResult.appendChild(newResult)
-			highscoreGuesses.appendChild(newGuesses)
-			highscoreWordLength.appendChild(newWordLength)
-			highscoreDate.appendChild(newDate)
-			}
+			printNewHighScore()
 		}
 		else{
 			let newName = document.createElement('p')
@@ -407,7 +466,50 @@ sortButtonGuess.addEventListener('click', () =>{
 			highscoreDate.appendChild(newDate)
 		}
 }
-	
+
+function printNewHighScore(){
+	for (let i = 0; i < playerlist.length; i++){
+		let newName = document.createElement('p')
+		let newResult = document.createElement('p')
+		let newGuesses = document.createElement('p')
+		let newWordLength = document.createElement('p')
+		let newDate = document.createElement('p')
+		newName.innerText = playerlist[i].name
+		newResult.innerText = playerlist[i].result
+		newGuesses.innerText = playerlist[i].wrongguesses
+		newWordLength.innerText = playerlist[i].wordlength
+		newDate.innerText = playerlist[i].date
+		highscoreName.appendChild(newName)
+		highscoreResult.appendChild(newResult)
+		highscoreGuesses.appendChild(newGuesses)
+		highscoreWordLength.appendChild(newWordLength)
+		highscoreDate.appendChild(newDate)
+		}
+}
+
+function clearHighScore(){
+	let oldNames = highscoreName.querySelectorAll('p')
+	let oldResults = highscoreResult.querySelectorAll('p')
+	let oldGuesses = highscoreGuesses.querySelectorAll('p')
+	let oldWordLengths = highscoreWordLength.querySelectorAll('p')
+	let oldDates = highscoreDate.querySelectorAll('p')
+	for (let i = 0; i < oldDates.length; i++) {
+		if (i === (oldDates.length - 1)){
+		oldNames[i].remove();
+		oldResults[i].remove();
+		oldGuesses[i].remove();
+		oldWordLengths[i].remove();
+		oldDates[i].remove()
+		}
+		else{
+		oldNames[i+1].remove();
+		oldResults[i+1].remove();
+		oldGuesses[i+1].remove();
+		oldWordLengths[i+1].remove();
+		oldDates[i+1].remove()
+		}
+	}
+}
 	
 	//gameoverView 
 	

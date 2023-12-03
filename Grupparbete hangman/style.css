@@ -1,30 +1,60 @@
 @media screen and (max-width: 350px) {
 	body,
 	main {
+<<<<<<< HEAD
 		font-size: 9px;
+=======
+		font-size: 10px;
+		
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 
 	}
+
 }
 
 main, body{
-	background-image: url("blue.jpg");
+	background-color: #C3BABA;
 	background-attachment: fixed;
+<<<<<<< HEAD
 	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: left;
 
+=======
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+	font-family: Arial, sans-serif;
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 }
 
 /* StartView */
 
 #StartView {
+<<<<<<< HEAD
 align-items: center;
 display: flex;
 justify-content: center;
 flex-direction: column;
 margin: 1.2em;
+=======
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin: 1.2em;
+}
+
+h1 {
+	font-size: 25px;
+	text-align: center;
+	padding: 1em;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 }
 
 h1 {
@@ -37,9 +67,14 @@ h1 {
 .divForName {
 	display: flex;
 	flex-direction: column;
+<<<<<<< HEAD
 	padding: 0.5em;
 	margin: 1em; 
 }
+=======
+	padding: 1em;
+	margin: 1em;}
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 
 .divForName>label {
 	color: black;
@@ -65,10 +100,23 @@ justify-content: space-around;
 
 .svårighetsgradButtons {
 	text-align: center;
-		font-size: 1.2em;
-		display: inline-block;
+	font-size: 1.2em;
+	display: inline-block;
+	padding: 1em;
 }
 
+<<<<<<< HEAD
+=======
+.svårighetsgradButtons > button{
+	margin: auto;
+}
+
+.svårighetsgradButtons > p {
+	margin-bottom: 20px;
+	
+	margin: auto;
+}
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 
 
 #buttonLätt, 
@@ -76,33 +124,34 @@ justify-content: space-around;
 #buttonSvår {
 	margin-right: 5em;
 	width: 5em;
-	height: 4em;
+	height: 3em;
+	border-radius: 10%;
 	}
 
 #buttonLätt {
-	background-color: rgb(129, 196, 29);
+	background-color: rgb(168, 239, 168)
 }
 
 #buttonLätt:hover {
-	background-color: rgba(0, 128, 0, 0.838);
+	background-color: rgb(205, 244, 205)
 }
 
 #buttonMedium {
-	background-color: rgb(215, 215, 7);
+	background-color: rgb(235, 190, 106)
 	
 }
 
-#buttonMedium:active {
-	background-color: orange;
+#buttonMedium:hover {
+	background-color: rgb(229, 194, 130)
 }
 
 #buttonSvår {
-	background-color: rgb(204, 30, 30);
+	background-color: rgb(245, 85, 85)
 	
 }
 
-#buttonSvår:active {
-	background-color: rgb(127, 8, 8);
+#buttonSvår:hover {
+	background-color: rgb(238, 118, 118)
 }
 
 .startOchHigh{
@@ -123,6 +172,8 @@ justify-content: space-around;
 /* Text för input namnen*/
 .highscoretext{
 	display:flex;
+	font-size: 26px;
+	
 }
 .user-name, .player-result, .wrong-guesses, .word-length, .date-time{
 	flex-direction: column;
@@ -132,10 +183,15 @@ justify-content: space-around;
 
 .highscorewindow{
 	padding: 1em;
+	width: 20vw;
+	height: 50vh;
+	min-width: 270px;
+	min-height: 400px;
 	position: absolute;
-	left: 5%;
+	/* left: 50%; */
 	top: 20%;
-    background-color: rgb(214, 246, 241);
+	justify-items: left;
+    background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
@@ -151,8 +207,13 @@ justify-content: space-around;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 		width: 12em;
 		height: 4em;
+<<<<<<< HEAD
 	/* align-items: center; */ 
 	display: inline-block;
+=======
+	
+	/* display: inline-block; */
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 }
 #startButton:hover,
 #highscoreButton:hover{
@@ -160,6 +221,7 @@ justify-content: space-around;
 }
 
 
+<<<<<<< HEAD
 
 #buttonLätt:hover {
 	background-color: chartreuse;
@@ -177,6 +239,8 @@ justify-content: space-around;
 }
 
 
+=======
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 
 /* playView */
 
@@ -218,12 +282,14 @@ justify-content: space-around;
 	display: flex;
 	padding: 1em;
 	gap: 2em;
-	width: 400px;
-	height: 550px;
+	width: 20vw;
+	height: 50vh;
+	min-width: 200px;
+	min-height: 400px;
 	position: absolute;
-	left: 5%;
+	/* left: 40%; */
 	top: 20%;
-	background-color: rgb(214, 246, 241);		
+	background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 
@@ -236,32 +302,43 @@ justify-content: space-around;
 	display: flex;
 }
 #tryagainButton {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
 }
 
 #tryagainButton:hover {
-	background-color: grey;
+	background-color: #E9E3E6;
 }
 #backButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 	margin-left: 13em;
 }
 
 #backButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
 }
 
 #highscoreButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 }
 
 #highscoreButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
 }
 
+#highscoreButtonSmall{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#highscoreButtonSmall:hover{
+	background-color: #E9E3E6;
+
+}
 
 
  /* scorescreen  */
@@ -270,20 +347,18 @@ justify-content: space-around;
 	display: none;
 }
 
-body {
-	display: flex;
-	align-items: center;
-	padding: 2em;
-	margin: 0;
-	font-family: Arial, sans-serif;
-}
+
 
 .keyboard-container {
 	display: grid;
 	grid-template-columns: repeat(11, 1fr);
-	border: solid 1px #000;
+	/* border: solid 1px #000; */
 	gap: 8px;
+<<<<<<< HEAD
 	padding: 2em;
+=======
+	padding: 0em;
+>>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 	margin-top: 3em;
 }
 
@@ -293,14 +368,15 @@ body {
 	border: 1px solid #000;
 	border-radius: 15%;
 	text-align: center;
-	cursor: pointer;
+	/* cursor: pointer; */
 	line-height: 40px;
+	background-color: #40434E;
 	transition: background-color 0.3s;
 }
 
-.key:hover {
+/* .key:hover {
 	background-color: #eeeeeee4;
-}
+} */
 /* Dölj funktion för knapparna när man klickar */ 
 .hidden {
 	display:none;
@@ -312,10 +388,10 @@ body {
 }
 
 .incorrect {
-	background-color:rgb(199, 38, 38);
+	background-color:rgb(118, 57, 57)
 }
 .correct {
-	background-color:rgb(34, 180, 34);
+	background-color:rgb(147, 198, 137)
 }
 .error-message {
 	color: red;
@@ -383,19 +459,46 @@ body {
 	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
-.correct{
-	background-color: rgb(68, 234, 68);
-}
 
-.incorrect{
-	background-color: rgb(216, 40, 40);
-}
 
 .game-over-word-was{
 	font-size: 26px;
-	margin-left: 5em;
+	/* margin-left: 18%; */
 }
 .show-word{
-	font-size: 32px;
-	margin-left: 3em;
+	font-size: 25px;
+	/* margin-left: 18%; */
+}
+
+#sort-button-date{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-date:hover{
+	background-color: #E9E3E6;
+}
+
+#sort-button-guesses{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-guesses:hover{
+	background-color: #E9E3E6;
+}
+
+#backButton{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	margin-left: 13em;
+	padding: 0.5em;
+
+}
+
+#backButton:hover{
+	background-color: #E9E3E6;
+
 }
