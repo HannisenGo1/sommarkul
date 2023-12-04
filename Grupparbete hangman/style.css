@@ -302,6 +302,7 @@ justify-content: space-around;
 	/* cursor: pointer; */
 	line-height: 40px;
 	background-color: #40434E;
+	color: #C3BABA;
 	transition: background-color 0.3s;
 }
 
@@ -322,7 +323,7 @@ justify-content: space-around;
 	background-color:rgb(118, 57, 57)
 }
 .correct {
-	background-color:rgb(147, 198, 137)
+	background-color:rgb(89, 128, 81) 
 }
 
 
