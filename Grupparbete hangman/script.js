@@ -16,6 +16,7 @@ const lättButton = document.getElementById('buttonLätt');
 const mediumButton = document.getElementById('buttonMedium');
 const svårButton = document.getElementById('buttonSvår');
 const nameInput = document.getElementById('input-Name');
+const labelnameInput = document.getElementById('inputName');
 const startForButtonDiv = document.querySelector('.startOchHigh');
 const buttonStart = document.querySelector('#startButton');
 const buttonHighscore = document.querySelector('#highscoreButton');
@@ -42,6 +43,7 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
+const h1text =document.querySelector('.Hangmantext')
 
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
@@ -64,9 +66,9 @@ let wordArray = []
 let uniqueWordLetters = []
 let Victory = null
 let playerResult = ''
-const easywords = words.filter((word) => word.length > 14)
-const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
-const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
+const easywords = words.filter((word) => word.length == 10 || word.length == 11)
+const mediumwords = words.filter((word) => word.length == 9 || word.length == 8)
+const hardwords = words.filter((word) => word.length == 6 || word.length == 7)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
@@ -76,7 +78,7 @@ gameoverButton.classList.add('hidden'); //tillbaka,kör igen knapparna
 startMeny.classList.add('visible');
 tangentbord.classList.add('hidden');
 sortButtonGuess.classList.add('hidden')
-// ViewGameover.classList.add('hidden'); //gameover menyn
+//ViewGameover.classList.add('hidden'); //gameover menyn
 
 function hideAll(){
 	svårighetsgradDiv.classList.add('hidden')
@@ -100,6 +102,8 @@ buttonStart.addEventListener('click', () =>{
 buttonBack.addEventListener('click', () => { 
 	hideAll()
 	startMeny.classList.remove('hidden')
+	nameInput.classList.remove('hidden')
+	labelName.classList.remove('hidden')
 })
 
 function Highscore(){
@@ -110,6 +114,22 @@ function Highscore(){
 		highscorePrinted = true
 	}
 }
+
+
+function validateInput() {
+	if (nameInput.value.length >=2) { //om input är mer än 2
+		buttonStart.removeAttribute('disabled'); //tas bort om användaren fyller i kravet
+	} else {
+		buttonStart.setAttribute('disabled', 'true');//inaktiverar knapp om input ej är uppfylld.
+	}
+}
+validateInput();
+nameInput.addEventListener('input', validateInput);
+nameInput.addEventListener('keypress', function (event) {
+	if (event.key === 'Enter' && nameInput.value.length >=2) { //om kravet är fyllt kan man trycka på enter för "starta här!"
+		buttonStart.click();
+	}
+})
 
 buttonHighscore.addEventListener('click', Highscore)
 buttonHighscore2.addEventListener('click', Highscore)

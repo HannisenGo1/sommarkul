@@ -1,40 +1,51 @@
-@media screen and (max-width: 350px) {
-	body,
-	main {
-		font-size: 14px;
 
-	}
-}
-
-main, body{
-	background-image: url("blue.jpg");
+ body, main {
+	background-color: #C3BABA;
 	background-attachment: fixed;
-	background-repeat: no-repeat;
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: left;
+	font-family: Arial, sans-serif;
 
 }
 
 /* StartView */
 
-h1 {
-	font-size: 30px;
-	text-align: left;
-	padding: 1em;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+#StartView {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+
+
 }
+
+
+h1 {
+	font-size: 19px;
+	text-align: center;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
 
 .divForName {
 	display: flex;
-	flex-direction: column;
-	padding: 1em;
+	flex-direction: row;
+	align-items: center;
+	margin: 1em;
 }
 
-.divForName>label {
+.divForName> label {
 	color: black;
-	font-size: 19px;
+	font-size: 15px;
+	margin-right:0.5em;
 }
 
 .divForName>p {
-	margin-bottom: 0.6em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -45,11 +56,12 @@ h1 {
 	width: 120px;
 }
 
+
 .svårighetsgrad {
 display: flex;
 justify-content: space-around;
-
 }
+
 .svårighetsgradButtons {
 	text-align: center;
 	font-size: 1.2em;
@@ -70,54 +82,58 @@ justify-content: space-around;
 #buttonLätt, 
 #buttonMedium,
 #buttonSvår {
-	margin-right: 5em;
+	margin-left: 1.1em;
 	width: 5em;
-	height: 4em;
+	height: 3em;
+	border-radius: 10%;
+	
 	}
 
 #buttonLätt {
-	background-color: rgb(129, 196, 29);
+	background-color: rgb(168, 239, 168)
 }
 
 #buttonLätt:hover {
-	background-color: rgba(0, 128, 0, 0.838);
+	background-color: rgb(205, 244, 205)
 }
 
 #buttonMedium {
-	background-color: rgb(215, 215, 7);
+	background-color: rgb(235, 190, 106)
 	
 }
 
-#buttonMedium:active {
-	background-color: orange;
+#buttonMedium:hover {
+	background-color: rgb(229, 194, 130)
 }
 
 #buttonSvår {
-	background-color: rgb(204, 30, 30);
+	background-color: rgb(245, 85, 85)
 	
 }
 
-#buttonSvår:active {
-	background-color: rgb(127, 8, 8);
+#buttonSvår:hover {
+	background-color: rgb(238, 118, 118)
 }
 
 .startOchHigh{
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	gap: 1em;
-	flex-direction: space-around;
 
 } 
-
-.buttonForStart,
-.highscorediv {
-	display: flex;
-	padding: 1em;
-	gap: 1em;
+@media only screen and (max-width:350px) {
+	.startOchHigh {
+		flex-direction: column;
+		align-items: center;
+	}
 }
+
 /* Text för input namnen*/
 .highscoretext{
 	display:flex;
+	font-size: 26px;
+	
 }
 .user-name, .player-result, .wrong-guesses, .word-length, .date-time{
 	flex-direction: column;
@@ -126,15 +142,22 @@ justify-content: space-around;
 }
 
 .highscorewindow{
+	
 	padding: 1em;
+	width: 20vw;
+	height: 50vh;
+	min-width: 280px;
+	min-height: 500px;
 	position: absolute;
-	left: 5%;
+	/* left: 50%; */
 	top: 20%;
-    background-color: rgb(214, 246, 241);
+	justify-items: left;
+    background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
 }
 
+		
 .rubrik{
 	font-weight: bold;
 }
@@ -144,10 +167,10 @@ justify-content: space-around;
 	background-color: lightgrey;
 	border-radius: 1.5em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-		width: 18em;
+		width: 12em;
 		height: 4em;
 	
-	display: inline-block;
+	/* display: inline-block; */
 }
 #startButton:hover,
 #highscoreButton:hover{
@@ -155,26 +178,8 @@ justify-content: space-around;
 }
 
 
-*/
-
-#buttonLätt:hover {
-	background-color: chartreuse;
-
-}
-
-#buttonMedium:hover {
-	background-color: rgb(218, 255, 8);
-
-}
-
-#buttonSvår:hover {
-	background-color: rgb(255, 6, 6);
-
-}
-
-
-
 /* playView */
+
 
 .playViewButton {
 	display: flex;
@@ -182,6 +187,15 @@ justify-content: space-around;
 	flex-direction: column;
 	gap: 1em;
 }
+
+.playview {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		max-width: 100vw;
+	}
+
 
 .playViewButton>button {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -199,13 +213,16 @@ justify-content: space-around;
 	background-color: gray;
 }
 
+
+/* @media only screen and (max-width:350px) { */  
 .dash{
-	font-size: 24px;
+	font-size: 26px;
     border-bottom: solid 2px black;
     width: 1em;
-    margin-left: 1em;
-    margin-top: 2em;
+    margin-left: 0.7em;
+    margin-top: 1em;
 }
+ /* } */ 
 
 
 /*gameover */
@@ -214,15 +231,16 @@ justify-content: space-around;
 	display: flex;
 	padding: 1em;
 	gap: 2em;
-	width: 400px;
-	height: 550px;
+	width: 20vw;
+	height: 50vh;
+	min-width: 280px;
+	min-height: 500px;
 	position: absolute;
-	left: 5%;
+	/* left: 40%; */
 	top: 20%;
-	background-color: rgb(214, 246, 241);		
+	background-color: #E9E3E6;	
 	border: 5px solid black;
 	box-shadow: 0 0 0 9999px rgba(96, 98, 96, 0.25)
-
 }
 
 .gameoverButton {
@@ -232,58 +250,61 @@ justify-content: space-around;
 	display: flex;
 }
 #tryagainButton {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
 }
 
 #tryagainButton:hover {
-	background-color: grey;
+	background-color: #E9E3E6;
 }
 #backButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 	margin-left: 13em;
 }
 
 #backButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
 }
 
 #highscoreButton2 {
-	background-color: lightgrey;
-	border-radius: 1.5em;
+	background-color: #B2B2B2;
+	border-radius: 10%;
 }
 
 #highscoreButton2:hover {
-	background-color: gray;
+	background-color: #E9E3E6;
+}
+
+#highscoreButtonSmall{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#highscoreButtonSmall:hover{
+	background-color: #E9E3E6;
+
 }
 
 
-
  /* scorescreen  */
-
-#StartView {
-	display: block; } 
 
 #gameoverView {
 	display: none;
 }
 
-body {
-	display: flex;
-	align-items: center;
-	padding: 2em;
-	margin: 0;
-	font-family: Arial, sans-serif;
-}
+
 
 .keyboard-container {
 	display: grid;
-	grid-template-columns: repeat(11, 1fr);
-	border: solid 1px #000;
+	grid-template-columns: repeat(8, 1fr);
+	/* border: solid 1px #000; */
 	gap: 8px;
-	padding: 2em;
+	padding: 0em;
 	margin-top: 3em;
+	margin-left: 3em;
 }
 
 .key {
@@ -292,14 +313,23 @@ body {
 	border: 1px solid #000;
 	border-radius: 15%;
 	text-align: center;
-	cursor: pointer;
+	/* cursor: pointer; */
 	line-height: 40px;
+	background-color: #40434E;
 	transition: background-color 0.3s;
 }
 
-.key:hover {
-	background-color: #eeeeeee4;
+@media only screen and (max-width:350px) {
+	.key {
+		width: 30px;
+		height:30px
+		font-size:12px
+	}
 }
+
+/* .key:hover {
+	background-color: #eeeeeee4;
+} */
 /* Dölj funktion för knapparna när man klickar */ 
 .hidden {
 	display:none;
@@ -311,10 +341,14 @@ body {
 }
 
 .incorrect {
-	background-color:rgb(199, 38, 38);
+	background-color:rgb(118, 57, 57)
 }
 .correct {
-	background-color:rgb(34, 180, 34);
+	background-color:rgb(147, 198, 137)
+}
+.error-message {
+	color: red;
+
 }
 
 
@@ -378,19 +412,53 @@ body {
 	animation: swinging 3.5s ease-in-out forwards infinite;
 }
 
-.correct{
-	background-color: rgb(68, 234, 68);
-}
 
-.incorrect{
-	background-color: rgb(216, 40, 40);
-}
 
 .game-over-word-was{
 	font-size: 26px;
-	margin-left: 5em;
+	/* margin-left: 18%; */
 }
 .show-word{
-	font-size: 32px;
-	margin-left: 3em;
+	font-size: 25px;
+	/* margin-left: 18%; */
+}
+
+#sort-button-date{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-date:hover{
+	background-color: #E9E3E6;
+}
+
+#sort-button-guesses{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	padding: 0.5em;
+}
+
+#sort-button-guesses:hover{
+	background-color: #E9E3E6;
+}
+
+#backButton{
+	background-color: #B2B2B2;
+	border-radius: 10%;
+	margin-left: 13em;
+	padding: 0.5em;
+
+}
+
+#backButton:hover{
+	background-color: #E9E3E6;
+
+}
+
+@media only screen and (max-width: 350px) {
+
+	body,main {
+		font-size: 10px;
+	}
 }
