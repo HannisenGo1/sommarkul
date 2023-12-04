@@ -304,6 +304,7 @@ justify-content: space-around;
 	/* cursor: pointer; */
 	line-height: 40px;
 	background-color: #40434E;
+	color: #C3BABA;
 	transition: background-color 0.3s;
 	color: #C3BABA;
 }
@@ -325,11 +326,15 @@ justify-content: space-around;
 	background-color:rgb(118, 57, 57)
 }
 .correct {
+<<<<<<< HEAD
 	background-color:rgb(89, 128, 81)
 }
 .error-message {
 	color: red;
 
+=======
+	background-color:rgb(89, 128, 81) 
+>>>>>>> d3bb297b025703641bea573a89b788365bebb020
 }
 
 
