@@ -43,11 +43,8 @@ const highscoreGuesses = document.querySelector('.wrong-guesses')
 const highscoreWordLength = document.querySelector('.word-length')
 const highscoreDate = document.querySelector('.date-time')
 const submissionField = document.getElementById('line-form')
-<<<<<<< HEAD
-=======
 const h1text =document.querySelector('.Hangmantext')
 
->>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 //div för lätt,m,svår
 // Anteckning -- svårighetsgradDiv pekar just nu på själva diven som innehåller lätt, medium, svår-knapparna.
 // Använder variabeln 'svårighetsgrad' för att lagra svårighetsgraden som spelet läser av.
@@ -69,9 +66,9 @@ let wordArray = []
 let uniqueWordLetters = []
 let Victory = null
 let playerResult = ''
-const easywords = words.filter((word) => word.length > 14)
-const mediumwords = words.filter((word) => word.length <= 14 && word.length > 11)
-const hardwords = words.filter((word) => word.length == 10 || word.length == 11)
+const easywords = words.filter((word) => word.length == 10 || word.length == 11)
+const mediumwords = words.filter((word) => word.length == 9 || word.length == 8)
+const hardwords = words.filter((word) => word.length == 6 || word.length == 7)
 
 
 svårighetsgradDiv.classList.add('hidden'); //lätt medium svår är gömd, tills användaren trycker på spela här knappen! 
@@ -93,10 +90,6 @@ function hideAll(){
 	tangentbord.classList.add('hidden')
 	submissionField.classList.add('hidden')
 	highScoreWindow.classList.add('hidden');
-<<<<<<< HEAD
-=======
-	h1text.classList.add('hidden')
->>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 }
 
 buttonStart.addEventListener('click', () =>{

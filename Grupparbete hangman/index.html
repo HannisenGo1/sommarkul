@@ -20,17 +20,12 @@
 		
 
 	<section id="StartView">
-<<<<<<< HEAD
-	<div class="h1">	
-		<h1>Hangman</h1> </div>
-=======
 		<h1 class="Hangmantext">Hangman</h1>
->>>>>>> bc2599941e18f0e390d992daeeda5250183ec47b
 
 		<!-- Ni kan kopiera denna SVG.
 		    Använd CSS för att göra individuella "path" synliga, när man gissar fel.
 		    -->
-		<figure class="hangman">
+		<figure class="">
 			<svg width="301" height="365" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<ellipse id="ground" cx="250.5" cy="536" rx="250.5" ry="29" fill="black" fill-opacity="0.06" />
 				<path id="scaffold" fill-rule="evenodd" clip-rule="evenodd"
@@ -53,15 +48,13 @@
 
 		
 	<div class="divForName">
-			
-		<label for="inputName"> Skriv in ditt namn </label>
-		<input id="input-Name" type="text" minlength="2" placeholder="Skriv in ditt namn" required/>
-		
+			<label for="input-Name"> Skriv in ditt namn </label>
+			<input id="input-Name" type="text"  placeholder="Skriv ditt namn här" />
 	</div>
 
 <div class ="startOchHigh">
 
-		<button id="startButton" type="button">Spela här! </button>
+		<button id="startButton" disabled>Spela här! </button>
 		<button id="highscoreButton"> Highscore </button>
 
 </div>
@@ -92,23 +85,22 @@
 
 <div class="svårighetsgrad">
 
-	<div class="svårighetsgradButtons">
-		<button id="buttonLätt"> Lätt </button>
-		<p id="lätt"> 15+ Bokstäver</p>
+	<div class="svårighetsgradButtons"> 
+	<button id="buttonLätt">  Lätt </button>
+	<p id="lätt"> 10-11 Bokstäver</p>
 	</div>
 
 	<div class="svårighetsgradButtons">
-		<button id="buttonMedium"> Medium </button>
-		<p id="medium">12-14 Bokstäver</p>
+	<button id="buttonMedium"> Medium </button>
+	<p id ="medium">8-9 Bokstäver</p>
 	</div>
 
 	<div class="svårighetsgradButtons">
-		<button id="buttonSvår"> Svår </button>
-		<p id="svår"> 10-11 Bokstäver</p>
+	<button id="buttonSvår"> Svår </button> 
+	<p id= "svår"> 6-7 Bokstäver</p>	
 	</div>
 
 </div>
-
 
 
 	
@@ -183,8 +175,8 @@
 
 </section>
 
-	</main>
 
+</main>
 </body>
 
 </html>
