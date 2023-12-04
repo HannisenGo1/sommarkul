@@ -174,7 +174,6 @@ sortButtonGuess.addEventListener('click', () =>{
 		chosenWord = easywords[randomInt(easywords.length)]
 		svårighetsgradDiv.classList.remove('visible');
 		svårighetsgradDiv.classList.add('hidden');
-		buttonBack.classList.add('visible');
 		submissionField.classList.remove('hidden')
 		gameplay()
 	})
@@ -354,11 +353,11 @@ sortButtonGuess.addEventListener('click', () =>{
 					}
 				}
 			}
-			else if (guessArray.includes(e.key)){
+			else if (guessArray.includes(e.key) || (!alfabetet.includes(e.key.toUpperCase()))){
 				e.preventDefault()
 			}
 			else{
-				tangent.forEach(t => {
+					tangent.forEach(t => {
 					if (t.innerText === (e.key).toUpperCase()) {
 							t.classList.add('incorrect')
 							}
@@ -421,6 +420,7 @@ sortButtonGuess.addEventListener('click', () =>{
 						localStorage.setItem("playerlist", playerliststring)
 						printHighScore()
 						highscorePrinted = true
+					
 					}
 				}
 			}
