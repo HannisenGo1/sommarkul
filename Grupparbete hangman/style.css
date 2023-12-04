@@ -65,7 +65,8 @@ justify-content: space-around;
 .svårighetsgradButtons {
 	text-align: center;
 	font-size: 1.2em;
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	padding: 1em;
 }
 
@@ -76,7 +77,8 @@ justify-content: space-around;
 .svårighetsgradButtons > p {
 	margin-bottom: 20px;
 	margin: auto;
-}
+	font-family: Helvetica, sans-serif;
+} 
 
 
 #buttonLätt, 
@@ -86,7 +88,6 @@ justify-content: space-around;
 	width: 5em;
 	height: 3em;
 	border-radius: 10%;
-	
 	}
 
 #buttonLätt {
@@ -214,7 +215,7 @@ justify-content: space-around;
 }
 
 
-/* @media only screen and (max-width:350px) { */  
+ 
 .dash{
 	font-size: 26px;
     border-bottom: solid 2px black;
@@ -222,7 +223,7 @@ justify-content: space-around;
     margin-left: 0.7em;
     margin-top: 1em;
 }
- /* } */ 
+
 
 
 /*gameover */
@@ -317,13 +318,17 @@ justify-content: space-around;
 	line-height: 40px;
 	background-color: #40434E;
 	transition: background-color 0.3s;
+	color: #C3BABA;
 }
 
 @media only screen and (max-width:350px) {
 	.key {
 		width: 30px;
-		height:30px
-		font-size:12px
+		height:30px;
+		font-size: 12px;
+	}
+	#startView {
+		min-width: 350px;
 	}
 }
 
@@ -344,7 +349,7 @@ justify-content: space-around;
 	background-color:rgb(118, 57, 57)
 }
 .correct {
-	background-color:rgb(147, 198, 137)
+	background-color:rgb(89, 128, 81)
 }
 .error-message {
 	color: red;
@@ -456,7 +461,7 @@ justify-content: space-around;
 
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (min-width: 350px) {
 
 	body,main {
 		font-size: 10px;
