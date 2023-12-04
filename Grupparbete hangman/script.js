@@ -174,7 +174,6 @@ sortButtonGuess.addEventListener('click', () =>{
 		chosenWord = easywords[randomInt(easywords.length)]
 		svårighetsgradDiv.classList.remove('visible');
 		svårighetsgradDiv.classList.add('hidden');
-		buttonBack.classList.add('visible');
 		submissionField.classList.remove('hidden')
 		gameplay()
 	})
