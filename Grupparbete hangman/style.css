@@ -139,7 +139,7 @@ justify-content: space-around;
 	height: 50vh;
 	min-width: 280px;
 	min-height: 500px;
-	max-height: 600px;
+	max-height: 80vh;
 	position: absolute;
 	/* left: 50%; */
 	top: 20%;
@@ -150,7 +150,6 @@ justify-content: space-around;
 }
 
 .highscoretext{
-	max-height: 600px;
 	display:flex;
 	font-size: 16px;
 	max-height: 475px;
@@ -163,7 +162,7 @@ justify-content: space-around;
 
 #startButton, 
 #highscoreButton {
-	background-color: lightgrey;
+	background-color: rgb(207, 207, 207);
 	border-radius: 1.5em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 		width: 12em;
@@ -173,7 +172,7 @@ justify-content: space-around;
 }
 #startButton:hover,
 #highscoreButton:hover{
-	background-color: gray;
+	background-color: rgb(123, 123, 123);
 }
 
 
@@ -194,12 +193,12 @@ justify-content: space-around;
 }
 
 #backButton {
-	background-color: lightgrey;
+	background-color: rgb(207, 207, 207);
 	border-radius: 1.5em;
 }
 
 #backButton:hover {
-	background-color: gray;
+	background-color: rgb(123, 123, 123);
 }
 
 
@@ -223,7 +222,7 @@ justify-content: space-around;
 	width: 20vw;
 	height: 50vh;
 	min-width: 280px;
-	min-height: 500px;
+	min-height: 300px;
 	position: absolute;
 	/* left: 40%; */
 	top: 20%;
@@ -326,10 +325,6 @@ justify-content: space-around;
 }
 .correct {
 	background-color:rgb(89, 128, 81)
-}
-.error-message {
-	color: red;
-
 }
 
 
@@ -435,26 +430,20 @@ justify-content: space-around;
 
 }
 
-@media only screen and (max-width: 450px){
-	.highscorewindow > button{
-		margin-left: 2em;
+@media only screen and (min-width: 451px) and (max-width: 649px){
+	.highscorewindow{
+		width: 80vw;
+		top: 10%;
 	}
-}
-
-@media only screen and (max-width: 451px) and (max-width: 649px){
 	.highscorewindow > button{
 		/* margin-left: 5em;*/
 	}
 }
 
-@media only screen and (max-width: 650px) and (max-width: 850px) {
+@media only screen and (min-width: 650px) and (max-width: 850px) {
 
-	.highscoretext{
-		font-size: 10px;
-		justify-content: space-around;
-	}
 	.highscorewindow{
-		min-width: 320px;
+		min-width: 330px;
 		min-height: 530px;
 		width: 80vw;
 		padding: 0;
@@ -467,9 +456,80 @@ justify-content: space-around;
 	.keyboard-container {
 		grid-template-columns: repeat(8, 1fr);
 	}
+}
+
+@media only screen and (max-width: 850px){
+	.highscoretext{
+		font-size: 10px;
+		justify-content: space-evenly;
+	}
+	.keyboard-container {
+		grid-template-columns: repeat(8, 1fr);
+	}
+	figure{
+		height: 45vh;
+	}
+	svg{
+		height: 100%
+	}
 	.key {
 		width: 30px;
 		height:30px;
 		font-size:12px
+	}
+}
+
+@media only screen and (max-width: 450px){
+	.highscoretext{
+		font-size: 10px;
+		justify-content: stretch;
+	}
+	.highscorewindow{
+		min-width: 330px;
+		min-height: 530px;
+		width: 80vw;
+		padding: 0;
+		top: 10%;
+	}
+	.highscorewindow > button{
+		margin-left: 2em;
+	}
+	.keyboard-container{
+		margin-left: 1em;
+	}
+	.key {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@media only screen and (min-width: 851px) and (max-width:1050px){
+	.highscorewindow{
+		width: 55vw;
+		top: 10%;
+	}
+	.highscorewindow > button{
+		margin-left: 4em;
+	}
+	figure{
+		height: 45vh;
+	}
+	svg{
+		height: 100%
+	}
+}
+@media only screen and (min-width: 1051px) and (max-width:1250px){
+	.highscorewindow{
+		width: 40vw;
+		top: 10%;
+	}
+	.highscorewindow > button{
+		margin-left: 6em;
+	}
+	figure{
+		height: 45vh;
+	}
+	svg{
+		height: 100%
 	}
 }
