@@ -1,0 +1,94 @@
+@media screen {
+	body, header, footer{
+		min-width: 100%;
+		box-sizing:border-box; /*ser till att padding och border räknas in */
+		}	
+}
+
+header {
+background-color: red;
+	display:flex;
+	padding: 0em;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+header > img {
+	max-width: 30%; 
+}
+
+header > p {
+	color: black;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 2.2em;
+	text-align: center;
+}
+.pokemonbild,
+.findChampion, 
+.MyTeam {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	padding: 0;
+	margin: 0;
+}
+#Find-button,
+ #team-button {
+	display:flex;
+	border:none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+}
+
+.button-text {
+	margin-top: 10px;
+}
+#Find-button .button1-div{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+#Find-button img,
+ #team-button img {
+margin: 0;
+padding:0;
+width:100%;
+max-width:600px;
+}
+#Find-button:hover img,
+#team-button:hover img {
+background-color: yellow;
+}
+
+
+body {
+	background-color: whitesmoke;
+}
+
+.sök-container{
+	display:flex;
+	padding: 1em;
+	flex-direction: column;
+	align-items: center;
+}
+.sök-container > p {
+	font-size: 1.2em;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	margin-bottom: 0.5em;
+}
+
+.sök-container > label {
+	padding: 1.5em;
+	width: 0.5em;
+}
+
+footer {
+	background-color: red;
+		display: flex;
+		padding: 1em;
+		flex-wrap: wrap;
+		margin-top: 0.4em;
+}
