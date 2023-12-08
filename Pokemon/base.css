@@ -92,3 +92,9 @@ footer {
 		flex-wrap: wrap;
 		margin-top: 0.4em;
 }
+.hidden{
+	display:none;
+}
+.visible{
+	display:block;
+}
