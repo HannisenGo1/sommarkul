@@ -7,35 +7,62 @@
 	<script type="module" src="ajax.js"></script>
 	<script type="module" src="storage.js"></script>
 	<script type="module" src="variabler.js"></script>
-	<script type="module" src ="functionButtons.js"></script>
+	<script type="module" src="functionButtons.js"></script>
 	<title>Pokemon manager</title>
 </head>
 <header> 
 <img src="picka.png" alt="pickachu"> 
 <p> Poke manager </p>
-
 </header>
-
 <body>
-
-	<div class="sök-container">
-<p>Find pokemon<p>
-<input type="text" value="" placeholder="pokemon name here" />
-		<label for="sökning"> </label>
-		<button> search </button>
-	</div>
-
-	
-	<div class="findChampion">
-		<button id="Find-button"> 		
+<div class="backMenyn">
+	<button id="back-button">
+		<img src="pokemonboll.png" alt="pokemonboll">
+	</button>
+</div>
+	<!-- Till find champion menyn! --->
+	<div class="findChampionstart">
+		<button id="championbutton"> 		
 		<img src="pokemonboll3.png" alt="pokemonboll" 
 		</button>
 </div>
-	<div class="MyTeam">
+	<!-- Till mitt lag menyn i startmenyn! --->
+	<div class="MyTeamstart">
 		<button id="team-button">
 			<img src="pokemonboll2.png" alt="pokemonboll">
 		</button>
 	</div>
+
+	
+
+	<!-- find champion menyn! --->
+
+<div id="championMenyn">
+		<div class="sök-container">
+			<p>Find pokemon </p>
+				<input type="text" value="" placeholder="pokemon name here" />
+				<label for="sökning"> </label>
+				<button id ="searchbutton"> search </button>
+		</div>
+
+
+		
+		<div class ="searchForPokemonDiv">
+			<h2> Pokemon for champion</h2>
+		<div class="image"> images here </div>
+		<button id="addPokemonsbutton"> Add champions to team</button>
+		</div>
+</div>
+
+
+	<!-- My team menyn! --->
+<div id="my-team">
+			<div class="image"> images here</div>
+			<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
+			<button id="kickHere"> Kick from team</button>
+</div>
+
+
 
 </body>
 <footer>  

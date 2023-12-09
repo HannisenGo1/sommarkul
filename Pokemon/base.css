@@ -6,7 +6,7 @@
 }
 
 header {
-background-color: red;
+	background-color: red;
 	display:flex;
 	padding: 0em;
 	flex-wrap: wrap;
@@ -24,8 +24,8 @@ header > p {
 	text-align: center;
 }
 .pokemonbild,
-.findChampion, 
-.MyTeam {
+.findChampionstart, 
+.MyTeamstart {
 	display:flex;
 	justify-content: center;
 	align-items: center;
@@ -33,7 +33,7 @@ header > p {
 	padding: 0;
 	margin: 0;
 }
-#Find-button,
+#championbutton,
  #team-button {
 	display:flex;
 	border:none;
@@ -46,19 +46,43 @@ header > p {
 .button-text {
 	margin-top: 10px;
 }
-#Find-button .button1-div{
+#championbutton , 
+.button1-div{
 	display:flex;
 	flex-direction: column;
 	align-items: center;
 }
-#Find-button img,
+#championbutton img,
  #team-button img {
 margin: 0;
 padding:0;
 width:100%;
 max-width:600px;
 }
-#Find-button:hover img,
+
+.backMenyn {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+}
+.backMenyn img {
+	margin:0;
+	padding: 0.3em;
+	width:20%;
+	max-width:50em;
+}
+ #back-button {
+ 	display: flex;
+ 	border: none;
+ 	background: none;
+ 	cursor: pointer;
+ 	padding: 0;
+ 	margin: 0;
+ }
+ #back-button:hover img{
+	background-color: yellow;
+ }
+#championbutton:hover img,
 #team-button:hover img {
 background-color: yellow;
 }
@@ -67,34 +91,74 @@ background-color: yellow;
 body {
 	background-color: whitesmoke;
 }
-
+.searchForPokemonDiv{
+	display: flex;
+		padding: 0;
+		flex-direction: column;
+		align-items: center;
+}
 .sök-container{
 	display:flex;
-	padding: 1em;
 	flex-direction: column;
 	align-items: center;
+	flex-wrap: wrap;
 }
 .sök-container > p {
 	font-size: 1.2em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	margin-bottom: 0.5em;
+	margin-bottom: 0;
+	padding:1em;
 }
 
 .sök-container > label {
-	padding: 1.5em;
-	width: 0.5em;
+	padding:0.1em;
+	width:0.5em;
+	margin-right: 0.5em;
 }
+.sök-container > #searchbutton {
+
+}
+
 
 footer {
 	background-color: red;
-		display: flex;
-		padding: 1em;
-		flex-wrap: wrap;
-		margin-top: 0.4em;
+	display: flex;
+	padding: 1.5em;
+	flex-wrap: wrap;
+	margin-top: 0.4em;
 }
 .hidden{
-	display:none;
+	display:none;  
 }
 .visible{
 	display:block;
 }
+
+.championMenyn, /* Trotts att det är ett id så behövdes ett . ist för # */ 
+ .my-team {
+	display: block;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	padding: 0em;
+}
+h2{
+	display:flex;
+	background-color: whitesmoke;
+}
+
+#my-team, .image {
+	width: 4.5em;
+	height: 4.5em;
+	border: 1px solid #444;
+	background: #ff0303;
+	margin-right: 1.5em;
+}
+/*
+.rubrikPokemon{
+
+}
+#kickHere {
+
+} */ 
+
