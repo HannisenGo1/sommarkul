@@ -1,0 +1,19 @@
+h1 {
+	font-size: 3em;
+	margin: 0;
+	margin-bottom: 0.7em;
+	text-align: center;
+	display: flex;
+	padding: 0;
+	
+}
+
+h2 {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1em;
+	display: flex;
+	text-align: center;
+
+	display: flex;
+	background-color: whitesmoke;
+}

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="base.css">
+	<link rel="stylesheet" href="extra.css">
 	<script type="module" src="ajax.js"></script>
 	<script type="module" src="storage.js"></script>
 	<script type="module" src="variabler.js"></script>
@@ -16,19 +17,20 @@
 </header>
 <body>
 <div class="backMenyn">
-	<button id="back-button">
+	<button class="back-button">
 		<img src="pokemonboll.png" alt="pokemonboll">
 	</button>
 </div>
 	<!-- Till find champion menyn! --->
 	<div class="findChampionstart">
-		<button id="championbutton"> 		
-		<img src="pokemonboll3.png" alt="pokemonboll" 
+		<button class="championbutton"> 		
+		<img src="pokemonboll3.png" alt="pokemonboll">
 		</button>
 </div>
 	<!-- Till mitt lag menyn i startmenyn! --->
+	
 	<div class="MyTeamstart">
-		<button id="team-button">
+		<button class="team-button">
 			<img src="pokemonboll2.png" alt="pokemonboll">
 		</button>
 	</div>
@@ -36,31 +38,42 @@
 	
 
 	<!-- find champion menyn! --->
-
-<div id="championMenyn">
+<div class="championMenyn">
+				<!-- hitta pokemon menyn! --->
 		<div class="sök-container">
-			<p>Find pokemon </p>
-				<input type="text" value="" placeholder="pokemon name here" />
+			<h2>Find pokemon </h2>
+				<input type="text" id="searchInput" placeholder="pokemon name here" />
 				<label for="sökning"> </label>
 				<button id ="searchbutton"> search </button>
+			<div class="pokemonLista"></div>
 		</div>
 
-
-		
-		<div class ="searchForPokemonDiv">
+	 <div class ="searchForPokemonDiv"> 
 			<h2> Pokemon for champion</h2>
-		<div class="image"> images here </div>
-		<button id="addPokemonsbutton"> Add champions to team</button>
+	<div class="image"> images here  </div>
+		<button class="addPokemonsbutton"> Add champions to team</button>
+	<div class="image"> images here </div>
+		<button class="addPokemonsbutton"> Add champions to team</button>
+	<div class="image"> images here </div>
+		<button class="addPokemonsbutton"> Add champions to team</button>
 		</div>
 </div>
 
 
 	<!-- My team menyn! --->
-<div id="my-team">
-			<div class="image"> images here</div>
-			<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-			<button id="kickHere"> Kick from team</button>
+<div class ="my-team">
+	<h1> MY TEAM </h1>
+		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
+		<div class="image"> images here</div>
+			<button class="kickHere"> Kick from team</button>
+		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
+		<div class="image"> images here</div>
+			<button class="kickHere"> Kick from team</button>
+		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
+		<div class="image"> images here</div>
+	<button class="kickHere"> Kick from team</button>
 </div>
+
 
 
 
