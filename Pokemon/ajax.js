@@ -1,5 +1,5 @@
 async function getAdvice() {
-	const url = 'https://api.adviceslip.com/advice'
+	const url = 'https länken'
 
 	const response = await fetch(url)
 	const data = await response.json()
@@ -9,5 +9,7 @@ async function getAdvice() {
 
 	return data.slip
 }
+
+
 
 export { getAdvice }

@@ -1,5 +1,5 @@
 @media screen {
-	body, header, footer {
+	body, header, footer, header-blue {
 		min-width: 100%;
 		box-sizing:border-box; 
 		}	
@@ -15,11 +15,33 @@ header {
 	margin-bottom: 2em;
 }
 
+
 header > img {
 	max-width: 30%; 
 }
 
 header > p {
+	color: black;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 2.2em;
+	text-align: center;
+}
+
+header-blue {
+	background-color: rgb(0, 0, 255);
+	display: flex;
+	padding: 0em;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+
+
+header-blue >img {
+	max-width: 30%;
+}
+
+header-blue >p {
 	color: black;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	font-size: 2.2em;
@@ -95,15 +117,21 @@ body {
 }
 .searchForPokemonDiv {
 	display: flex;
-		padding: 0;
-		flex-direction: column;
-		align-items: center;
+	padding: 0;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
 }
 .searchForPokemonDiv > .image { 
+	width: 13em;
+	height: 13em;
 	padding:1.5em;
 	margin-bottom: 0.3em;
 	margin-top: 0.6em;
+		
 }
+
+
 
 
 .sök-container{
@@ -130,11 +158,16 @@ body {
  footer {
 	background-color: red;
 	display: flex;
-	padding: 1.5em;
+	
 	flex-wrap: wrap;
 	margin-top: 10em;
 	background-repeat: no-repeat;
 } 
+footer > p {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 1em;
+}
+
 
 .championMenyn,
 .my-team {

@@ -17,3 +17,59 @@ h2 {
 	display: flex;
 	background-color: whitesmoke;
 }
+.pokemon-enter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;		
+	align-items: center;
+	color: black;
+	padding: 0em;
+	min-width: 100%;
+	box-sizing: border-box;
+}
+/*TESTNING NEDANFÖR */
+.pokemonLista, #pokemonInfo, #klarMeddelande {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	padding: 0em;
+	min-width: 100%;
+	box-sizing: border-box;
+}
+.pokemon-enter > #rubrikPokemon {
+	margin-top: 0.5em;
+}
+.pokemon-enter > .image {
+	width: 4.5em;
+	height: 4.5em;
+	border: 0.5px solid #444;
+	background: white;
+}
+
+.pokemon-enter > .kickHere {
+	padding: 0.4em;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	background-color: rgb(212, 202, 202);
+	margin-top:1em;
+	margin-bottom: 1em;
+}
+ .kickHere:hover{
+	background-color: red;
+}
+
+.smeknamn {
+	margin-bottom: 3em;
+}
+
+
+
+/* #fetch-results {
+	border: 1px solid  rgb(25, 25, 255);
+	min-height: 1em;
+	padding: 0.5em;
+	background-color: none;
+}*/ 
+
+

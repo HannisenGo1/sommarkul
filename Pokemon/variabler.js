@@ -8,19 +8,20 @@ const myTeamButton = document.querySelector('.team-button')
 //knappen för my Team
 const divMyTeamButton = document.querySelector('.MyTeamstart');
 const menyChampion =document.querySelector('.championMenyn')// menyn för champions
-const images = document.querySelector('.image') //bilder på pokemon
-const addPokemonsButton = document.querySelector('.addPokemonsbutton') //lägg till pokemon med knapp
-const buttonsearch = document.getElementById('searchbutton'); //sök knapp för pokemonen
 const myTeam = document.querySelector('.my-team'); // meny för mitt team 
 const backmeny = document.querySelector('.backMenyn');
 const backButton = document.querySelector('.back-button');
 const divSearchForPokemon = document.querySelector('.searchForPokemonDiv')
+const headercolor= document.querySelector('header');
+const headerblue = document.querySelector('header-blue');
+
 
 myTeam.classList.add('hidden');
 menyChampion.classList.add('hidden'); //menyn champion hidden
 backmeny.classList.add('hidden');
 serchMeny.classList.add('hidden');
 //divSearchForPokemon.classList.add('hidden')
+
 
 
 
@@ -42,6 +43,8 @@ myTeamButton.addEventListener('click', async () => {
 	divFindChampionButton.classList.add('hidden');
 	backmeny.classList.remove('hidden');
 	findChampionButton.classList.add('hidden')
+	headercolor.classList.add('hidden');
+	headerblue.classList.add('visible');
 });
 
 backButton.addEventListener('click', async () => { 
@@ -54,8 +57,14 @@ backButton.addEventListener('click', async () => {
 	divFindChampionButton.classList.add('visible');
 	serchMeny.classList.add('hidden');
 	divSearchForPokemon.classList.add('hidden');
-
+headercolor.classList.remove('hidden');
+headerblue.classList.remove('visible');
+headerblue.classList.add('hidden');
  });
+
+ serchMeny.addEventListener('click', async () => {
+
+ })
 
 
 
