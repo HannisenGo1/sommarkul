@@ -5,20 +5,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="base.css">
 	<link rel="stylesheet" href="extra.css">
-	<script type="module" src="ajax.js"></script>
-	<script type="module" src="storage.js"></script>
 	<script type="module" src="variabler.js"></script>
+	<script type="module" src="ajax.js"></script>
 	<script type="module" src="functionButtons.js"></script>
+	
 	<title>Pokemon manager</title>
 </head>
-<header> 
+<header class="header"> 
 <img src="picka.png" alt="pickachu"> 
 <p> Poke manager </p>
 </header>
-<header-blue class="hidden">
+<header class= "header-blue hidden">
 	<img src="picka.png" alt="pickachu">
 	<p> Poke manager </p>
-</header-blue>
+</header>
 <body>
 <div class="backMenyn">
 	<button class="back-button">
@@ -43,78 +43,50 @@
 
 	<!-- find champion menyn! --->
 <div class="championMenyn">
-				<!-- hitta pokemon menyn! --->
+	
+	<!-- hitta pokemon menyn! --->
 		<div class="sök-container">
-			<h2>Find pokemon </h2>
+			<h3>Find pokemon </h3>
 	<input type="search" id="searchInput" placeholder="pokemon name here" /> 
 			<label for="searchInput"> </label> 
-				<button id ="searchbutton"> search </button> 
+				<button id ="searchbutton">Search</button> 
 	<div class="pokemonLista"></div>
 	<div id="pokemonInfo"> </div>
 </div>
 
 	 <div class ="searchForPokemonDiv"> 
-		<h2> Pokemon for champion</h2>
-		<div class="pokemon-enter"> 
-		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-	<div class="image"><img src=""> images here  </div>
-		<button class="addPokemonsbutton"> Add champions to team</button>
-	</div>
-	<div class="pokemon-enter">
-		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-		<div class="image"><img src=""> images here </div>
-		<button class="addPokemonsbutton"> Add champions to team</button>
-	</div>
-	<div class="pokemon-enter">
-		<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-	<div class="image"><img src=""> images here </div>
-		<button class="addPokemonsbutton"> Add champions to team</button>
+		<button class="addPokemonsbutton">Add champions to team</button>
+	<div class="pokemon-enter"> 
+		<h2 class="rubrikPokemon">Namn på pokemon här </h2>
+	<div class="image"><img src="" alt="Pokemon image">  </div>
+	<h2> Abilities här!</h2>
+		<button class="addPokemonsbutton">Add champions to team</button>
 	</div>
 </div>
-
+</div>
 
 	<!-- My team menyn! --->
 <div class ="my-team">
 	<h1> MY TEAM </h1>
-	<div id="klarMeddelande"> </div>
-		<div class="pokemon-enter">
+	<div id="klarMeddelande"></div>
+		<div class="pokemon-enter2">
 			<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
 			<div class="image"> images here</div>
 			<button class="kickHere"> Kick from team</button>
+			<button class="toreserv">send to reserv</button>
 
 			<div class="smeknamn">
-				<label for="inputNickname1"> change name</label>
-				<input type="text" id="inputNickname1" placeholder="change nickname">
+				<label for="nickname-input"> change name</label>
+				<input type="text" id="nickname-input" placeholder="Change nickname">
 				<button class="confirm"> Confirm nickname</button>
 			</div>
-		</div>
-		<div class="pokemonmembers" id="pokemon2">
-			<div class="pokemon-enter">
-				<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-				<div class="image"> images here</div>
-				<button class="kickHere"> Kick from team</button>
-
-				<div class="smeknamn">
-					<label for="inputNickname2"> change name</label>
-					<input type="text" id="inputNickname2" placeholder="change nickname">
-					<button class="confirm"> Confirm nickname</button>
-				</div>
-			</div>
-		<div class="pokemonmembers" id="pokemon3">
-			<div class="pokemon-enter">
-				<h2 class="rubrikPokemon"> Namn på pokemon här</h2>
-				<div class="image"> images here</div>
-				<button class="kickHere"> Kick from team</button>
-
-				<div class="smeknamn">
-					<label for="inputNickname3"> change name</label>
-					<input type="text" id="inputNickname3" placeholder="change nickname">
-					<button class="confirm"> Confirm nickname</button>
-				</div>
-			</div>
+		</div>	
 </div>
 <!-- Reserv meny för pokemon i reserv. -->
 <div class="reserver" id="NuvarandeTeam"> </div>
+<!-- Reserv knapp för pokemon i reserv. , lägg till i variabler.js -->
+<button> Move up to team </button>
+
 
 
 	
@@ -126,6 +98,6 @@
 
 </body>
 <footer>  
-<p> Developer: Hanna Karlsson</p>
+<p> NBI Handelsakademin. HK</p>
 </footer>
 </html>

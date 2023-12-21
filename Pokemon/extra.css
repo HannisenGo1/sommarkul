@@ -10,11 +10,16 @@ h1 {
 
 h2 {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-size: 1em;
-	display: flex;
+	font-size: 1.3em;
 	text-align: center;
-
 	display: flex;
+	background-color: whitesmoke;
+}
+
+h3 {
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 2em;
+	text-align: center;
 	background-color: whitesmoke;
 }
 .pokemon-enter {
@@ -63,13 +68,13 @@ h2 {
 	margin-bottom: 3em;
 }
 
+.p{
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: em;
 
+}
 
-/* #fetch-results {
-	border: 1px solid  rgb(25, 25, 255);
-	min-height: 1em;
-	padding: 0.5em;
-	background-color: none;
-}*/ 
-
+.addPokemonsbutton:hover{
+	background-color: rgb(11, 210, 11);
+}
 
