@@ -93,17 +93,25 @@ async function handlesearch() {
 
 
 
-async function addpokemonToTeam() {
-  const addButtons = document.querySelectorAll('.addPokemonsbutton');
-  for (const button of addButtons) {
+async function addpokemonToTeam(pokemonEnterDiv) {
+  const addButtons = pokemonEnterDiv.querySelectorAll('.addPokemonsbutton');
+  addButtons.forEach((button) => {
     button.removeEventListener('click', handleAddClick);
-    button.addEventListener('click', handleAddClick);
-  }
+    button.addEventListener('click', () => handleAddClick(pokemonEnterDiv));
+  });
 }
+
+
+addPokemonButton.addEventListener('click', (event) => handleAddClick(event));
+
+
 
 function handleAddClick(event) {
   event.preventDefault();
-  const pokemonEnterDiv = event.currentTarget.closest('.pokemon-enter');
+
+  const addButton = event.currentTarget;
+  const pokemonEnterDiv = addButton.closest('.pokemon-enter');
+
   const pokemonData = {
     name: pokemonEnterDiv.querySelector('h2').textContent,
     imageUrl: pokemonEnterDiv.querySelector('img').src,
@@ -117,9 +125,12 @@ function handleAddClick(event) {
     pokemonData.nickname = nickname;
     addInTeam(pokemonData);
   } else {
-    console.error('Please enter a nickname.', error);
+    console.error('Please enter a nickname.');
   }
 }
+
+
+
 
 
 function addInTeam(pokemonData) {
@@ -142,10 +153,7 @@ function addInTeam(pokemonData) {
   displayTeam();
 }
 
-function handleKickFromTeam(index) {
-  const kickedPokemon = team.membersPokemon.splice(index, 1)[0];
-  displayTeam();
-}
+
 
 function handleConfirmNickname(index) {
   const newNickname = document.querySelector(`.pokemon-enter2[data-index="${index}"] .smeknamn input`).value;
@@ -160,16 +168,42 @@ function handleSendToReserv(index) {
   team.reservDiv.push(pokemonToMove);
   displayTeam();
 }
+let addButtonList = document.querySelectorAll('.add-champion-button');
 
-function handleChangeOrder(index, newIndex) {
-  const movedPokemon = team.membersPokemon.splice(index, 1)[0];
-  team.membersPokemon.splice(newIndex, 0, movedPokemon);
-  displayTeam();
-}
 searchForPokemonDiv.addEventListener('click', function (event) {
   if (event.target.classList.contains('addPokemonsbutton')) {
-    const index = addButtonList.indexOf(event.target);
-    const selectedPokemon = pokemonList[index];
-    addChampionToTeam(selectedPokemon);
+    const pokemonEnterDiv = event.target.closest('.pokemon-enter');
+    addpokemonToTeam(pokemonEnterDiv);
   }
 });
+
+
+function isTeamComplete() {
+  const existingTeamData = getExistingTeamData(); 
+  return existingTeamData.length === 3;
+}
+
+function movePokemonDown(pokemon){
+	const index = teamList.indexOf(pokemon);
+	if(index < teamList.length -1){
+		const temp = teamList[index];
+		teamList[index] = teamList[index + 1];
+		teamlist[index + 1] = temp;
+	}
+}
+function movePokemonUp (pokemon) {
+	const index = reservDiv.indexOf(pokemon)
+	if(index > 0) {
+		const temp = reservList[index]
+		reservList[index] = reservList[index -1]
+		reservList[index - 1] = temp;
+	}
+}
+function movepokemonDownReserv(pokemon){
+	const index = reservList.indexOf(pokemon);
+	if (index < reservList.length -1) {
+		const temp = reservList [index]
+		reservList[index] = reservList[index + 1]
+		reservList[index +1] = temp;
+	}
+}

@@ -40,6 +40,7 @@ const url = ('https://pokeapi.co/api/v2/')
 
 //får ut bilderna
 async function fetchPokemonData(pokemonList) {
+  // Skapa en Promise-array för att vänta på alla fetch-anrop
   const fetchPromises = pokemonList.map(async (pokemon) => {
     try {
       const response = await fetch(pokemon.url);
@@ -49,23 +50,43 @@ async function fetchPokemonData(pokemonList) {
         let imageUrl = pokemonData.sprites.front_default;
 
         pokemonData.SpritesUrl = imageUrl;
-        // Display the Pokemon immediately
+        // Visa varje matchande Pokemon
         console.log('Pokemon data:', pokemonData);
         displayPokemon([pokemonData]);
       } else {
         console.error(`No image for ${pokemon.name}`);
       }
-      console.log('Finished processing', pokemon.name);
+      console.log('finished processing', pokemon.name);
 
       return pokemonData; // Return the data from the map callback
     } catch (error) {
       console.error(`Error fetch data ${pokemon.name}:`, error);
-      // If there's an error, return an empty object or some placeholder
-      return {};
     }
   });
-  await Promise.all(fetchPromises);
+
+  // Vänta på att alla fetch-anrop ska slutföras innan du fortsätter
+  const pokemonDataArray = await Promise.all(fetchPromises);
+  return pokemonDataArray;
 }
+const addButtonList = [];
+for (const addButton of addButtonList) {
+  addButton.addEventListener('click', async function () {
+    const index = addButtonList.indexOf(addButton);
+    console.log('Button clicked at index:', index);
+
+    if (index !== -1) {
+      const selectedPokemon = pokemonList[index];
+      console.log('Selected Pokemon:', selectedPokemon);
+
+      const fetchedPokemonData = await fetchPokemonData([selectedPokemon]);
+      console.log('Fetched Pokemon data for selected Pokemon:', fetchedPokemonData);
+
+      // Assuming addpokemonToTeam accepts an array of Pokémon data
+      addpokemonToTeam(fetchedPokemonData);
+    }
+  });
+}
+
 
 
 // DISPLAY POKEMON:: 
@@ -74,12 +95,20 @@ async function fetchPokemonData(pokemonList) {
 async function displayPokemon(pokemonList) {
   const searchForPokemonDiv = document.querySelector('.searchForPokemonDiv');
 
-  const addButtonList = [];
-
   for (const pokemonData of pokemonList) {
     const abilities = pokemonData.abilities || [];
     const championPokemonDiv = document.createElement('div');
     championPokemonDiv.classList.add('pokemon-enter');
+
+	const addButton = document.createElement('button');
+    addButton.classList.add('add-champion-button');
+    addButton.textContent = 'Add to Team';
+    addButtonList.push(addButton);
+	addButton.addEventListener('click', function() {
+      const index = addButtonList.indexOf(addButton);
+      const selectedPokemon = pokemonList[index];
+      addChampionToTeam(selectedPokemon);
+    });
 
     // Lägg till unik identifierare
     const uniqueId = pokemonData.name.toLowerCase();

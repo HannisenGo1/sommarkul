@@ -2,32 +2,57 @@ import {maxTeam} from "./functionButtons.js";
 import { displayPokemon} from "./ajax.js"
 let membersPokemon= [];
 
-export function addToTeam(pokemonData) {
-  if (membersPokemon.length < maxTeam) {
-    const pokemonInfoToSave = {
-      name: pokemonData.name,
-      imageUrl: pokemonData.SpritesUrl || '',
-      nickname: pokemonData.nickname || ''
-    };
+function getExistingReserveData() {
+  const existingReserveData = localStorage.getItem('myReserve');
+  return existingReserveData ? JSON.parse(existingReserveData) : [];
+}
+const existingReserveData = getExistingReserveData();
 
-    membersPokemon.push(pokemonInfoToSave);
-    saveToLocalStorage(pokemonInfoToSave);
-    addPokemonToTeamDOM(pokemonInfoToSave); // Add this line
+export function addToTeam(pokemonData, nickname) {
+  const existingTeamData = getExistingTeamData(); 
+  const existingReserveData = getExistingReserveData(); 
+  if (existingTeamData.length < 3) {
+    
+    pokemonData.nickname = nickname;
+    existingTeamData.push(pokemonData);
   } else {
-    console.log('Laget är redan komplett.');
+   
+    pokemonData.nickname = nickname;
+    existingReserveData.push(pokemonData);
   }
+ 	localStorage.setItem('myTeam', JSON.stringify(existingTeamData));
+  localStorage.setItem('myReserve', JSON.stringify(existingReserveData));
+    displayTeam();
+  displayReserve();
+}
 
-  updateSelectedCount(); // Uppdatera antalet valda Pokémon
+function kickFromTeam(index) {
+  const existingTeamData = getExistingTeamData(); 
+  const existingReserveData = getExistingReserveData(); 
+  const kickedPokemon = existingTeamData.splice(index, 1)[0];
+  existingReserveData.push(kickedPokemon);
+  localStorage.setItem('myTeam', JSON.stringify(existingTeamData));
+  localStorage.setItem('myReserve', JSON.stringify(existingReserveData));
+
+
+  displayTeam();
+  displayReserve();
+}
+
+export function changeOrder(indexFrom, indexTo) {
+  const existingTeamData = getExistingTeamData(); 
+  const movedPokemon = existingTeamData.splice(indexFrom, 1)[0];
+  existingTeamData.splice(indexTo, 0, movedPokemon);
+  localStorage.setItem('myTeam', JSON.stringify(existingTeamData));
+  displayTeam();
 }
 
 
 export function addPokemonToTeamDOM(pokemonData) {
   const myTeamDiv = document.querySelector('.my-team');
   const championPokemonDiv = createPokemonDiv(pokemonData);
-
   const nicknameInput = createNicknameInput();
   const confirmButton = createConfirmButton(pokemonData, nicknameInput);
-
   championPokemonDiv.appendChild(nicknameInput);
   championPokemonDiv.appendChild(confirmButton);
   myTeamDiv.appendChild(championPokemonDiv);
@@ -90,11 +115,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     const storedTeamData = JSON.parse(localStorage.getItem('myTeam')) || [];
     membersPokemon = storedTeamData.slice(0, maxTeam);
     reservDiv = storedTeamData.slice(maxTeam);
-
+	displayTeam();
   } catch (error) {
     console.error('Error during initialization:', error);
   }
 });
+
 export function displayTeam() {
   const myTeamDiv = document.querySelector('.my-team');
   myTeamDiv.innerHTML = '';
