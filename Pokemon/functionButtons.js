@@ -1,4 +1,6 @@
 import { getPokemon, fetchPokemonData, displayPokemon, normalizeName } from "./ajax.js";
+import{ addToTeam, displayTeam} from "./storage.js"
+
 
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchbutton');
@@ -7,11 +9,10 @@ const addPokemonButton = document.querySelector('.addPokemonsbutton');
 const pokemonInfoDiv = document.getElementById('pokemonInfo');
 const kickFromTeamBtn = document.querySelector('.kickHere');
 const toReservBtn = document.querySelector('.toreserv');
-let membersPokemon= [];
-let reservDiv = []
+ let reservDiv = []
 let countTeam= 0;
 let countReserv = 0;
-const maxTeam = 3;
+export const maxTeam = 3;
 
 searchForPokemonDiv.classList.add('hidden');
 const pokemonEnterDiv = document.querySelector('.pokemon-enter');
@@ -141,66 +142,6 @@ function addInTeam(pokemonData) {
   displayTeam();
 }
 
-function displayTeam() {
-  const myTeamDiv = document.querySelector('.my-team');
-  myTeamDiv.innerHTML = '';
-
-  team.membersPokemon.forEach((pokemonData, index) => {
-    const pokemonDiv = document.createElement('div');
-	pokemonDiv.classList.add('pokemon-enter2');
-	pokemonDiv.dataset.index = index;
-
-    const h2 = document.createElement('h2');
-    h2.textContent = `Namn på pokemon ${pokemonData.nickname || pokemonData.name}`;
-    pokemonDiv.appendChild(h2);
-
-    const imageDiv = document.createElement('div');
-    imageDiv.classList.add('image');
-
-    const img = document.createElement('img');
-    img.src = pokemonData.imageUrl;
-    imageDiv.appendChild(img);
-    pokemonDiv.appendChild(imageDiv);
-
-    const kickButton = document.createElement('button');
-    kickButton.classList.add('kickHere');
-    kickButton.textContent = 'Kick from team';
-    kickButton.addEventListener('click', () => handleKickFromTeam(index));
-    pokemonDiv.appendChild(kickButton);
-    
-	const toReservButton = document.createElement('button');
-    toReservButton.classList.add('toreserv');
-    toReservButton.textContent = 'Send to reserv';
-    toReservButton.addEventListener('click', () => handleSendToReserv(index));
-    pokemonDiv.appendChild(toReservButton);
-
-    const smeknamnDiv = document.createElement('div');
-    smeknamnDiv.classList.add('smeknamn');
-
-    const label = document.createElement('label');
-    label.textContent = 'Change name';
-    smeknamnDiv.appendChild(label);
-
-    const inputNickname = document.createElement('input');
-    inputNickname.type = 'text';
-    inputNickname.placeholder = 'Change nickname';
-    inputNickname.value = pokemonData.nickname || '';
-    smeknamnDiv.appendChild(inputNickname);
-
-    const confirmButton = document.createElement('button');
-    confirmButton.classList.add('confirm');
-    confirmButton.textContent = 'Confirm nickname';
-    confirmButton.addEventListener('click', () => handleConfirmNickname(index));
-
-    smeknamnDiv.appendChild(confirmButton);
-
-    pokemonDiv.appendChild(smeknamnDiv);
-
-    myTeamDiv.appendChild(pokemonDiv);
-
-  });
-}
-
 function handleKickFromTeam(index) {
   const kickedPokemon = team.membersPokemon.splice(index, 1)[0];
   displayTeam();
@@ -225,3 +166,10 @@ function handleChangeOrder(index, newIndex) {
   team.membersPokemon.splice(newIndex, 0, movedPokemon);
   displayTeam();
 }
+searchForPokemonDiv.addEventListener('click', function (event) {
+  if (event.target.classList.contains('addPokemonsbutton')) {
+    const index = addButtonList.indexOf(event.target);
+    const selectedPokemon = pokemonList[index];
+    addChampionToTeam(selectedPokemon);
+  }
+});

@@ -40,7 +40,6 @@ const url = ('https://pokeapi.co/api/v2/')
 
 //får ut bilderna
 async function fetchPokemonData(pokemonList) {
-  // Skapa en Promise-array för att vänta på alla fetch-anrop
   const fetchPromises = pokemonList.map(async (pokemon) => {
     try {
       const response = await fetch(pokemon.url);
@@ -50,21 +49,23 @@ async function fetchPokemonData(pokemonList) {
         let imageUrl = pokemonData.sprites.front_default;
 
         pokemonData.SpritesUrl = imageUrl;
-        // Visa varje matchande Pokemon
+        // Display the Pokemon immediately
+        console.log('Pokemon data:', pokemonData);
         displayPokemon([pokemonData]);
       } else {
         console.error(`No image for ${pokemon.name}`);
       }
-      console.log('finished processing', pokemon.name);
+      console.log('Finished processing', pokemon.name);
+
+      return pokemonData; // Return the data from the map callback
     } catch (error) {
       console.error(`Error fetch data ${pokemon.name}:`, error);
+      // If there's an error, return an empty object or some placeholder
+      return {};
     }
   });
-
-  // Vänta på att alla fetch-anrop ska slutföras innan du fortsätter
   await Promise.all(fetchPromises);
 }
-
 
 
 // DISPLAY POKEMON:: 

@@ -22,16 +22,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	text-align: center;
 	background-color: whitesmoke;
 }
-.pokemon-enter {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;		
-	align-items: center;
-	color: black;
-	padding: 0em;
-	min-width: 100%;
-	box-sizing: border-box;
-}
+
 /*TESTNING NEDANFÖR */
 .pokemonLista, #pokemonInfo, #klarMeddelande {
 	display: flex;
@@ -44,19 +35,31 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	box-sizing: border-box;
 }
 .pokemon-enter > #rubrikPokemon {
-	margin-top: 0.5em;
-}
-.pokemon-enter > .image {
-	width: 4.5em;
-	height: 4.5em;
-	border: 0.5px solid #444;
-	background: white;
+	margin: 0;
 }
 
-.pokemon-enter > .kickHere {
+.pokemon-enter, .pokemon-enter2 {
+	border: 1px solid black;
+	flex: 1 0 calc(33.3% - 20px);
+	box-sizing: border-box;
+	text-align: center;
+	align-items: center;
+	display: flex;
+		flex-direction: column;
+		justify-content: center;
+}
+
+
+.pokemon-enter , .pokemon-enter2 >.image {
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.pokemon-enter, .pokemon-enter2 > .kickHere {
 	padding: 0.4em;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	background-color: rgb(212, 202, 202);
+	background-color: rgb(255, 255, 255);
 	margin-top:1em;
 	margin-bottom: 1em;
 }
@@ -68,9 +71,10 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	margin-bottom: 3em;
 }
 
-.p{
+.pokemon-enter, .pokemon-enter2 > h2{
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	font-size: em;
+	font-size: 1em;
+	text-align: center;
 
 }
 
@@ -78,3 +82,28 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	background-color: rgb(11, 210, 11);
 }
 
+#klarMeddelande > #p {
+	display:flex;
+	flex-direction: row;
+}
+.abilities {
+	display: none;
+	text-align: center;
+	width: 100%;
+}
+.pokemon-enter, .pokemon-enter2 .abilities {
+	margin-top: 10px;
+}
+
+.pokemon-enter, .pokemon-enter2 .abilities h2 {
+	margin-bottom: 5px;
+}
+
+.pokemon-enter, .pokemon-enter2 .abilities-list {
+	list-style-type: none;
+	padding: 1em;
+}
+
+.pokemon-enter , .pokemon-enter2 .abilities-list li {
+	margin-bottom: 5px;
+}
