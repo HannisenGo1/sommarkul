@@ -1,0 +1,19 @@
+.theHeader {
+	margin-top: 0em;
+	background-color: #F8FFAD;
+	color: black;
+	width: 100%;
+	padding: 10px;
+    align-items: center;
+	display:flex;
+}
+
+.icon {
+width: 5em;
+margin-right: auto;
+}
+
+
+
+
+

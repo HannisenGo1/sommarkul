@@ -1,0 +1,18 @@
+@media (min-width: 320px) {
+	.theHeader {
+		font-size: 12px;
+		/* Justera textstorlek för mindre skärmar */
+	}
+}
+
+
+
+
+
+/* Media query för att anpassa till större skärmstorlekar, exempelvis desktop */
+@media (min-width: 768px) {
+	.theHeader {
+		font-size: 24px;
+		/* Justera textstorlek för större skärmar */
+	}
+}
