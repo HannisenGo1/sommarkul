@@ -1,0 +1,17 @@
+.backBtn {
+	background-color: #FFD700;
+	cursor: pointer;
+	padding: 0.5em;
+	border-radius: 10%;
+	margin-top: 2em;
+	margin-left: 1em;
+}
+
+.LogInBtn{
+	background-color: #FFD700;
+	cursor: pointer;
+	padding: 0.8em;
+	margin-top: 1em;
+	margin-left: 1em;
+	border-radius: 10%;
+}

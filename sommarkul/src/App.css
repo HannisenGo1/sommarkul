@@ -1,9 +1,11 @@
+
+
 .theHeader {
 	margin-top: 0em;
 	background-color: #F8FFAD;
 	color: black;
 	width: 100%;
-	padding: 10px;
+	padding: 1px;
     align-items: center;
 	display:flex;
 }
@@ -13,6 +15,51 @@ width: 5em;
 margin-right: auto;
 }
 
+.footer{
+	background-color: #F8FFAD;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	
+}
+
+.adress,
+.kontakt {
+	margin-bottom: 10px;
+	color:black;
+}
+.iconLogIn {
+	width: 3em;
+	margin-left: auto;
+	
+}
+.iconLogInhide{
+	background-color: none;
+}
+
+.LogInForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #F8FFAD;
+	padding: 2em;
+	position: absolute;
+	top:30%;
+	left:50%;
+	margin-left: 25%;
+	max-width:35%;
+}
+
+
+
+.error-msg{
+	color:red;
+}
+.LogInForm{
+	width:10em;
+}
 
 
 

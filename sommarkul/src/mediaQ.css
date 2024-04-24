@@ -1,18 +1,19 @@
 @media (min-width: 320px) {
 	.theHeader {
 		font-size: 12px;
-		/* Justera textstorlek för mindre skärmar */
+		
+	}
+	.LogInForm{
+		width:90%;
+		left:5%;
 	}
 }
 
 
 
-
-
-/* Media query för att anpassa till större skärmstorlekar, exempelvis desktop */
-@media (min-width: 768px) {
+@media (min-width: 600px) {
 	.theHeader {
 		font-size: 24px;
-		/* Justera textstorlek för större skärmar */
+		
 	}
 }
