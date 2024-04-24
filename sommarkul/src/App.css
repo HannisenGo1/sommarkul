@@ -1,5 +1,4 @@
 
-
 .theHeader {
 	margin-top: 0em;
 	background-color: #F8FFAD;
@@ -52,13 +51,21 @@ margin-right: auto;
 	max-width:35%;
 }
 
-
-
 .error-msg{
 	color:red;
 }
 .LogInForm{
 	width:10em;
+}
+
+.productDiv {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	align-items: center;
+	background-color: #F8FFAD;
+	flex-grow: 1;
+	
 }
 
 
