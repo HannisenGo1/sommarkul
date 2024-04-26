@@ -1,8 +1,8 @@
 
-import './App.css'
-import './mediaQ.css'
-import './Form.css'
-import './Buttons.css'
+import '../src/css/App.css';
+import '../src/css/mediaQ.css';
+import '../src/css/Form.css';
+import '../src/css/Buttons.css';
 import { Frontpage} from "../src/components/Frontpage"
 import {ShowProducts} from './components/Products'
 import { MenyChoices } from './components/MenyChoices'
@@ -23,8 +23,8 @@ function App() {
 	<div className ="background-div "> 
 	<img className="background-img" src={bild} alt="backgroundimg" />
 	</div>
-	
 	<ShowProducts/>
+	
 	
    
     </>

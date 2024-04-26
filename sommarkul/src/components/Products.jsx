@@ -25,7 +25,7 @@ const ShowProducts = () => {
 		</div>
 
 
-<div className="all-producs-div">
+<div className="all-products-div">
   {products.map(product => (
     <div className="productDiv" key={product.key} >
       <h3 className="productName">{product.name}</h3>

@@ -1,6 +1,7 @@
 import sol from "../data/img/sol.png"
 import React from "react";
-import "../App.css";
+
+
 
 
 const Footer = ({ handleLoginButton }) => {

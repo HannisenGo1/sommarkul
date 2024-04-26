@@ -17,7 +17,7 @@
  @media only screen and (max-width: 768px) {
  	.productDiv {
  		flex-direction: column;
- 		width: 100%;
+
  	}
 	.productName {
 		font-size: 15px;
