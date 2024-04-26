@@ -1,0 +1,20 @@
+.LogInForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #F8FFAD;
+	padding: 2em;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: 25%;
+	max-width: 35%;
+}
+
+.error-msg {
+	color: red;
+}
+
+.LogInForm {
+	width: 10em;
+}

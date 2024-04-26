@@ -1,7 +1,8 @@
 import sol from "../data/img/sol.png"
 import FormLogIn from "./FormLogIn"
-import { NavLink } from "react-router-dom"
+//import { NavLink } from "react-router-dom"
 import { useState } from "react"
+import Footer from "./Footer"
 
 const Frontpage = () => {
 	const [showLoginForm, setShowLoginForm] = useState(false);
@@ -22,20 +23,11 @@ return (
 {showLoginForm && <FormLogIn />}
 
 
-<div className="footer"> 
-<p className="adress"> Nissesgatan 14, Göteborg</p> 
-<p className="kontakt"> Kontakt: nisse@sommarkul.se  0707000077</p>
-<button className="iconLogInhide" onClick={handleLoginButton}>
-  <img src={sol} className="iconLogIn" alt="Logga in" />
-</button>
+<Footer handleLoginButton={handleLoginButton} /> 
 
- 
-
-
-</div>
 
 </>
-	)
+)
 }
 
 export { Frontpage}

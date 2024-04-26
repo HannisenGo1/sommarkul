@@ -1,6 +1,8 @@
-import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from 'firebase/firestore/lite';
+import { collection, getDocs, addDoc} from 'firebase/firestore/lite';
+// , deleteDoc, updateDoc, doc 
 import { db } from './fire.js';
 
+// Hämta datan ifrån firestore
 const collectionName = 'item';
 const collectionRef = collection(db, collectionName);
 
@@ -11,22 +13,39 @@ async function GetItem() {
   const NameList = NameSnapshot.docs.map(doc => withKey(doc));
   console.log('Item: snapshot is', NameSnapshot);
   return NameList;
- 
-
 }
  
+function withKey(doc) {
+  let o = doc.data();
+  o.key = doc.id; 
+  return o;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Ladda upp datan till firestorage
 async function addItemToFirestore(item) {
   try {
-    // Lägg till artikeln i Firestore
+    // Lägg till artikel i Firestore
     const docRef = await addDoc(collectionRef, item);
-    console.log('Artikel tillagd med ID:', docRef.id);
+    //console.log('Artikel tillagd med ID:', docRef.id);
     
-    // Om artikeln har en bild, ladda upp bilden till Storage
+    // Om artikel har en bild, ladda upp bilden till Storage
     if (item.imgurl) {
       // Hämta URL:en för produkten
       const imageurl = item.imgurl;
-	  console.log('hittas url?', imgurl)
       // Ladda upp bilden till Storage
       const storageRef = ref(storage, `images/${docRef.id}`); 
       await uploadString(storageRef, imageurl, 'data_url');
@@ -41,11 +60,5 @@ async function addItemToFirestore(item) {
 }
 
 
-
-function withKey(doc) {
-  let o = doc.data();
-  o.key = doc.id; 
-  return o;
-}
 
 export { GetItem, addItemToFirestore };

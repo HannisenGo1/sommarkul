@@ -1,3 +1,28 @@
+body {
+	margin-top: 0em;
+	padding: 0;
+	
+}
+.background-div {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	overflow: hidden;
+	background-image: url("../data/img/bild.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0.4;
+}
+
+.background-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* Anpassa bilden så att den täcker hela container och beskärs vid behov */
+}
 
 .theHeader {
 	margin-top: 0em;
@@ -5,23 +30,30 @@
 	color: black;
 	width: 100%;
 	padding: 1px;
-    align-items: center;
+   
 	display:flex;
+	font-family: inria sans;
+	text-align: center;
+
+}
+h1{
+	margin:0;
+	font-size: 2em;
 }
 
 .icon {
-width: 5em;
+width: 3em;
 margin-right: auto;
 }
 
 .footer{
 	background-color: #F8FFAD;
-	position: fixed;
+	text-align: center;
+	padding: 10px;
+	position: absolute;
 	bottom: 0;
-	left: 0;
 	width: 100%;
-	display: flex;
-	
+	font-family: inria sans;
 }
 
 .adress,
@@ -31,42 +63,81 @@ margin-right: auto;
 }
 .iconLogIn {
 	width: 3em;
-	margin-left: auto;
+	margin-left: auto;	
 	
 }
+
 .iconLogInhide{
 	background-color: none;
-}
-
-.LogInForm {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: #F8FFAD;
-	padding: 2em;
+	border: none;
 	position: absolute;
-	top:30%;
-	left:50%;
-	margin-left: 25%;
-	max-width:35%;
 }
 
-.error-msg{
-	color:red;
+
+.meny-alternativ {
+	display: flex;
+	justify-content: center;
+	padding: 0.5em;
+	background-color: none;
+	align-items: center;
+	
 }
-.LogInForm{
-	width:10em;
+
+.show-all-products,
+.show-all-lek,
+.show-all-bad {
+	flex: 1;
+	text-align: center;
+	background-color: #ffd700;
+	height: 3em;
+	font-family: inria sans;
+	margin: 0.5em;
+	max-width: 10em;
+	font-weight: bold;
+	font-size: 1em;
+}
+
+.all-products-div{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .productDiv {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid black;
-	align-items: center;
-	background-color: #F8FFAD;
-	flex-grow: 1;
+	border: 3px solid #F8FFAD;
+	background-color: #ffffff;
+	max-width: 300px;
+	width: 80%;
+	padding: 2px;
+	margin: 5px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.productImage {
+	width: 70%;
+	height: 40%;
 	
 }
+.priceWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.priceDiv {
+margin-top: auto;
+}
+
+.productPrice {
+	margin: 0;
+}
+.productName{
+	text-align: center;
+}
+
+
 
 
 

@@ -1,7 +1,6 @@
 @media (min-width: 320px) {
 	.theHeader {
-		font-size: 12px;
-		
+		font-size: 12px;		
 	}
 	.LogInForm{
 		width:90%;
@@ -9,11 +8,32 @@
 	}
 }
 
-
-
 @media (min-width: 600px) {
 	.theHeader {
-		font-size: 24px;
-		
+		font-size: 20px;	
 	}
 }
+
+ @media only screen and (max-width: 768px) {
+ 	.productDiv {
+ 		flex-direction: column;
+ 		width: 100%;
+ 	}
+	.productName {
+		font-size: 15px;
+	}
+	.productImage {
+		width: 70px;
+		height: 5em;
+	}
+	.productType,
+	.productPrice {
+		font-size: 12px;
+	}
+ }
+
+ @media only screen and (min-width: 768px) {
+ 	.productImage {
+ 		width: 100px;
+ 	}
+ }
