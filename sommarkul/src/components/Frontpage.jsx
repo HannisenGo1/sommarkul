@@ -13,10 +13,10 @@ const handleLoginButton = () => {
 };
 
 return ( 
-	<> 
+	<>  
 <div className='theHeader'> 
-<img className="icon" src={sol} alt="Icon" />
-		<h1> Sommarkul </h1> 
+
+		<h1 className="rubrik"><img className="icon" src={sol} alt="Icon" /> Sommar lek </h1> 
 	</div>
 
 

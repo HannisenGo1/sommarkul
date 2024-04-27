@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { GetItem } from '../data/fireStore';
 import kundvagn from '../data/img/kundvagn.png'
+import search from '../data/img/search.png'
 
 const ShowProducts = () => {
-  const [products, setProducts] = useState([]); // State för att lagra produkterna
+  const [products, setProducts] = useState([]); 
 
   useEffect(() => {
    
@@ -20,6 +21,13 @@ const ShowProducts = () => {
 
   return (
 	<>
+	<div className='search-label'> 
+	<p> Sök efter produkt</p>
+	<label>  </label>
+	<input/> 
+	<button className='search-btn'> <img src={search} className="searchicon" alt="search" /></button>
+	</div>
+
 		<div className="cart-div"> 
 <img className="shoppingcart" src={kundvagn} alt="shoppingcart" />
 		</div>

@@ -1,7 +1,8 @@
-body {
-	margin-top: 0em;
+body,
+html {
+	margin: 0;
 	padding: 0;
-	
+	height: 100%;
 }
 .background-div {
 	position: fixed;
@@ -9,7 +10,7 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: -1;  /* la till för annars syns inte elementen på sidan! */ 
 	overflow: hidden;
 	background-image: url("../data/img/bild.png");
 	background-size: cover;
@@ -25,25 +26,28 @@ body {
 
 .theHeader {
 	margin-top: 0em;
-	background-color: #F8FFAD;
+	/* background-color: #F8FFAD; */
 	color: black;
 	width: 100%;
-	padding: 1px;
-   
 	display:flex;
+	justify-content: center;
+	align-items: center;
 	font-family: inria sans;
-	text-align: center;
+	}
 
-}
-h1{
-	margin:0;
+
+.rubrik{
+	display: flex;
+	align-items: center;
 	font-size: 2em;
+	text-align: center;
+	color:black;
 }
 
 .icon {
-width: 3em;
-margin-right: auto;
+width: 2em;
 }
+
 .footer-stay{
 position: relative;
 min-height: 100vh;
@@ -92,12 +96,12 @@ padding-bottom: 4em;
 	padding: 0.5em;
 	background-color: none;
 	align-items: center;
-	
 }
 
 .show-all-products,
 .show-all-lek,
 .show-all-bad {
+	
 	flex: 1;
 	text-align: center;
 	background-color: #ffd700;
@@ -110,9 +114,11 @@ padding-bottom: 4em;
 }
 .all-products-div{
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
 	gap:20px;
 	padding: 0 15px;
+	margin-top: 4em;
+	margin-left: 4em;
 }
 
 .productDiv {
@@ -147,7 +153,24 @@ margin-top: auto;
 	text-align: center;
 }
 
-
+.search-label{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	border-radius: 10%;
+	align-items: center;
+}
+.search-label > p {
+	margin: 0;
+}
+.search-btn{
+	background-color: transparent;
+	border: none;
+}
+.searchicon{
+	width:2em;
+	height: 2em;
+}
 
 
 
