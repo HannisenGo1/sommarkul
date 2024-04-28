@@ -18,12 +18,12 @@ const Cart = () => {
 };
 
 const CartCounter = () => {
-  // Hämta antalet varor från storage 
+  // Hämta antalet varor från storage, när det är 0 så syns inget!
   const itemCount = saveInCartStore(state => state.items.length);
 
   return (
     <div className="cart-counter">
-      <span>{itemCount}</span>
+     {itemCount > 0 && <span>{itemCount}</span>}
     </div>
   );
 };

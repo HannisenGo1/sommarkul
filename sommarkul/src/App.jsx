@@ -14,6 +14,7 @@ import { useState } from 'react';
 
 
 
+
 function App() {
    const [showproducts, setShowproducts] = useState(''); 
 
@@ -25,6 +26,7 @@ function App() {
 	<div className ="background-div "> 
 	<img className="background-img" src={bild} alt="backgroundimg" />
 	</div>
+
 	<ShowProducts showproducts={showproducts}/>
 	
 	

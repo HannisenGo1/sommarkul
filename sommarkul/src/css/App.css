@@ -54,6 +54,14 @@ position: relative;
 padding-bottom: 4em;
 }
 
+.shopping-cart-link {
+	cursor: pointer;
+}
+
+.All-items-in-cart {
+	display: flex;
+}
+
 .footer {
 	display: flex;
 	flex-direction: row;

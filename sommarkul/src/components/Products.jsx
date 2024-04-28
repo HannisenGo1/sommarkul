@@ -5,6 +5,7 @@ import search from '../data/img/search.png';
 import saveInCartStore from '../data/cartStore';
 import {CartCounter} from './Cartsite'
 
+
 const ShowProducts = ({ showproducts }) => {
   const [products, setProducts] = useState([]);
   const [searchProducts, setSearchProducts] = useState('');
@@ -52,8 +53,14 @@ const ShowProducts = ({ showproducts }) => {
       </div>
 
       <div className="cart-div">
+		
+	<button className='shoppingcart-btn'> 
         <img className="shoppingcart" src={kundvagn} alt="shoppingcart" />
-		<CartCounter />
+     
+	 </button>
+	 <div className='cart-counter-btn'> 
+	 <CartCounter />
+		</div>
       </div>
 
       <div className="all-products-div">

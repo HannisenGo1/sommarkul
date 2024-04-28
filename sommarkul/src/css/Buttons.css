@@ -72,3 +72,28 @@ border-radius: 10%;
 
 	margin-left: auto;
 }
+
+.cart-div {
+	position: relative;
+}
+
+.shoppingcart-btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.shoppingcart {
+	width: 50px;
+	height: auto;
+}
+
+.cart-counter-btn {
+	position: absolute;
+	top: -2px;
+	right: 19px;
+
+	color: black;
+	font-size: 1.1em;
+	padding: 1px 5px;
+}
