@@ -1,4 +1,4 @@
-import { set } from 'firebase/database';
+// import { set } from 'firebase/database';
 import React, { useState, useEffect  } from 'react';
 import { GetTypes } from '../data/fireStore';
 

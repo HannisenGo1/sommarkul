@@ -3,11 +3,11 @@ import { GetItem } from '../data/fireStore';
 import kundvagn from '../data/img/kundvagn.png';
 import search from '../data/img/search.png';
 
-const ShowProducts = ({showproducts}) => {
+const ShowProducts = ({ showproducts }) => {
   const [products, setProducts] = useState([]);
- 
- // hämta ut Getitems genom fetchProducts funktionen 
- 
+  const [searchProducts, setSearchProducts] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -20,18 +20,29 @@ const ShowProducts = ({showproducts}) => {
     fetchProducts();
   }, []);
 
-  // Filtrera produkter efter vald typ
-  const Products = showproducts ? products.filter(product => product.type === showproducts) : products;
-  
+  const filteredProducts = showproducts
+    ? products.filter(product => product.type === showproducts)
+    : products;
 
+  const searchForProducts = filteredProducts.filter(product =>
+    product.name.toLowerCase().includes(searchProducts.toLowerCase())
+  );
+
+  // för att få ut värdet från vad användaren fyller i
+  const handleSearchChange = event => {
+    setSearchValue(event.target.value);
+  };
+ // Rendera efter att knappen trycks på 
+  const handleSearchSubmit = () => {
+	setSearchProducts(searchValue)
+  }
+  
   return (
     <>
       <div className="search-label">
         <p> Sök efter produkt</p>
-        <label> </label>
-        <input />
-        <button className="search-btn">
-          {' '}
+        <input type="text" value={searchValue} onChange={handleSearchChange} />
+        <button className="search-btn" onClick={handleSearchSubmit}>
           <img src={search} className="searchicon" alt="search" />
         </button>
       </div>
@@ -41,13 +52,13 @@ const ShowProducts = ({showproducts}) => {
       </div>
 
       <div className="all-products-div">
-        {Products.map(product => (
+        {searchForProducts.map(product => (
           <div className="productDiv" key={product.key}>
             <h3 className="productName">{product.name}</h3>
-            <p> {product.type}</p>
+            
             <img src={product.imgurl} alt={product.name} className="productImage" />
             <div className="put-in-cart-div">
-              <button className="cart-btn"> Lägg i kundvagn</button>
+              <button className="cart-btn">Lägg i kundvagn</button>
             </div>
             <div className="priceWrapper">
               <p className="productPrice">Pris: {product.price}:-</p>
