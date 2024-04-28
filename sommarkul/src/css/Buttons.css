@@ -25,26 +25,31 @@ border-radius: 10%;
 
 .cart-div{
 	float:right;
+	margin-right: 5em;
+	border: 2px solid #e5930e;
+	background-color: white;
 }
 .shoppingcart{
-	width: 3em;
-	height: 3em;
+	width: 3.3em;
+	height: 3.3em;
 	
 }
 .search-btn {
-	background-color: transparent;
-	border: none;
+	background-color: white;
+	border: 1px solid #e5930e;
 }
 
 .searchicon {
 	width: 2em;
-	height: 2em;
+	height: 1.7em;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
 }
 
 .show-all-products,
 .show-all-lek,
 .show-all-bad {
-	
 	flex: 1;
 	text-align: center;
 	background-color: #ffd700;
@@ -92,7 +97,6 @@ border-radius: 10%;
 	position: absolute;
 	top: -2px;
 	right: 19px;
-
 	color: black;
 	font-size: 1.1em;
 	padding: 1px 5px;

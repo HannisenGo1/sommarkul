@@ -45,8 +45,8 @@ const ShowProducts = ({ showproducts }) => {
   return (
     <>
       <div className="search-label">
-        <p> Sök efter produkt</p>
-        <input type="text" value={searchValue} onChange={handleSearchChange} />
+
+        <input type="text" value={searchValue} onChange={handleSearchChange} placeholder='sök efter produkt här' />
         <button className="search-btn" onClick={handleSearchSubmit}>
           <img src={search} className="searchicon" alt="search" />
         </button>
@@ -54,9 +54,10 @@ const ShowProducts = ({ showproducts }) => {
 
       <div className="cart-div">
 		
-	<button className='shoppingcart-btn'> 
+	<button className='shoppingcart-btn'>
+		 
         <img className="shoppingcart" src={kundvagn} alt="shoppingcart" />
-     
+    
 	 </button>
 	 <div className='cart-counter-btn'> 
 	 <CartCounter />
