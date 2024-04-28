@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { GetItem } from '../data/fireStore';
 import kundvagn from '../data/img/kundvagn.png';
 import search from '../data/img/search.png';
+import saveInCartStore from '../data/cartStore';
+import {CartCounter} from './Cartsite'
 
 const ShowProducts = ({ showproducts }) => {
   const [products, setProducts] = useState([]);
   const [searchProducts, setSearchProducts] = useState('');
   const [searchValue, setSearchValue] = useState('');
+
+  const addToCart = saveInCartStore(state => state.addToCart)
 
   useEffect(() => {
     async function fetchProducts() {
@@ -49,6 +53,7 @@ const ShowProducts = ({ showproducts }) => {
 
       <div className="cart-div">
         <img className="shoppingcart" src={kundvagn} alt="shoppingcart" />
+		<CartCounter />
       </div>
 
       <div className="all-products-div">
@@ -58,7 +63,7 @@ const ShowProducts = ({ showproducts }) => {
             
             <img src={product.imgurl} alt={product.name} className="productImage" />
             <div className="put-in-cart-div">
-              <button className="cart-btn">Lägg i kundvagn</button>
+              <button className="cart-btn" onClick={() => addToCart(product)}>Köp</button>
             </div>
             <div className="priceWrapper">
               <p className="productPrice">Pris: {product.price}:-</p>

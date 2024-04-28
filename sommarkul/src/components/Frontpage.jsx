@@ -6,6 +6,9 @@ import Footer from "./Footer";
 const Frontpage = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
 
+  const handleLoginBtn = () =>{
+	setShowLoginForm(true)
+  }
 
   return (
     <>
@@ -17,7 +20,7 @@ const Frontpage = () => {
 
       {showLoginForm && <FormLogIn />}
 	  
-      <Footer />
+      <Footer handleLoginBtn={handleLoginBtn}/>
     </>
   );
 };

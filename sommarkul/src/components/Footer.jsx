@@ -3,6 +3,8 @@ import sol from "../data/img/sol.png";
 import Frontpage from "./Frontpage";
 
 const Footer = () => {
+
+
   return (
     <footer className="footer">
       <p className="adress">Nissesgatan 14, Göteborg</p>
