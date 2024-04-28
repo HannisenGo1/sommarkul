@@ -10,9 +10,9 @@ async function GetItem() {
   const NameCollection = collection(db, collectionName);
   const NameSnapshot = await getDocs(NameCollection);
 
-  const NameList = NameSnapshot.docs.map(doc => withKey(doc));
+  const itemList = NameSnapshot.docs.map(doc => withKey(doc));
   console.log('Item: snapshot is', NameSnapshot);
-  return NameList;
+  return itemList;
 }
  
 function withKey(doc) {
@@ -21,14 +21,40 @@ function withKey(doc) {
   return o;
 }
 
+//async function addItems(item) {
+	// referens till collection 'item'
+//	await addDoc(collectionRef, item) }
+
+//async function deleteItems(key) {
+//	const docRef = doc(collectionRef, key)
+	// console.log('deleteitem: ', docRef);
+//	deleteDoc(docRef) }
+
+//async function editItems(key, updatedEmployee) {
+	// vi behöver en "collection reference"
+	// vi skapar en referens till dokumentet vi ska ändra på
+	// leta upp en funktion som kan uppdatera ett dokument
+//	const docRef = doc(collectionRef, key)
+
+	// Två alternativ för att ändra:
+	// updateDoc - uppdaterar ett befintligt objekt
+	// setDoc - uppdaterar eller skapar ett objekt
+//	await updateDoc(docRef, updatedEmployee) }
+
+
+//export {  addItems, deleteItems, editItems, newItems }
 
 
 
+async function GetTypes() {
+  const NameCollection = collection(db, collectionName);
+  const NameSnapshot = await getDocs(NameCollection);
 
-
-
-
-
+  const types = NameSnapshot.docs.map(doc => doc.data().type);
+    // för att inte få med dubletter
+ 
+  return types
+}
 
 
 
@@ -61,4 +87,4 @@ async function addItemToFirestore(item) {
 
 
 
-export { GetItem, addItemToFirestore };
+export { GetItem, addItemToFirestore, GetTypes };
