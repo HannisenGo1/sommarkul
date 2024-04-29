@@ -7,11 +7,13 @@ import '../src/css/Form.css';
 import '../src/css/index.css';
 //import Footer from './components/Footer.jsx';
 //import Frontpage from './components/Frontpage.jsx';
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/router.jsx";
 
 import '../src/data/img/bild.png'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);

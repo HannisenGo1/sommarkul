@@ -6,12 +6,12 @@ const CheckoutCart = () => {
   const items = saveInCartStore(state => state.items); // Hämta varorna från kundvagnen från Zustand
 
   return (
-    <div className="All-items-in-cart">
+    <div className="product-in-cart">
       <h2>Kundvagnen</h2>
       <ul>
         
         {items.map((item, index) => (
-          <li key={index}>{item.name}</li>
+          <div className="items-div" key={index}>{item.name}</div>
         ))}
       </ul>
       

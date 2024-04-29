@@ -152,7 +152,21 @@ font-family: inria sans;
 	margin-top: 1em;
 	
 }
-
+/* det som är i kundvagn*/ 
+.product-in-cart{
+	display:flex;
+	border: 2px solid #e5930e;
+	background-color: #ffffff;
+	width: 200px;
+	margin-bottom: 1em;
+	font-family: inria sans;
+	margin-top: 2em;
+	border-radius: 10%;
+	box-shadow: 1px 1px 3px #ffd700;
+}
+.items-div{
+color:Black;
+}
 
 
 

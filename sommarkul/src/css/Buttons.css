@@ -26,6 +26,10 @@
 	box-shadow:1px 1px 6px #e5930e;
 	font-weight: bold;
 }
+.put-in-cart-div{
+align-items: center;
+display:flex;
+}
 
 .cart-btn{
 background-color: #FFD700;
@@ -33,7 +37,13 @@ cursor: pointer;
 border-radius: 10%;
 border:none;
 margin-left: 1em;
+align-items: center;
+border: 2px solid #e5930e;
 
+}
+
+.cart-btn:active{
+	background-color: rgb(104, 228, 104);
 }
 
 .cart-div{
@@ -42,6 +52,8 @@ margin-left: 1em;
 	border: 2px solid #e5930e;
 	background-color: white;
 }
+
+
 .shoppingcart{
 	width: 3.3em;
 	height: 3.3em;
@@ -111,6 +123,7 @@ background-color:#e5930e;
 	position: relative;
 	margin-top: 1em;
 }
+
 
 .shoppingcart-btn {
 	background-color: transparent;

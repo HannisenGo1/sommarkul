@@ -4,6 +4,8 @@ import kundvagn from '../data/img/kundvagn.png';
 import search from '../data/img/search.png';
 import saveInCartStore from '../data/cartStore';
 import {CartCounter} from './Cartsite'
+import { NavLink } from 'react-router-dom';
+
 
 
 const ShowProducts = ({ showproducts }) => {
@@ -47,18 +49,21 @@ const ShowProducts = ({ showproducts }) => {
       <div className="search-label">
 
         <input type="text" value={searchValue} onChange={handleSearchChange} placeholder='sök efter produkt här' />
-        <button className="search-btn" onClick={handleSearchSubmit}>
+        <button className="search-btn" onClick={handleSearchSubmit}>	
           <img src={search} className="searchicon" alt="search" />
         </button>
       </div>
 
       <div className="cart-div">
 		
-	<button className='shoppingcart-btn'>
-		 
+	
+	<button className='shoppingcart-btn'> </button> 
+	
+		<NavLink to="/Checkout" className="shoppingcart-btn"> 
         <img className="shoppingcart" src={kundvagn} alt="shoppingcart" />
-    
-	 </button>
+	</NavLink>
+	
+
 	 <div className='cart-counter-btn'> 
 	 <CartCounter />
 		</div>

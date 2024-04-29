@@ -6,7 +6,7 @@ const saveInCartStore = create((set) => ({
 
   addToCart: (item) => {
     set((state) => {
-      console.log("Lägger till i kundvagnen:", item); // console.log här
+      console.log("Lägger till i kundvagnen:", item); 
       return { items: [...state.items, item] };
     });
   },
