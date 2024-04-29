@@ -1,19 +1,30 @@
 .backBtn {
-	background-color: #FFD700;
+	background-color: white;
 	cursor: pointer;
 	padding: 0.5em;
 	border-radius: 10%;
-	margin-top: 2em;
-	margin-left: 1em;
+	color: black;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-size: 1em;
+	box-shadow: 1px 1px 2px #e5930e;
+	font-weight: bold;
+	margin-right:9em;
+	margin-bottom: 1em;
+	
 }
 
 .LogInBtn{
-	background-color: #FFD700;
+	background-color: white;
 	cursor: pointer;
 	padding: 0.8em;
 	margin-top: 1em;
-	margin-left: 1em;
 	border-radius: 10%;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-size: 1em;
+	box-shadow:1px 1px 6px #e5930e;
+	font-weight: bold;
 }
 
 .cart-btn{
@@ -40,6 +51,9 @@ margin-left: 1em;
 	background-color: white;
 	border: 1px solid #e5930e;
 }
+.search-btn:active{
+background-color: #FFD700;
+}
 
 .searchicon {
 	width: 2em;
@@ -47,6 +61,9 @@ margin-left: 1em;
 	cursor: pointer;
 	background-color: transparent;
 	border: none;
+}
+.searchicon:active{
+	background-color: #FFD700;
 }
 
 .show-all-products,
@@ -62,6 +79,16 @@ margin-left: 1em;
 	font-weight: bold;
 	font-size: 1em;
 }
+.show-all-products:active,
+.show-all-lek:active,
+.show-all-bad:active,
+.show-all-products:focus,
+.show-all-lek:focus,
+.show-all-bad:focus {
+background-color:#e5930e;
+
+}
+
 
 .iconLogIn {
 	width: 2em;

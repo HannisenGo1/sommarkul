@@ -11,6 +11,9 @@ const Frontpage = () => {
 	setShowLoginForm(true)
 
   }
+  const handleBackBtn = () => {
+	setShowLoginForm(false)
+  }
 
   return (
     <>
@@ -20,7 +23,7 @@ const Frontpage = () => {
         </h1> 
       </div>
 
-      {showLoginForm && <FormLogIn />}
+     {showLoginForm && <FormLogIn handleBackBtn={handleBackBtn} />}
 	  
       <footer className="footer">
       <p className="adress">Nissesgatan 14, Göteborg</p>

@@ -13,6 +13,7 @@
 	font-family: inria sans;
 	border-radius: 10%;
 	border: 3.5px solid #e5930e;
+	font-weight: bold;
 }
 
 .error-msg {

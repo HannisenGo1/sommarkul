@@ -56,13 +56,13 @@ width: 2em;
 .All-items-in-cart {
 	display: flex;
 }
-html,body{
+html, .body{
 	margin: 0;
 	padding: 0;
 	
 }
 
-body {
+.body {
 	position: relative;
 	padding-bottom: 100px;
 	min-height: 100vh;
@@ -117,6 +117,7 @@ body {
 	font-family: inria sans;
 	margin-top:2em;
 	border-radius: 10%;
+	box-shadow: 1px 1px 3px #ffd700;
 }
 
 .productImage {

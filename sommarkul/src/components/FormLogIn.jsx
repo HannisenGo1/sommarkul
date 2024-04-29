@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const FormLogIn = () => {
+//skicka props för tillbaka knappen, formuläret = false 
+const FormLogIn = ({handleBackBtn}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userError, setUserError] = useState("");
@@ -48,7 +49,7 @@ const FormLogIn = () => {
     <>
 	
       <div className="LogInForm">
-		<button className="backBtn" > Tillbaka</button>
+		<button className="backBtn" onClick={handleBackBtn} > Tillbaka</button>
 
         <label> Användarnamn </label>
         <input
