@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-
+<body style={{ position: 'relative', minHeight: '100vh' }}>
 	<Frontpage />
 	<MenyChoices setShowproducts={setShowproducts} />
 	<div className ="background-div "> 
@@ -30,7 +30,7 @@ function App() {
 	<ShowProducts showproducts={showproducts}/>
 	
 	
-   
+</body>
     </>
   )
 }

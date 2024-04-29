@@ -20,6 +20,8 @@
 background-color: #FFD700;
 cursor: pointer;
 border-radius: 10%;
+border:none;
+margin-left: 1em;
 
 }
 
@@ -62,24 +64,25 @@ border-radius: 10%;
 }
 
 .iconLogIn {
-	width: 3em;
+	width: 2em;
 	margin-left: auto;
-	background-color: #F8FFAD;
+	background-color: #ffd700;
 	cursor: pointer;
-
 }
 
 
 .iconLogInhide {
 	/* background-color: #F8FFAD;*/
-	background-color: aliceblue;
+	background-color: #ffd700;
 	border: none;
-
+	width: 6em;
 	margin-left: auto;
+
 }
 
 .cart-div {
 	position: relative;
+	margin-top: 1em;
 }
 
 .shoppingcart-btn {
