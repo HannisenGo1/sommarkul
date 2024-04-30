@@ -1,21 +1,27 @@
 import React from "react";
 import saveInCartStore from "../data/cartStore"; 
 import { useNavigate } from 'react-router-dom';
-// få ut informationen från items
-// kunna ta bort artiklar, lägga till och minska.
-// total beloppet + antal artiklar
-// lägga till formulär+ validering
-//Betala knappen
+import FormPayment from "./FormPayment";
+
 
 const CheckoutCart = () => {
 	console.log('CheckoutCart komponenten renderas');
-  const items = saveInCartStore(state => state.items); // Hämta varorna från kundvagnen från Zustand cartStore.js
- 
+  const items = saveInCartStore(state => state.items); 
+ const totalPrice = saveInCartStore(state => state.totalPrice);
 const navigate = useNavigate();
   
 
   const backtomenybtn = () =>{
 	navigate('/');
+  }
+  const handleAddToCart = (item) => {
+    saveInCartStore.addToCart(item);
+    saveInCartStore.calculateCheckoutTotal(); // Uppdatera det totala priset
+  }
+
+  const handleRemoveFromCart = (id) => {
+    saveInCartStore.removeFromCheckout(id);
+    saveInCartStore.calculateCheckoutTotal(); // Uppdatera det totala priset
   }
 
   return (
@@ -28,14 +34,23 @@ const navigate = useNavigate();
       <div className="artiklar-in-cart">
         
         {items.map((item, index) => (
-          <div className="items-div" key={index}>{item.name}</div>
+          <div className="items-div" key={index}>
+			<p> {item.name}</p>
+		<img src={item.imgurl} alt={item.name} 
+			className="productImage" />
+			
+			
+         
 		  
-        ))}
-		<p> totala priset:</p>
+		  
+		  </div>
+		  
+        ))}<p>Antal artiklar: {items.length}</p>
+		<p> Totala priset:{totalPrice}</p>
       </div>
-      
+    
     </div>
-
+<FormPayment/>
 	</>
   );
 };

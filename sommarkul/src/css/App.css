@@ -152,15 +152,15 @@ font-family: inria sans;
 }
 
 /* det som är i kundvagn*/ 
-.product-in-cart {
+.product-in-cart, .paymentForm {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border: 2px solid #e5930e;
-	background-color: #ffffff;
-	width: 30em;
-	height: 30em;
+	background-color: #fffefe;
+	width: 25em;
+	
 	margin: 2em auto;
 	font-family: 'inria sans', sans-serif;
 	border-radius: 10%;
@@ -170,6 +170,7 @@ font-family: inria sans;
 .artiklar-in-cart {
 	margin-top: 0.1em;
 }
+
 
 
 

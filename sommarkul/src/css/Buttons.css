@@ -150,7 +150,7 @@ background-color:#e5930e;
 	display:flex;
 	
 }
-.back-from-cart{
+.back-from-cart {
 	background-color: #ffd700;
 	height: 3em;
 	font-family: inria sans;
@@ -162,4 +162,15 @@ background-color:#e5930e;
 	font-size: 1.1em;
 	margin-top: 2em;
 	margin-left: 3em;
+}
+	.pay-btn {
+	background-color: #ffd700;
+	height: 4em;
+	width: 6em;
+	font-family: inria sans;
+	margin: 0.5em;
+	border: 1px #e5930e;
+	font-weight: bold;
+	box-shadow: 1px 1px 1px;
+	font-size: 0.8em;
 }
