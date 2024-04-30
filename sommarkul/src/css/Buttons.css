@@ -32,13 +32,15 @@ display:flex;
 }
 
 .cart-btn{
-background-color: #FFD700;
+
 cursor: pointer;
 border-radius: 10%;
 border:none;
 margin-left: 1em;
 align-items: center;
-border: 2px solid #e5930e;
+border: 1px solid #e5930e;
+width:2em;
+height: 2em;
 
 }
 
@@ -90,6 +92,8 @@ background-color: #FFD700;
 	max-width: 10em;
 	font-weight: bold;
 	font-size: 1em;
+	border:1px #e5930e;
+	box-shadow: 1px 1px 1px;
 }
 .show-all-products:active,
 .show-all-lek:active,
@@ -98,7 +102,6 @@ background-color: #FFD700;
 .show-all-lek:focus,
 .show-all-bad:focus {
 background-color:#e5930e;
-
 }
 
 
@@ -116,7 +119,6 @@ background-color:#e5930e;
 	border: none;
 	width: 6em;
 	margin-left: auto;
-
 }
 
 .cart-div {
@@ -143,4 +145,21 @@ background-color:#e5930e;
 	color: black;
 	font-size: 1.1em;
 	padding: 1px 5px;
+}
+.back-btn-cart{
+	display:flex;
+	
+}
+.back-from-cart{
+	background-color: #ffd700;
+	height: 3em;
+	font-family: inria sans;
+	margin: 0.5em;
+	border: 1px #e5930e;
+	box-shadow: 1px 1px 1px;
+	max-width: 10em;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 2em;
+	margin-left: 3em;
 }

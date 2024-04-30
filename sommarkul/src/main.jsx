@@ -5,10 +5,9 @@ import '../src/css/App.css';
 import '../src/css/mediaQ.css';
 import '../src/css/Form.css';
 import '../src/css/index.css';
-//import Footer from './components/Footer.jsx';
-//import Frontpage from './components/Frontpage.jsx';
+
 import { RouterProvider } from "react-router-dom";
-import { router } from "./routes/router.jsx";
+import  {router}  from "./routes/router.jsx";
 
 import '../src/data/img/bild.png'
 

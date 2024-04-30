@@ -28,6 +28,7 @@ html {
 	margin-top: 0em;
 	/* background-color: #F8FFAD; */
 	color: black;
+	background-color: #ffffff;
 	width: 100%;
 	display:flex;
 	justify-content: center;
@@ -129,13 +130,11 @@ html, .body{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
 .priceDiv {
 margin-top: auto;
 font-family: inria sans;
-
 }
 
 .productPrice {
@@ -150,24 +149,27 @@ font-family: inria sans;
 	justify-content: center;
 	border-radius: 10%;
 	margin-top: 1em;
-	
 }
+
 /* det som är i kundvagn*/ 
-.product-in-cart{
-	display:flex;
+.product-in-cart {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	border: 2px solid #e5930e;
 	background-color: #ffffff;
-	width: 200px;
-	margin-bottom: 1em;
-	font-family: inria sans;
-	margin-top: 2em;
+	width: 30em;
+	height: 30em;
+	margin: 2em auto;
+	font-family: 'inria sans', sans-serif;
 	border-radius: 10%;
 	box-shadow: 1px 1px 3px #ffd700;
 }
-.items-div{
-color:Black;
-}
 
+.artiklar-in-cart {
+	margin-top: 0.1em;
+}
 
 
 
