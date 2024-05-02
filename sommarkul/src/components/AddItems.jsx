@@ -24,7 +24,7 @@ const handleSubmit = async (event) => {
         const imageUrl = await uploadImageToStorage(image);
 
         // Skapa ett objekt med produktdata inklusive bildens nedladdningslänk
-        const newProductData = { name, price, information, type, image: imageUrl };
+        const newProductData = { name, price, information, type, imgurl: imageUrl };
         console.log('Kommer datan in:', newProductData);
 
         // Lägg till produkt med bild i Firestore och tillståndsbutiken
