@@ -69,3 +69,4 @@ const EditProduct = ({ product, whenEditDone }) => {
 };
 
 export default EditProduct;
+

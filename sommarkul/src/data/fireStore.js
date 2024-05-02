@@ -1,6 +1,29 @@
 import { collection, getDocs, addDoc, deleteDoc, setDoc, doc} from 'firebase/firestore/lite';
 import { db } from './fire.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
+
+const storage = getStorage();
+
+async function uploadImageToStorage(imgurl) {
+    try {
+        
+        const storageRef = ref(storage, `images/${imgurl}`);
+        
+       
+        await uploadBytes(storageRef, imgurl);
+
+        // Hämta länken till den uppladdade bilden
+        const downloadURL = await getDownloadURL(storageRef);
+
+        return downloadURL;
+    } catch (error) {
+        console.error('Fel vid uppladdning av bild till Firebase Storage:', error);
+        throw error;
+    }
+}
+
+export { uploadImageToStorage };
 // Hämta datan ifrån firestore
 const collectionName = 'item';
 const collectionRef = collection(db, collectionName);
@@ -27,7 +50,8 @@ async function GetTypes() {
 	return types
 }
 async function addItems(item) {
-	await addDoc(collectionRef, item)
+const collectionRef = collection(db, 'item');
+    await addDoc(collectionRef, item);
 }
 
 async function deleteItems(key) {

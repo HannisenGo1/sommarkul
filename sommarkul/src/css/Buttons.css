@@ -14,6 +14,20 @@
 	
 }
 
+.addProductBtn{
+	align-items: center;
+	width: 9em;
+	height: 5em;
+	color:black;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-weight: bold;
+	font-size: 1em;
+	box-shadow: 1px 1px 3px #e5930e;
+	background-color: #ffd700;
+
+}
+
 .LogInBtn{
 	background-color: white;
 	cursor: pointer;

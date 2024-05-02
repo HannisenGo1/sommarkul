@@ -110,7 +110,7 @@ html, .body{
 	margin-left: 4em;
 }
 
-.productDiv {
+.productDiv{
 	border: 2px solid #e5930e;
 	background-color: #ffffff;
 	width: 200px;
@@ -173,6 +173,21 @@ font-family: inria sans;
 .textadminvy{
 	text-align: center;
 	font-family: 'inria sans', sans-serif;
+}
+
+.addProductDiv{
+		display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border: 2px solid #e5930e;
+			background-color: #fffefe;
+			width: 25em;
+		
+			margin: 2em auto;
+			font-family: 'inria sans', sans-serif;
+			border-radius: 10%;
+			box-shadow: 1px 1px 3px #ffd700;
 }
 
 
