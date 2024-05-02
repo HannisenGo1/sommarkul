@@ -30,11 +30,26 @@ const ChangeSite = () => {
 		setIsEditing(false);
 		setEditingProduct(null);
 	};
-	const handleAddProduct = (newProduct) => {
-		const newProductWithKey = { ...newProduct, key: generateUniqueId() };
-		console.log('New product with ID:', newProductWithKey);
-		setProducts([...products, newProductWithKey]);
-	};
+const handleAddProduct = async (newProduct, event) => {
+    try {
+        // Förhindra standardbeteendet för submit-händelsen
+        event.preventDefault();
+        
+        // Kontrollera om något fält är tomt
+        if (!newProduct.name || !newProduct.price || !newProduct.information || !newProduct.type || !newProduct.image) {
+            console.error('Alla fält måste fyllas i.');
+            return;
+        }
+
+        // Lägg till produkten om inget fält är tomt
+        const docRef = await addItems(newProduct);
+        const newKey = docRef.id;
+        const newProductWithKey = { ...newProduct, key: newKey };
+        setProducts((prevProducts) => [...prevProducts, newProductWithKey]);
+    } catch (error) {
+        console.error('Fel vid tillägg av ny produkt:', error);
+    }
+};
 	let idCounter = 0;
 	
 	const generateUniqueId = () => {

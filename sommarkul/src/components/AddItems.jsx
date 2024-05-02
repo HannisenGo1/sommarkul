@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { addItems, GetItem } from '../data/fireStore';
 import { ProductStore } from '../data/changeStore';
-import { uploadImageToStorage } from '../data/fireStore';
+import { addProductWithImage, uploadImageToStorage } from '../data/fireStore';
 
 const AddProduct = () => {
     const [name, setName] = useState('');
@@ -20,19 +20,16 @@ const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-        
+        // Ladda upp bilden till Firebase Storage och hämta dess nedladdningslänk
         const imageUrl = await uploadImageToStorage(image);
 
-        
+        // Skapa ett objekt med produktdata inklusive bildens nedladdningslänk
         const newProductData = { name, price, information, type, image: imageUrl };
-        console.log('kommer datan in', newProductData);
+        console.log('Kommer datan in:', newProductData);
 
-
-        await addItems(newProductData);
-        console.log('Produkten har lagts till i Firestore');
-
-      
-        ProductStore.getState().addProduct(newProductData);
+        // Lägg till produkt med bild i Firestore och tillståndsbutiken
+        await addProductWithImage(newProductData, image);
+        console.log('Produkten har lagts till i Firestore och tillståndsbutiken');
 
         // Återställ fälten
         setName('');
@@ -40,8 +37,6 @@ const handleSubmit = async (event) => {
         setInformation('');
         setType('');
         setImage(null);
-
-        console.log('Produkten har lagts till i tillståndsbutiken');
     } catch (error) {
         console.error('Fel vid tillägg av ny produkt:', error);
         setErrorMessage('Kunde inte lägga till produkten. Försök igen senare.');

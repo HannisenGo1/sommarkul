@@ -4,14 +4,10 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 const storage = getStorage();
-
-async function uploadImageToStorage(imgurl) {
+async function uploadImageToStorage(file) {
     try {
-        
-        const storageRef = ref(storage, `images/${imgurl}`);
-        
-       
-        await uploadBytes(storageRef, imgurl);
+        const storageRef = ref(storage, `images/${file.name}`);
+        await uploadBytes(storageRef, file);
 
         // Hämta länken till den uppladdade bilden
         const downloadURL = await getDownloadURL(storageRef);
@@ -23,7 +19,19 @@ async function uploadImageToStorage(imgurl) {
     }
 }
 
-export { uploadImageToStorage };
+async function addProductWithImage(productData, imageFile) {
+    try {
+        const imageURL = await uploadImageToStorage(imageFile);
+        const productWithImage = { ...productData, imgurl: imageURL };
+        await addDoc(collection(db, 'item'), productWithImage);
+        console.log('Produkt med bild har lagts till i Firestore');
+    } catch (error) {
+        console.error('Fel vid tillägg av ny produkt med bild:', error);
+    }
+}
+
+export { uploadImageToStorage, addProductWithImage };
+
 // Hämta datan ifrån firestore
 const collectionName = 'item';
 const collectionRef = collection(db, collectionName);
