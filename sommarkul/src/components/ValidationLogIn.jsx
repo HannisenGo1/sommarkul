@@ -1,13 +1,13 @@
-import { create } from "zustand"
 
+import { create } from "zustand"
 
 const ValidationInlog = create(set => ({
 	isLoggedIn:false,
-	username: "",
+	email: "",
     password: "",
 
-	login:(username,password) => {
-		if (username.includes("admin") && password==='password'){
+	login:(email,password) => {
+		if (email.includes("admin") && password==='password'){
 			set({ isLoggedIn: true})
 			return true
 		}
@@ -16,3 +16,4 @@ const ValidationInlog = create(set => ({
 }))
 
 export default ValidationInlog
+

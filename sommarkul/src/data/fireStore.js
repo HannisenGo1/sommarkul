@@ -1,5 +1,4 @@
-import { collection, getDocs, addDoc} from 'firebase/firestore/lite';
-// , deleteDoc, updateDoc, doc 
+import { collection, getDocs, addDoc, deleteDoc, setDoc, doc} from 'firebase/firestore/lite';
 import { db } from './fire.js';
 
 // Hämta datan ifrån firestore
@@ -7,11 +6,10 @@ const collectionName = 'item';
 const collectionRef = collection(db, collectionName);
 
 async function GetItem() {
-	const NameCollection = collection(db, collectionName);
-	const NameSnapshot = await getDocs(NameCollection);
-	
-	const itemList = NameSnapshot.docs.map(doc => withKey(doc));
-	console.log('Item: snapshot is', NameSnapshot);
+	const nameCollection = collection(db, collectionName);
+	const nameSnapshot = await getDocs(nameCollection);
+	const itemList = nameSnapshot.docs.map(doc => withKey(doc));
+	console.log('Item: snapshot is', nameSnapshot);
 	return itemList;
 }
 
@@ -23,13 +21,24 @@ function withKey(doc) {
 
 
 async function GetTypes() {
-	const NameCollection = collection(db, collectionName);
-	const NameSnapshot = await getDocs(NameCollection);
-	
-	const types = NameSnapshot.docs.map(doc => doc.data().type);
+	const nameCollection = collection(db, collectionName);
+	const nameSnapshot = await getDocs(nameCollection);
+	const types = nameSnapshot.docs.map(doc => doc.data().type);
 	return types
+}
+async function addItems(item) {
+	await addDoc(collectionRef, item)
+}
+
+async function deleteItems(key) {
+	const docRef = doc(collectionRef, key)
+	console.log("deleteItems :: ", key)
+	deleteDoc(docRef)
+}
+async function editItems(key, updatedItems) {
+	const docRef = doc(collectionRef, key)
+	await setDoc(docRef, updatedItems)
 }
 
 
-
-export { GetItem,  GetTypes };
+export { GetItem,  GetTypes, addItems, deleteItems, editItems };

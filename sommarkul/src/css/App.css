@@ -170,7 +170,10 @@ font-family: inria sans;
 .artiklar-in-cart {
 	margin-top: 0.1em;
 }
-
+.textadminvy{
+	text-align: center;
+	font-family: 'inria sans', sans-serif;
+}
 
 
 

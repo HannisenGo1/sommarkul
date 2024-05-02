@@ -53,6 +53,7 @@ const ShowProducts = ({ showproducts }) => {
 	
 	return (
 		<>
+		
 		<div className="search-label">
 		
 		<input type="text" value={searchValue} onChange={handleSearchChange} placeholder='sök efter produkt här' />

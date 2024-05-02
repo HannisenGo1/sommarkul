@@ -2,35 +2,64 @@ import { create } from 'zustand';
 
 const saveInCartStore = create((set) => ({
   items: [],
-  totalPrice: 0, // Separat variabel för totalpriset
-// använder paseFloat då jag har lagt in det som en sträng i firebase! 
+  totalPrice: 0,
+  totalItems: 0,
 
   addToCart: (item) => {
-    set((state) => {
-      console.log("Läggs till i kundvagnen:", item);
-      const updatedTotalPrice = state.totalPrice + parseFloat(item.price);
+    const newItem = { ...item, quantity: 1 };
+    set((state) => ({
+      ...state,
+      items: [...state.items, newItem],
+      totalPrice: state.totalPrice + parseFloat(item.price),
+      totalItems: state.totalItems + 1,
+    }));
+  },
 
-      return { 
-        items: [...state.items, item],
-        totalPrice: updatedTotalPrice,
-      };
+  handleRemoveFromCart: (itemKey) => {
+    set((state) => {
+      const updatedItems = state.items.map((item) => {
+        if (item.key === itemKey && item.quantity > 1) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else {
+          return item;
+        }
+      });
+
+      const removedItem = state.items.find((item) => item.key === itemKey);
+      const totalPriceDecrease = parseFloat(removedItem.price);
+      const totalItemsDecrease = 1;
+
+      const updatedTotalPrice = state.totalPrice - totalPriceDecrease;
+      const updatedTotalItems = state.totalItems - totalItemsDecrease;
+
+      return { ...state, items: updatedItems, totalPrice: updatedTotalPrice, totalItems: updatedTotalItems };
     });
   },
 
-  removeFromCart: (itemId) => {
+  updateItemQuantity: (itemKey, quantityChange) => {
     set((state) => {
-      const itemToRemove = state.items.find(item => item.id === itemId);
-      if (!itemToRemove) return state;
+      const updatedItems = state.items.map((item) => {
+        if (item.key === itemKey) {
+          const newQuantity = Math.max(item.quantity + quantityChange, 0);
+          return { ...item, quantity: newQuantity };
+        }
+        return item;
+      });
 
-      const updatedTotalPrice = state.totalPrice - itemToRemove.price;
-      const updatedItems = state.items.filter(item => item.id !== itemId);
-      return { 
-        items: updatedItems,
-        totalPrice: updatedTotalPrice,
-      };
+      return { ...state, items: updatedItems };
+    });
+  },
+
+  calculateTotalPrice: () => {
+    set((state) => {
+      const totalPrice = state.items.reduce((total, item) => {
+        return total + parseFloat(item.price) * item.quantity;
+      }, 0);
+      return { ...state, totalPrice };
     });
   },
 }));
 
 export default saveInCartStore;
+
 

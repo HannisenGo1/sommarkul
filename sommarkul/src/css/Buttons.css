@@ -174,3 +174,38 @@ background-color:#e5930e;
 	box-shadow: 1px 1px 1px;
 	font-size: 0.8em;
 }
+.button-container {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	gap:1em;
+}
+
+.btn-in-cart {
+	background-color: #ffd700;
+	font-weight: bold;
+	height:2em;
+	width:2em;
+}
+.AddNewDiv {
+	display: flex;
+	
+	justify-content: center;
+	
+
+}
+.AddNew{
+	background-color: #FFD700;
+	align-items: center;
+	width: 7em;
+	height: 6em;
+}
+
+.editbtn, .deletebtn{
+	background-color: #FFD700;
+	align-items: center;
+	padding:0.5em;
+	font-family: inria sans;
+	margin: 0.3em;
+
+}
