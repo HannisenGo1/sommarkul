@@ -10,6 +10,7 @@ import '../src/css/Buttons.css';
 import bild from "./data/img/bild.png"
 import { Routes, Route } from 'react-router-dom';
 
+
 function App() {
   const [showproducts, setShowproducts] = useState('');
 
@@ -25,7 +26,8 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<ShowProducts showproducts={showproducts} />} />
-       
+      
+	   
       </Routes>
       <Outlet />
     </div>

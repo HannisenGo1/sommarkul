@@ -33,7 +33,6 @@ const FormLogIn = ({ handleBackBtn }) => {
 	};
 	
 	const handleLogIn = () => {
-		console.log("Knappen trycktes på");
 		setIsLoggedIn(true);
 		if (!isFormValid()) {
 			console.log("Formuläret är inte utfört korrekt");
@@ -42,10 +41,8 @@ const FormLogIn = ({ handleBackBtn }) => {
 		
 		const isLoggedIn = ValidationInlog.getState().login(username, password);
 		if (isLoggedIn) {
-			console.log("Lyckades med inloggning");
 			navigate('/ChangeMeny');
 		} else {
-			console.log("Felaktigt användarnamn eller lösenord");
 		}
 	};
 	

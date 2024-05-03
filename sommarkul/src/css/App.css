@@ -4,6 +4,13 @@ html {
 	padding: 0;
 	height: 100%;
 }
+.AddNewDiv {
+	display: flex;
+
+	justify-content: center;
+
+
+}
 .background-div {
 	position: fixed;
 	top: 0;
@@ -23,18 +30,24 @@ html {
 	height: 100%;
 	background-size: cover;
 }
+.theHeader,
+.footer {
+	width: 100%;
+	z-index: 1000;
+}
 
 .theHeader {
-	margin-top: 0em;
-	/* background-color: #F8FFAD; */
-	color: black;
-	background-color: #ffffff;
+	
+	top: 0;
 	width: 100%;
-	display:flex;
+	z-index: 1000;
+	background-color: #ffffff;
+	color: black;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-family: inria sans;
-	}
+}
 
 
 .rubrik{
@@ -99,6 +112,7 @@ html, .body{
 	background-color: none;
 	align-items: center;
 	font-family: inria sans;
+    margin-top: 10px;
 }
 
 .all-products-div{
@@ -160,7 +174,6 @@ font-family: inria sans;
 	border: 2px solid #e5930e;
 	background-color: #fffefe;
 	width: 25em;
-	
 	margin: 2em auto;
 	font-family: 'inria sans', sans-serif;
 	border-radius: 10%;
@@ -176,20 +189,42 @@ font-family: inria sans;
 }
 
 .addProductDiv{
-		display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			border: 2px solid #e5930e;
-			background-color: #fffefe;
-			width: 25em;
-		
-			margin: 2em auto;
-			font-family: 'inria sans', sans-serif;
-			border-radius: 10%;
-			box-shadow: 1px 1px 3px #ffd700;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid #e5930e;
+	background-color: #fffefe;
+	width: 25em;
+	margin: 2em auto;
+	font-family: 'inria sans', sans-serif;
+	border-radius: 10%;
+	box-shadow: 1px 1px 3px #ffd700;
 }
 
+.change-Info {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid #e5930e;
+	background-color: #fffefe;
+	font-family: 'inria sans', sans-serif;
+	width: 25em;
+	box-shadow: 1px 1px 3px #ffd700;
+	margin-top:1em;
+	margin-top:1em;
+}
 
+.change-Info >section {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.change-Info label {
+	width: 100px;
+	margin-right: 10px;
+}
+.putForLabel {
+	margin-right: 10px;
+}
 
 

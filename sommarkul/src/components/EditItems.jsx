@@ -12,6 +12,7 @@ const EditProduct = ({ product, whenEditDone }) => {
 	const [imageUrl, setImageUrl] = useState(product.image); 
 	const setProducts = ProductStore((state) => state.setProducts); 
 	
+	
 	useEffect(() => {
 		setImageUrl(product.image);
 	}, [product.image]);
@@ -32,10 +33,13 @@ whenEditDone();
 };
 
 const handleImageChange = (event) => {
-	const file = event.target.files[0];
-	setImage(file);
-	const url = URL.createObjectURL(file);
-	setImageUrl(url);
+    const file = event.target.files[0];
+    if (file) {
+      
+        uploadImageToStorage(file);
+    } else {
+        console.error('Ingen fil vald.');
+    }
 };
 
 return (
@@ -68,7 +72,7 @@ return (
 	<section className="type-change">
 	<label>Type</label>
 	<input
-	type="text"
+	type="text" 
 	value={type}
 	onChange={(e) => setType(e.target.value)}
 	/>
@@ -76,10 +80,10 @@ return (
 	<section className="image-change">
 	<label>Image</label>
 	<input
-	type="file"
-	accept=".png, .jpg, .jpeg"
-	onChange={handleImageChange}
-	/>
+      type="file"
+      accept=".png, .jpg, .jpeg"
+      onChange={handleImageChange}
+    />
 	{imageUrl && <img src={imageUrl} alt="Product" className="preview-image" />}
 	</section>
 	</section>
