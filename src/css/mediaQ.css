@@ -1,0 +1,49 @@
+@media (min-width: 320px) {
+	.theHeader {
+		font-size: 12px;		
+	}
+	.LogInForm{
+		width:100%;
+		left:5%;
+	}
+		.cart-div {
+			position: relative;
+			margin-top: 1em;
+			align-items: center;
+		}
+}
+
+@media (min-width: 600px) {
+	.theHeader {
+		font-size: 20px;	
+	}
+		.LogInForm {
+			padding: 2em;
+			width: 80%;
+			max-width: 250px;
+		}
+}
+
+ @media only screen and (max-width: 768px) {
+ 	.productDiv {
+ 		flex-direction: column;
+
+ 	}
+	.productName {
+		font-size: 15px;
+	}
+	.productImage {
+		width: 80px;
+		height: 5em;
+	}
+	.productType,
+	.productPrice {
+		font-size: 12px;
+	}
+ }
+
+ @media only screen and (min-width: 768px) {
+ 	.productImage {
+ 		width: 100px;
+ 	}
+ }

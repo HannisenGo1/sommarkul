@@ -1,0 +1,89 @@
+.LogInForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 0.6em;
+	background-color: #ffd700;
+	text-align: center;
+	align-items: center;
+	padding: 3em;
+	position: absolute;
+	bottom: 10em;
+	width: 10em;
+	font-family: inria sans;
+	border-radius: 10%;
+	border: 3.5px solid #e5930e;
+	font-weight: bold;
+}
+
+.error-msg {
+	color: red;
+}
+
+.inputSection {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1em;
+}
+
+.inputSection label {
+	margin-right: 1em;
+	width: 90px;
+
+}
+.inputSection select {
+	margin-right: 6.5em;
+}
+.p > putForLabel{
+	margin-left: 3em;
+}
+
+
+.form-group {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+input {
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-family: inria sans;
+}
+
+.error-message {
+	color: red;
+	font-size: 14px;
+	margin-top: 5px;
+	display: none;
+	font-family: inria sans;
+}
+
+.error-message.visible {
+	display: block;
+
+}
+
+.paymentbtndiv {
+	text-align: center;
+	font-family: inria sans;
+}
+
+.popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	font-family: inria sans;
+	border: 3.5px solid #e5930e;
+}

@@ -1,0 +1,225 @@
+.backBtn {
+	background-color: white;
+	cursor: pointer;
+	padding: 0.5em;
+	border-radius: 10%;
+	color: black;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-size: 1em;
+	box-shadow: 1px 1px 2px #e5930e;
+	font-weight: bold;
+	margin-right:9em;
+	margin-bottom: 1em;
+	
+}
+
+.addProductBtn{
+	align-items: center;
+	width: 9em;
+	height: 5em;
+	color:black;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-weight: bold;
+	font-size: 1em;
+	box-shadow: 1px 1px 3px #e5930e;
+	background-color: #ffd700;
+
+}
+
+.LogInBtn{
+	background-color: white;
+	cursor: pointer;
+	padding: 0.8em;
+	margin-top: 1em;
+	border-radius: 10%;
+	border: 2px solid #e5930e;
+	font-family: inria sans;
+	font-size: 1em;
+	box-shadow:1px 1px 6px #e5930e;
+	font-weight: bold;
+}
+.put-in-cart-div{
+align-items: center;
+display:flex;
+}
+
+.cart-btn{
+
+cursor: pointer;
+border-radius: 10%;
+border:none;
+margin-left: 1em;
+align-items: center;
+border: 1px solid #e5930e;
+width:2em;
+height: 2em;
+
+}
+
+.cart-btn:active{
+	background-color: rgb(104, 228, 104);
+}
+
+.cart-div{
+	float:right;
+	margin-right: 5em;
+	border: 2px solid #e5930e;
+	background-color: white;
+}
+
+
+.shoppingcart{
+	width: 3.3em;
+	height: 3.3em;
+	
+}
+.search-btn {
+	background-color: white;
+	border: 1px solid #e5930e;
+}
+.search-btn:active{
+background-color: #FFD700;
+}
+
+.searchicon {
+	width: 2em;
+	height: 1.7em;
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+}
+.searchicon:active{
+	background-color: #FFD700;
+}
+
+.show-all-products,
+.show-all-lek,
+.show-all-bad {
+	flex: 1;
+	text-align: center;
+	background-color: #ffd700;
+	height: 3em;
+	font-family: inria sans;
+	margin: 0.5em;
+	max-width: 10em;
+	font-weight: bold;
+	font-size: 1em;
+	border:1px #e5930e;
+	box-shadow: 1px 1px 1px;
+}
+.show-all-products:active,
+.show-all-lek:active,
+.show-all-bad:active,
+.show-all-products:focus,
+.show-all-lek:focus,
+.show-all-bad:focus {
+background-color:#e5930e;
+}
+
+
+.iconLogIn {
+	width: 2em;
+	margin-left: auto;
+	background-color: #ffd700;
+	cursor: pointer;
+}
+
+
+.iconLogInhide {
+	/* background-color: #F8FFAD;*/
+	background-color: #ffd700;
+	border: none;
+	width: 6em;
+	margin-left: auto;
+}
+
+.cart-div {
+	position: relative;
+	margin-top: 1em;
+}
+
+
+.shoppingcart-btn {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.shoppingcart {
+	width: 50px;
+	height: auto;
+}
+
+.cart-counter-btn {
+	position: absolute;
+	top: -2px;
+	right: 19px;
+	color: black;
+	font-size: 1.1em;
+	padding: 1px 5px;
+}
+.back-btn-cart{
+	display:flex;
+	
+}
+.back-from-cart {
+	background-color: #ffd700;
+	height: 3em;
+	font-family: inria sans;
+	margin: 0.5em;
+	border: 1px #e5930e;
+	box-shadow: 1px 1px 1px;
+	max-width: 10em;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-top: 2em;
+	margin-left: 3em;
+}
+	.pay-btn {
+	background-color: #ffd700;
+	height: 4em;
+	width: 6em;
+	font-family: inria sans;
+	margin: 0.5em;
+	border: 1px #e5930e;
+	font-weight: bold;
+	box-shadow: 1px 1px 1px;
+	font-size: 0.8em;
+}
+.button-container {
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	gap:1em;
+}
+
+.btn-in-cart {
+	background-color: #ffd700;
+	font-weight: bold;
+	height:2em;
+	width:2em;
+}
+.AddNewDiv {
+	display: flex;
+	
+	justify-content: center;
+	
+
+}
+.AddNew{
+	background-color: #FFD700;
+	align-items: center;
+	width: 7em;
+	height: 6em;
+}
+
+.editbtn, .deletebtn{
+	background-color: #FFD700;
+	align-items: center;
+	padding:0.5em;
+	font-family: inria sans;
+	margin: 0.3em;
+
+}
