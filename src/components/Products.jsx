@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GetItem } from '../data/fireStore';
 import kundvagn from '../data/img/kundvagn.png';
 import search from '../data/img/search.png';
-import saveInCartStore from '../data/cartStore';
+import {saveInCartStore} from '../data/cartStore';
 import {CartCounter} from './Cartsite'
 import { NavLink } from 'react-router-dom';
 import addincart from '../data/img/addincart.png'

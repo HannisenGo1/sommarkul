@@ -1,5 +1,5 @@
 import React from 'react';
-import saveInCartStore from '../data/cartStore';
+import {saveInCartStore} from '../data/cartStore';
 
 
 const CartCounter = () => {

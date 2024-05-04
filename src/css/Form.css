@@ -87,3 +87,8 @@ input {
 	font-family: inria sans;
 	border: 3.5px solid #e5930e;
 }
+.productWrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}

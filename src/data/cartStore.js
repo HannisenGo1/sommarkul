@@ -15,27 +15,6 @@ const saveInCartStore = create((set) => ({
     }));
   },
 
-  handleRemoveFromCart: (itemKey) => {
-    set((state) => {
-      const updatedItems = state.items.map((item) => {
-        if (item.key === itemKey && item.quantity > 1) {
-          return { ...item, quantity: item.quantity - 1 };
-        } else {
-          return item;
-        }
-      });
-
-      const removedItem = state.items.find((item) => item.key === itemKey);
-      const totalPriceDecrease = parseFloat(removedItem.price);
-      const totalItemsDecrease = 1;
-
-      const updatedTotalPrice = state.totalPrice - totalPriceDecrease;
-      const updatedTotalItems = state.totalItems - totalItemsDecrease;
-
-      return { ...state, items: updatedItems, totalPrice: updatedTotalPrice, totalItems: updatedTotalItems };
-    });
-  },
-
   updateItemQuantity: (itemKey, quantityChange) => {
     set((state) => {
       const updatedItems = state.items.map((item) => {
@@ -58,8 +37,22 @@ const saveInCartStore = create((set) => ({
       return { ...state, totalPrice };
     });
   },
+
+  removeFromCheckout: (key) => set((state) => {
+    const updatedItems = state.items.map((item) => {
+      if (item.key === key && item.quantity > 1){
+        return {...item, quantity:item.quantity - 1}
+      } else {
+        return item;
+      }
+    });
+    return { ...state, items: updatedItems };
+  }),
+
+  deleteFromCheckout: (key) => set((state) => {
+    const updatedItems = state.items.filter((item) => item.key !== key);
+    return { ...state, items: updatedItems };
+  })
 }));
 
-export default saveInCartStore;
-
-
+export {saveInCartStore}

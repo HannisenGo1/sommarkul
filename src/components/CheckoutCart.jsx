@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
-import saveInCartStore from '../data/cartStore'
+import {saveInCartStore} from '../data/cartStore'
 import { useNavigate } from 'react-router-dom';
 import FormPayment from "./FormPayment";
 
 const CheckoutCart = () => {
-    const { items, totalPrice, updateItemQuantity } = saveInCartStore();
+    const { deleteFromCheckout,  calculateTotalPrice,  updateItemQuantity, removeFromCheckout} = saveInCartStore(
+        state => ({
+            deleteFromCheckout:state.deleteFromCheckout,
+            calculateTotalPrice:state.calculateTotalPrice,
+            updateItemQuantity: state.updateItemQuantity,
+            removeFromCheckout:state.removeFromCheckout,
+
+        })
+    )
     const navigate = useNavigate();
     
     const backToMenuBtn = () => {
@@ -41,9 +49,7 @@ const CheckoutCart = () => {
         saveInCartStore.calculateTotalPrice();
     };
     
-    const handleDecrease = (itemKey) => {
-        updateItemQuantity(itemKey, -1);
-    };
+
     
     console.log('Rendering CheckoutCart with items:', groupedItems, 'and totalPrice:', total);
     
@@ -60,7 +66,7 @@ const CheckoutCart = () => {
                         <p>{item.name}</p>
                         <img src={item.imgurl} alt={item.name} className="productImage" />
                         <div className="button-container">
-                            <button className="btn-in-cart" onClick={() => handleDecrease(item.key)}>-</button>
+                            <button className="btn-in-cart" onClick={() => removeFromCheckout(item.key)}>-</button>
                             <p>{item.quantity}</p>
                             <button className="btn-in-cart" onClick={() => handleAddToCart(item)}>+</button>
                             <p>{parseFloat(item.price) * item.quantity}</p>
