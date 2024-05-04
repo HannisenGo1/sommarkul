@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import App from './routes/App.jsx'
 import '../src/css/App.css';
 import '../src/css/mediaQ.css';
 import '../src/css/Form.css';
